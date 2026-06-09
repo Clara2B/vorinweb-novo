@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="pt-BR">
+<html lang="pt-BR" data-theme="dark">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -122,9 +122,77 @@
       .areas-grid { grid-template-columns: 1fr; }
       nav ul { display: none; }
     }
+
+    /* Tema claro/escuro */
+    :root { --theme-toggle-size: 36px; }
+    [data-theme="light"] {
+      filter: none;
+      --bg-override: #f8f9fb;
+      --text-override: #0f1117;
+    }
+    .floating-bar {
+      position: fixed;
+      top: 1rem;
+      left: 1rem;
+      z-index: 9999;
+      display: flex;
+      gap: 0.5rem;
+      align-items: center;
+    }
+    .back-btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.45rem;
+      background: rgba(30,30,30,0.85);
+      color: #fff;
+      border: 1px solid rgba(255,255,255,0.15);
+      padding: 0.5rem 1rem;
+      border-radius: 8px;
+      font-size: 0.8rem;
+      font-weight: 600;
+      text-decoration: none;
+      backdrop-filter: blur(10px);
+      transition: 0.2s;
+      font-family: 'Inter', sans-serif;
+      letter-spacing: 0.02em;
+      cursor: pointer;
+    }
+    .back-btn:hover { background: rgba(37,99,235,0.85); border-color: rgba(37,99,235,0.4); }
+    .theme-btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      width: 36px;
+      height: 36px;
+      background: rgba(30,30,30,0.85);
+      color: #fff;
+      border: 1px solid rgba(255,255,255,0.15);
+      border-radius: 8px;
+      cursor: pointer;
+      backdrop-filter: blur(10px);
+      transition: 0.2s;
+      font-family: 'Inter', sans-serif;
+    }
+    .theme-btn:hover { background: rgba(37,99,235,0.85); }
+    /* Light mode overrides */
+    [data-theme="light"] body { filter: invert(1) hue-rotate(180deg); }
+    [data-theme="light"] img { filter: invert(1) hue-rotate(180deg); }
+    [data-theme="light"] .back-btn,
+    [data-theme="light"] .theme-btn { filter: invert(1) hue-rotate(180deg); }
   </style>
 </head>
 <body>
+  <!-- Floating bar: voltar + tema -->
+  <div class="floating-bar">
+    <a href="/" class="back-btn">
+      <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="15 18 9 12 15 6"/></svg>
+      VorinWeb
+    </a>
+    <button class="theme-btn" id="themeBtn" aria-label="Alternar tema">
+      <svg id="iconSun" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="5"/><line x1="12" y1="1" x2="12" y2="3"/><line x1="12" y1="21" x2="12" y2="23"/><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/><line x1="1" y1="12" x2="3" y2="12"/><line x1="21" y1="12" x2="23" y2="12"/><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/></svg>
+      <svg id="iconMoon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="display:none"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>
+    </button>
+  </div>
 
   <nav>
     <div class="container">
@@ -272,5 +340,23 @@
     </div>
   </footer>
 
+
+  <script>
+    // Tema
+    const themeBtn = document.getElementById('themeBtn');
+    const iconSun = document.getElementById('iconSun');
+    const iconMoon = document.getElementById('iconMoon');
+    const html = document.documentElement;
+    const saved = localStorage.getItem('vw-theme') || 'dark';
+    html.setAttribute('data-theme', saved);
+    if (saved === 'light') { iconSun.style.display='none'; iconMoon.style.display='block'; }
+    themeBtn && themeBtn.addEventListener('click', () => {
+      const next = html.getAttribute('data-theme') === 'dark' ? 'light' : 'dark';
+      html.setAttribute('data-theme', next);
+      localStorage.setItem('vw-theme', next);
+      if (next === 'light') { iconSun.style.display='none'; iconMoon.style.display='block'; }
+      else { iconSun.style.display='block'; iconMoon.style.display='none'; }
+    });
+  </script>
 </body>
 </html>

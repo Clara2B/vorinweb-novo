@@ -1,0 +1,1149 @@
+<!DOCTYPE html>
+<html lang="pt-BR" data-theme="dark">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>VorinWeb — Sites que vendem de verdade</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Sora:wght@300;400;600;700;800&family=DM+Sans:opsz,wght@9..40,300;9..40,400;9..40,500&display=swap" rel="stylesheet">
+<style>
+/* ── THEMES ── */
+:root,[data-theme="light"]{
+  --bg:#f0f2f7;--bg-alt:#e8eaf2;--bg-card:#fff;--bg-input:#fff;
+  --border:#d4d8e8;--border-blue:#93c5fd;
+  --text:#0d1224;--text-muted:#4a5270;--text-faint:#8892b0;
+  --b50:#eef2ff;--b100:#c7d2fe;--b400:#60a5fa;--b500:#3b82f6;--b600:#2563eb;--b700:#1d4ed8;
+  --nav-bg:rgba(240,242,247,0.96);
+  --sh:0 4px 24px rgba(0,0,0,.08);--sh2:0 8px 40px rgba(0,0,0,.14);
+  --hero-grad:linear-gradient(135deg,#e8ecf7 0%,#dde3f5 40%,#eef2ff 100%);
+  --tog-bg:#d4d8e8;--tog-thumb:#fff;
+  --mk-bg:#fff;--mk-bar:#f0f2f7;
+  --plan-bg:#fff;
+  --plan-feat-sh:0 16px 48px rgba(37,99,235,.2);
+  --form-bg:#eef2ff;--ct-bg:#eef2ff;--ct-hov:#e0e7ff;
+  --modal-bg:#fff;--foot-bg:#08091a;--foot-txt:#5a6a8a;
+  --glow:rgba(59,130,246,.12);
+  --mesh1:rgba(99,102,241,.06);--mesh2:rgba(59,130,246,.04);
+}
+[data-theme="dark"]{
+  --bg:#07081a;--bg-alt:#0d0f24;--bg-card:#111326;--bg-input:#111326;
+  --border:#1e2240;--border-blue:#3b82f6;
+  --text:#e8ecff;--text-muted:#8892b0;--text-faint:#4a5270;
+  --b50:rgba(59,130,246,.1);--b100:rgba(59,130,246,.18);--b400:#60a5fa;--b500:#3b82f6;--b600:#3b82f6;--b700:#2563eb;
+  --nav-bg:rgba(7,8,26,0.96);
+  --sh:0 4px 24px rgba(0,0,0,.5);--sh2:0 8px 40px rgba(0,0,0,.65);
+  --hero-grad:linear-gradient(135deg,#07081a 0%,#0a0d1f 50%,#070818 100%);
+  --tog-bg:#1e2240;--tog-thumb:#3b82f6;
+  --mk-bg:#111326;--mk-bar:#0d0f24;
+  --plan-bg:#111326;
+  --plan-feat-sh:0 16px 48px rgba(59,130,246,.25);
+  --form-bg:#0d0f24;--ct-bg:#0d0f24;--ct-hov:rgba(59,130,246,.1);
+  --modal-bg:#111326;--foot-bg:#03040e;--foot-txt:#4a5270;
+  --glow:rgba(59,130,246,.15);
+  --mesh1:rgba(99,102,241,.09);--mesh2:rgba(59,130,246,.06);
+}
+
+*{margin:0;padding:0;box-sizing:border-box;}
+html{scroll-behavior:smooth;}
+body{font-family:'DM Sans',sans-serif;background:var(--bg);color:var(--text);line-height:1.6;overflow-x:hidden;transition:background .35s,color .35s;}
+
+/* ── MESH ── */
+.mesh-bg{position:fixed;inset:0;z-index:0;pointer-events:none;overflow:hidden;}
+.mesh-blob{position:absolute;border-radius:50%;filter:blur(140px);opacity:.4;}
+.mesh-blob.b1{width:600px;height:600px;background:var(--mesh1);top:-150px;right:-100px;animation:driftA 20s ease-in-out infinite;}
+.mesh-blob.b2{width:450px;height:450px;background:var(--mesh2);bottom:-80px;left:-80px;animation:driftB 25s ease-in-out infinite;}
+@keyframes driftA{0%,100%{transform:translate(0,0);}50%{transform:translate(-50px,70px);}}
+@keyframes driftB{0%,100%{transform:translate(0,0);}50%{transform:translate(60px,-50px);}}
+
+nav,section,footer,.modal-ov{position:relative;z-index:1;}
+
+/* ── NAV ── */
+nav{position:fixed;top:0;left:0;right:0;z-index:100;background:var(--nav-bg);backdrop-filter:blur(20px);border-bottom:1px solid var(--border);padding:0 5%;height:68px;display:flex;align-items:center;justify-content:space-between;transition:background .35s,border-color .35s;}
+.nav-left{display:flex;align-items:center;gap:2.5rem;}
+.nav-logo{font-family:'Sora',sans-serif;font-weight:800;font-size:1.45rem;letter-spacing:-.03em;color:var(--text);text-decoration:none;}
+.nav-logo span{color:var(--b500);}
+.nav-links{display:flex;gap:2rem;list-style:none;}
+.nav-links a{font-family:'Sora',sans-serif;font-size:.85rem;font-weight:500;color:var(--text-muted);text-decoration:none;transition:color .2s;}
+.nav-links a:hover{color:var(--b500);}
+.nav-right{display:flex;align-items:center;gap:1rem;}
+.tog{width:48px;height:26px;background:var(--tog-bg);border-radius:100px;border:none;cursor:pointer;position:relative;transition:background .3s;flex-shrink:0;}
+.tog::after{content:'';position:absolute;top:3px;left:3px;width:20px;height:20px;background:var(--tog-thumb);border-radius:50%;transition:transform .3s;}
+[data-theme="dark"] .tog::after{transform:translateX(22px);}
+.tog-icon{position:absolute;top:50%;transform:translateY(-50%);font-size:11px;pointer-events:none;transition:opacity .3s;}
+.icon-moon{right:6px;opacity:1;}.icon-sun{left:6px;opacity:0;}
+[data-theme="dark"] .icon-moon{opacity:0;}[data-theme="dark"] .icon-sun{opacity:1;}
+.nav-cta{font-family:'Sora',sans-serif;font-size:.85rem;font-weight:700;background:#16a34a;color:#fff;border:none;padding:10px 20px;border-radius:8px;cursor:pointer;text-decoration:none;display:flex;align-items:center;gap:7px;transition:background .2s,transform .15s;}
+.nav-cta:hover{background:#15803d;transform:translateY(-1px);}
+
+/* ── HERO ── */
+.hero{min-height:100vh;padding:140px 5% 100px;display:flex;align-items:center;position:relative;background:var(--hero-grad);overflow:hidden;transition:background .35s;}
+.hero-grid-lines{position:absolute;inset:0;background-image:linear-gradient(var(--border) 1px,transparent 1px),linear-gradient(90deg,var(--border) 1px,transparent 1px);background-size:60px 60px;opacity:.18;pointer-events:none;}
+.hero-inner{max-width:1280px;margin:0 auto;width:100%;display:grid;grid-template-columns:1fr 1fr;gap:5rem;align-items:center;}
+
+.hero-tag{display:inline-flex;align-items:center;gap:8px;background:var(--b50);color:var(--b400);font-family:'Sora',sans-serif;font-size:.72rem;font-weight:700;letter-spacing:.08em;text-transform:uppercase;padding:7px 16px;border-radius:100px;border:1px solid var(--b100);margin-bottom:1.75rem;}
+.hero-tag-dot{width:6px;height:6px;background:#22c55e;border-radius:50%;animation:blink 2.5s ease-in-out infinite;}
+@keyframes blink{0%,100%{opacity:1;}50%{opacity:.3;}}
+
+.hero h1{font-family:'Sora',sans-serif;font-size:clamp(2.4rem,4.5vw,3.9rem);font-weight:800;line-height:1.1;letter-spacing:-.03em;color:var(--text);margin-bottom:1.25rem;transition:color .35s;}
+.hero h1 em{font-style:normal;color:var(--b500);}
+
+.hero-sub{font-size:1.1rem;color:var(--text-muted);max-width:500px;margin-bottom:2.25rem;line-height:1.8;}
+.hero-sub strong{color:var(--text);font-weight:600;}
+
+.hero-btns{display:flex;gap:1rem;flex-wrap:wrap;margin-bottom:3rem;}
+.btn-wpp{font-family:'Sora',sans-serif;font-weight:700;font-size:.95rem;background:#16a34a;color:#fff;border:none;padding:15px 28px;border-radius:10px;cursor:pointer;text-decoration:none;display:inline-flex;align-items:center;gap:9px;box-shadow:0 4px 20px rgba(22,163,74,.35);transition:all .2s;}
+.btn-wpp:hover{background:#15803d;transform:translateY(-2px);box-shadow:0 8px 28px rgba(22,163,74,.45);}
+.btn-o{font-family:'Sora',sans-serif;font-weight:600;font-size:.92rem;background:transparent;color:var(--text-muted);border:1.5px solid var(--border);padding:15px 28px;border-radius:10px;cursor:pointer;text-decoration:none;transition:all .2s;}
+.btn-o:hover{border-color:var(--b500);color:var(--b500);}
+
+.hero-proof{display:flex;gap:2rem;padding-top:2rem;border-top:1px solid var(--border);flex-wrap:wrap;}
+.hp{display:flex;flex-direction:column;}
+.hp-val{font-family:'Sora',sans-serif;font-size:1.5rem;font-weight:800;color:var(--text);line-height:1;letter-spacing:-.02em;}
+.hp-label{font-size:.78rem;color:var(--text-faint);margin-top:4px;}
+.hp-sep{width:1px;background:var(--border);align-self:stretch;}
+
+/* mockup */
+.hero-visual{position:relative;display:flex;justify-content:center;}
+.hero-glow{position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);width:420px;height:420px;background:radial-gradient(circle,var(--glow) 0%,transparent 70%);pointer-events:none;border-radius:50%;}
+.hero-mockup{background:var(--mk-bg);border-radius:20px;box-shadow:0 0 0 1px var(--border),0 24px 64px rgba(0,0,0,.45);overflow:hidden;width:100%;max-width:440px;animation:floatY 7s ease-in-out infinite;transition:background .35s;position:relative;}
+@keyframes floatY{0%,100%{transform:translateY(0);}50%{transform:translateY(-12px);}}
+.hero-mockup::before{content:'';position:absolute;top:0;left:0;right:0;height:1px;background:linear-gradient(90deg,transparent,var(--b500),transparent);opacity:.6;}
+.mk-bar{background:var(--mk-bar);padding:11px 16px;display:flex;align-items:center;gap:8px;border-bottom:1px solid var(--border);transition:background .35s;}
+.mk-dot{width:10px;height:10px;border-radius:50%;}
+.mk-dot:nth-child(1){background:#ff5f57;}.mk-dot:nth-child(2){background:#febc2e;}.mk-dot:nth-child(3){background:#28c840;}
+.mk-url{margin-left:8px;background:var(--bg);border:1px solid var(--border);border-radius:6px;padding:4px 12px;font-size:.72rem;color:var(--text-faint);font-family:'Sora',sans-serif;flex:1;transition:background .35s;}
+.mk-body{padding:20px;display:flex;flex-direction:column;gap:10px;}
+.mk-strip{background:linear-gradient(135deg,#1d4ed8,#1e3a8a);border-radius:12px;height:110px;display:flex;flex-direction:column;justify-content:center;padding:0 18px;gap:7px;position:relative;overflow:hidden;}
+.mk-strip::after{content:'';position:absolute;top:-30px;right:-30px;width:120px;height:120px;background:rgba(255,255,255,.05);border-radius:50%;}
+.mk-t1{background:rgba(255,255,255,.9);border-radius:4px;height:10px;width:55%;}
+.mk-t2{background:rgba(255,255,255,.4);border-radius:4px;height:7px;width:75%;}
+.mk-t3{background:rgba(255,255,255,.25);border-radius:4px;height:7px;width:40%;}
+.mk-cards{display:grid;grid-template-columns:1fr 1fr 1fr;gap:8px;}
+.mk-card{background:var(--bg-alt);border:1px solid var(--border);border-radius:10px;padding:10px;display:flex;flex-direction:column;gap:5px;transition:background .35s;}
+.mk-ci{width:24px;height:24px;background:var(--b100);border-radius:6px;margin-bottom:4px;}
+.mk-l{background:var(--border);border-radius:3px;height:6px;}
+.mk-ls{background:var(--border);border-radius:3px;height:5px;width:70%;opacity:.6;}
+
+.hero-badge-float{position:absolute;background:var(--bg-card);border:1px solid var(--border);border-radius:12px;box-shadow:var(--sh2);padding:12px 16px;transition:background .35s;}
+.hbf-left{bottom:-16px;left:-24px;animation:floatY 7s -3s ease-in-out infinite;}
+.hbf-right{top:16px;right:-24px;animation:floatY 7s -1.5s ease-in-out infinite;}
+.hbf-label{font-size:.62rem;color:var(--text-faint);font-family:'Sora',sans-serif;font-weight:600;text-transform:uppercase;letter-spacing:.06em;margin-bottom:2px;}
+.hbf-val{font-family:'Sora',sans-serif;font-size:1.2rem;font-weight:800;color:var(--b500);line-height:1;}
+.hbf-sub{font-size:.62rem;color:var(--text-faint);margin-top:2px;}
+.online-dot{width:8px;height:8px;background:#22c55e;border-radius:50%;display:inline-block;margin-right:4px;animation:blink 2.5s infinite;}
+
+/* ── SECTIONS BASE ── */
+section{padding:96px 5%;}
+.si{max-width:1200px;margin:0 auto;}
+.s-label{font-family:'Sora',sans-serif;font-size:.68rem;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:var(--b500);margin-bottom:.6rem;}
+.s-title{font-family:'Sora',sans-serif;font-size:clamp(1.8rem,3vw,2.6rem);font-weight:800;letter-spacing:-.025em;color:var(--text);line-height:1.12;margin-bottom:.9rem;transition:color .35s;}
+.s-sub{font-size:1.05rem;color:var(--text-muted);max-width:560px;line-height:1.75;}
+.section-line{height:1px;background:linear-gradient(90deg,transparent,var(--border),transparent);margin:0 5%;opacity:.5;}
+
+/* ── SEGMENTOS STRIP ── */
+#segmentos{background:var(--bg-alt);padding:44px 5%;}
+.seg-inner{max-width:1200px;margin:0 auto;}
+.seg-label{font-family:'Sora',sans-serif;font-size:.72rem;font-weight:600;color:var(--text-faint);text-align:center;letter-spacing:.08em;text-transform:uppercase;margin-bottom:1.5rem;}
+.seg-list{display:flex;justify-content:center;gap:.85rem;flex-wrap:wrap;}
+.seg-chip{display:flex;align-items:center;gap:8px;background:var(--bg-card);border:1px solid var(--border);border-radius:100px;padding:9px 18px;font-family:'Sora',sans-serif;font-size:.82rem;font-weight:600;color:var(--text-muted);transition:all .2s;cursor:default;}
+.seg-chip:hover{border-color:var(--border-blue);color:var(--text);transform:translateY(-2px);}
+.seg-chip span{font-size:1rem;}
+
+/* ── COMO FUNCIONA ── */
+#como{background:var(--bg);}
+.steps-g{display:grid;grid-template-columns:repeat(3,1fr);gap:2rem;margin-top:3rem;}
+.step-card{background:var(--bg-card);border-radius:20px;padding:2rem;border:1px solid var(--border);transition:all .3s;}
+.step-card:hover{border-color:var(--border-blue);transform:translateY(-4px);box-shadow:var(--sh2);}
+.step-num{width:52px;height:52px;background:var(--b600);border-radius:14px;display:flex;align-items:center;justify-content:center;font-family:'Sora',sans-serif;font-size:1.1rem;font-weight:800;color:#fff;margin-bottom:1.25rem;}
+.step-t{font-family:'Sora',sans-serif;font-size:1.05rem;font-weight:700;color:var(--text);margin-bottom:.6rem;transition:color .35s;}
+.step-d{font-size:.9rem;color:var(--text-muted);line-height:1.7;}
+.step-detail{display:inline-flex;align-items:center;gap:5px;margin-top:1rem;font-family:'Sora',sans-serif;font-size:.75rem;font-weight:700;color:var(--b500);background:var(--b50);padding:5px 12px;border-radius:100px;border:1px solid var(--b100);}
+
+/* ── MODELOS ── */
+#modelos{background:var(--bg-alt);}
+.modelos-g{display:grid;grid-template-columns:repeat(2,1fr);gap:1.5rem;margin-top:2rem;}
+.mod-card{border-radius:20px;overflow:hidden;border:1px solid var(--border);background:var(--bg-card);transition:all .3s;display:flex;flex-direction:column;}
+.mod-card:hover{transform:translateY(-5px);box-shadow:0 12px 40px rgba(59,130,246,.15);border-color:var(--border-blue);}
+.mod-card.custom-card{grid-column:1/-1;flex-direction:row;border:1.5px dashed var(--border-blue);background:transparent;min-height:180px;}
+.mod-prev{height:220px;position:relative;overflow:hidden;cursor:pointer;flex-shrink:0;}
+.mod-card.custom-card .mod-prev{width:50%;height:auto;}
+.demo-ov{position:absolute;inset:0;background:rgba(0,0,0,0);display:flex;align-items:center;justify-content:center;transition:background .3s;}
+.mod-card:hover .demo-ov{background:rgba(0,0,0,.55);}
+.demo-btn{font-family:'Sora',sans-serif;font-weight:700;font-size:.9rem;background:#fff;color:#1d4ed8;border:none;padding:10px 22px;border-radius:8px;cursor:pointer;opacity:0;transform:translateY(8px);transition:all .3s;}
+.mod-card:hover .demo-btn{opacity:1;transform:translateY(0);}
+.mod-info{padding:1.25rem 1.4rem 1.4rem;display:flex;flex-direction:column;gap:.4rem;}
+.mod-card.custom-card .mod-info{flex:1;justify-content:center;padding:2rem;}
+.mod-badge{display:inline-flex;align-items:center;gap:5px;font-family:'Sora',sans-serif;font-size:.65rem;font-weight:700;letter-spacing:.07em;text-transform:uppercase;padding:4px 10px;border-radius:100px;}
+.mod-name{font-family:'Sora',sans-serif;font-size:1.05rem;font-weight:700;color:var(--text);transition:color .35s;}
+.mod-desc{font-size:.83rem;color:var(--text-faint);line-height:1.55;margin-bottom:.3rem;}
+.mod-tags{display:flex;gap:6px;flex-wrap:wrap;margin-top:.2rem;}
+.mod-tag{font-size:.7rem;font-family:'Sora',sans-serif;color:var(--text-faint);background:var(--bg-alt);padding:3px 10px;border-radius:100px;border:1px solid var(--border);}
+.b-rest{background:#fff3e0;color:#c2410c;}
+.b-clin{background:#eff6ff;color:#1e40af;}
+.b-shop{background:#f9fafb;color:#374151;border:1px solid #e5e7eb;}
+.b-bot{background:#f0fdf4;color:#15803d;}
+.b-cust{background:var(--b50);color:var(--b600);}
+[data-theme="dark"] .b-rest{background:rgba(194,65,12,.15);color:#fb923c;}
+[data-theme="dark"] .b-clin{background:rgba(30,64,175,.15);color:#93c5fd;}
+[data-theme="dark"] .b-shop{background:rgba(255,255,255,.07);color:#d1d5db;border-color:#2d3748;}
+[data-theme="dark"] .b-bot{background:rgba(21,128,61,.15);color:#4ade80;}
+
+/* ── PREVIEWS ── */
+.prev-rest{background:linear-gradient(140deg,#1c0800,#5c1f00 55%,#9a3d00);height:100%;position:relative;overflow:hidden;}
+.pr-nav{position:absolute;top:0;left:0;right:0;display:flex;justify-content:space-between;align-items:center;padding:10px 14px;}
+.pr-logo{font-family:'Sora',sans-serif;font-size:.65rem;font-weight:800;color:#fff;letter-spacing:.1em;text-transform:uppercase;}
+.pr-links{display:flex;gap:8px;}
+.pr-link{height:6px;border-radius:3px;background:rgba(255,255,255,.4);}
+.pr-body{position:absolute;top:36px;left:14px;right:14px;}
+.pr-ey{font-family:'Sora',sans-serif;font-size:.5rem;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:#ffb347;margin-bottom:4px;}
+.pr-h1{font-family:'Sora',sans-serif;font-size:1rem;font-weight:800;color:#fff;line-height:1.15;margin-bottom:6px;}
+.pr-h1 span{color:#ff9a3c;}
+.pr-sub{height:5px;background:rgba(255,255,255,.35);border-radius:3px;width:80%;margin-bottom:5px;}
+.pr-sub2{height:5px;background:rgba(255,255,255,.2);border-radius:3px;width:60%;margin-bottom:10px;}
+.pr-cta{display:inline-block;background:#e07b00;color:#fff;font-family:'Sora',sans-serif;font-size:.52rem;font-weight:700;padding:5px 12px;border-radius:5px;}
+.pr-plates{position:absolute;bottom:0;right:0;display:flex;padding:0 10px 0 0;}
+.pr-plate{width:58px;height:58px;border-radius:50%;border:2px solid rgba(255,150,50,.35);display:flex;align-items:center;justify-content:center;font-size:1.5rem;margin-left:-10px;}
+.pr-plate:nth-child(1){background:radial-gradient(circle,#8B0000,#3d0000);}
+.pr-plate:nth-child(2){background:radial-gradient(circle,#2e7d32,#0d3b0d);}
+.pr-plate:nth-child(3){background:radial-gradient(circle,#7b5e00,#3d2e00);}
+.prev-clin{background:#f0f7ff;height:100%;position:relative;overflow:hidden;}
+[data-theme="dark"] .prev-clin{background:#0a1628;}
+.pc-side{position:absolute;top:0;left:0;bottom:0;width:52px;background:#1d4ed8;display:flex;flex-direction:column;align-items:center;padding:10px 0;gap:8px;}
+.pc-si{width:28px;height:28px;border-radius:8px;background:rgba(255,255,255,.15);display:flex;align-items:center;justify-content:center;font-size:.85rem;}
+.pc-si.on{background:rgba(255,255,255,.3);}
+.pc-main{position:absolute;top:0;left:52px;right:0;bottom:0;padding:10px 12px;}
+.pc-hdr{display:flex;justify-content:space-between;align-items:center;margin-bottom:8px;}
+.pc-ttl{font-family:'Sora',sans-serif;font-size:.62rem;font-weight:800;color:#0c3b6e;}
+[data-theme="dark"] .pc-ttl{color:#93c5fd;}
+.pc-av{width:22px;height:22px;border-radius:50%;background:linear-gradient(135deg,#3b82f6,#1d4ed8);display:flex;align-items:center;justify-content:center;font-size:.52rem;color:#fff;font-weight:700;}
+.pc-stats{display:grid;grid-template-columns:1fr 1fr 1fr;gap:5px;margin-bottom:7px;}
+.pc-stat{background:#fff;border-radius:6px;padding:5px 6px;border:1px solid #dbeafe;}
+[data-theme="dark"] .pc-stat{background:#162340;border-color:#1e3a6e;}
+.pc-sn{font-family:'Sora',sans-serif;font-size:.7rem;font-weight:800;color:#1d4ed8;}
+.pc-sl{font-size:.44rem;color:#6b7280;line-height:1.2;}
+.pc-rows{display:flex;flex-direction:column;gap:4px;}
+.pc-row{background:#fff;border-radius:6px;padding:5px 7px;display:flex;align-items:center;gap:6px;border:1px solid #e2e8f0;}
+[data-theme="dark"] .pc-row{background:#162340;border-color:#1e3a6e;}
+.pc-dot{width:7px;height:7px;border-radius:50%;flex-shrink:0;}
+.pc-rl{height:5px;background:#dbeafe;border-radius:3px;flex:1;}
+[data-theme="dark"] .pc-rl{background:#1e3a6e;}
+.pc-rs{height:4px;background:#eff6ff;border-radius:3px;width:40%;}
+.prev-bot{background:#0f1117;height:100%;position:relative;overflow:hidden;}
+.pb-top{position:absolute;top:0;left:0;right:0;height:28px;background:#161b22;border-bottom:1px solid #2d3748;display:flex;align-items:center;padding:0 10px;gap:6px;}
+.pb-brand{font-family:'Sora',sans-serif;font-size:.55rem;font-weight:700;color:#4ade80;letter-spacing:.08em;text-transform:uppercase;display:flex;align-items:center;gap:5px;}
+.pb-live{width:6px;height:6px;background:#4ade80;border-radius:50%;animation:blink 1.5s infinite;}
+.pb-chat{position:absolute;top:28px;left:0;right:0;bottom:0;padding:8px 10px;display:flex;flex-direction:column;gap:5px;overflow:hidden;}
+.pb-msg{max-width:82%;padding:6px 9px;border-radius:8px;font-family:'DM Sans',sans-serif;font-size:.5rem;line-height:1.4;}
+.pb-msg.bot{background:#1e2240;color:#c7d2fe;border:1px solid #2d3748;align-self:flex-start;border-radius:8px 8px 8px 2px;}
+.pb-msg.usr{background:#1d4ed8;color:#fff;align-self:flex-end;border-radius:8px 8px 2px 8px;}
+.pb-options{display:flex;gap:4px;flex-wrap:wrap;margin-top:2px;}
+.pb-opt{background:rgba(59,130,246,.15);border:1px solid rgba(59,130,246,.3);border-radius:4px;padding:3px 7px;font-size:.45rem;color:#60a5fa;font-family:'Sora',sans-serif;font-weight:600;}
+.pb-typing{display:flex;align-items:center;gap:4px;padding:6px 9px;background:#1e2240;border:1px solid #2d3748;border-radius:8px 8px 8px 2px;align-self:flex-start;width:fit-content;}
+.pb-t-dot{width:4px;height:4px;background:#60a5fa;border-radius:50%;animation:typeBounce .8s ease-in-out infinite;}
+.pb-t-dot:nth-child(2){animation-delay:.15s;}
+.pb-t-dot:nth-child(3){animation-delay:.3s;}
+@keyframes typeBounce{0%,80%,100%{transform:scale(.8);opacity:.4;}40%{transform:scale(1.1);opacity:1;}}
+.prev-loja{background:linear-gradient(160deg,#08090e,#12151e 60%,#1a1f2e);height:100%;position:relative;overflow:hidden;}
+.pl-top{position:absolute;top:0;left:0;right:0;display:flex;justify-content:space-between;align-items:center;padding:9px 12px;border-bottom:1px solid rgba(255,255,255,.07);}
+.pl-logo{font-family:'Sora',sans-serif;font-size:.58rem;font-weight:800;color:#fff;}
+.pl-logo span{color:#e1a030;}
+.pl-cart{background:rgba(225,160,48,.2);border:1px solid rgba(225,160,48,.4);border-radius:5px;padding:2px 7px;font-size:.48rem;color:#e1a030;font-family:'Sora',sans-serif;font-weight:700;}
+.pl-banner{position:absolute;top:32px;left:12px;right:12px;background:linear-gradient(100deg,rgba(225,160,48,.15),rgba(225,80,30,.08));border:1px solid rgba(225,160,48,.2);border-radius:8px;padding:8px 10px;}
+.pl-sale{font-family:'Sora',sans-serif;font-size:.55rem;font-weight:800;color:#e1a030;letter-spacing:.1em;text-transform:uppercase;margin-bottom:2px;}
+.pl-off{font-family:'Sora',sans-serif;font-size:.9rem;font-weight:800;color:#fff;line-height:1;}
+.pl-sub{font-size:.45rem;color:rgba(255,255,255,.4);margin-top:2px;}
+.pl-grid{position:absolute;bottom:8px;left:10px;right:10px;display:grid;grid-template-columns:1fr 1fr 1fr;gap:6px;}
+.pl-item{background:rgba(255,255,255,.06);border-radius:6px;border:1px solid rgba(255,255,255,.08);overflow:hidden;}
+.pl-img{height:34px;display:flex;align-items:center;justify-content:center;font-size:1rem;}
+.pl-i1{background:linear-gradient(135deg,#6d28d9,#4c1d95);}
+.pl-i2{background:linear-gradient(135deg,#b45309,#78350f);}
+.pl-i3{background:linear-gradient(135deg,#0f766e,#064e3b);}
+.pl-price{font-family:'Sora',sans-serif;font-size:.45rem;font-weight:700;color:#e1a030;padding:2px 4px;}
+.prev-cust{background:var(--bg-alt);height:100%;width:100%;position:relative;overflow:hidden;display:flex;align-items:center;justify-content:center;}
+.pc-grid-bg{position:absolute;inset:0;background-image:linear-gradient(var(--border) 1px,transparent 1px),linear-gradient(90deg,var(--border) 1px,transparent 1px);background-size:22px 22px;opacity:.5;}
+.pc-sparks{position:absolute;inset:0;pointer-events:none;}
+.pc-spark{position:absolute;width:6px;height:6px;border-radius:50%;background:var(--b500);animation:sparkle 3s ease-in-out infinite;}
+@keyframes sparkle{0%,100%{opacity:.7;transform:scale(1);}50%{opacity:.15;transform:scale(.3);}}
+.pc-inner{position:relative;display:flex;flex-direction:column;align-items:center;gap:10px;z-index:1;}
+.pc-plus{width:44px;height:44px;background:var(--b600);border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:1.4rem;color:#fff;line-height:1;}
+.pc-lbl{font-family:'Sora',sans-serif;font-size:.65rem;font-weight:700;color:var(--text-muted);letter-spacing:.08em;text-transform:uppercase;}
+.pc-dots{display:flex;gap:5px;}
+.pc-dot2{width:11px;height:11px;border-radius:50%;}
+
+/* ── DEPOIMENTOS ── */
+#depoimentos{background:var(--bg);}
+.testi-g{display:grid;grid-template-columns:repeat(3,1fr);gap:1.5rem;margin-top:3rem;}
+.testi-card{background:var(--bg-card);border-radius:20px;padding:1.75rem;border:1px solid var(--border);display:flex;flex-direction:column;gap:1rem;transition:all .3s;position:relative;overflow:hidden;}
+.testi-card::before{content:'';position:absolute;top:0;left:0;right:0;height:2px;background:linear-gradient(90deg,var(--b500),var(--b400));transform:scaleX(0);transform-origin:left;transition:transform .35s;}
+.testi-card:hover{transform:translateY(-4px);box-shadow:var(--sh2);border-color:var(--border-blue);}
+.testi-card:hover::before{transform:scaleX(1);}
+.testi-stars{display:flex;gap:3px;}
+.testi-star{font-size:.9rem;}
+.testi-text{font-size:.92rem;color:var(--text-muted);line-height:1.75;font-style:italic;}
+.testi-text strong{color:var(--text);font-style:normal;font-weight:600;}
+.testi-author{display:flex;align-items:center;gap:.75rem;padding-top:.75rem;border-top:1px solid var(--border);}
+.testi-avatar{width:40px;height:40px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:1rem;flex-shrink:0;font-weight:700;font-family:'Sora',sans-serif;color:#fff;}
+.testi-name{font-family:'Sora',sans-serif;font-size:.85rem;font-weight:700;color:var(--text);transition:color .35s;}
+.testi-role{font-size:.75rem;color:var(--text-faint);}
+
+/* ── PLANOS ── */
+#planos{background:var(--bg-alt);}
+.planos-g{display:grid;grid-template-columns:repeat(3,1fr);gap:1.5rem;margin-top:3rem;align-items:start;}
+.plan-card{background:var(--plan-bg);border-radius:20px;padding:2rem;border:1px solid var(--border);position:relative;transition:all .3s;overflow:visible;}
+.plan-card::after{content:'';position:absolute;inset:0;border-radius:20px;background:radial-gradient(ellipse at top,var(--b50) 0%,transparent 60%);opacity:0;transition:opacity .3s;pointer-events:none;z-index:0;}
+.plan-card.feat{border-color:var(--b500);transform:scale(1.04);box-shadow:var(--plan-feat-sh);padding-top:2.75rem;}
+.plan-card.feat::after{opacity:1;}
+.plan-card:not(.feat):hover{transform:translateY(-4px);box-shadow:var(--sh2);}
+.plan-card:not(.feat):hover::after{opacity:.6;}
+.plan-pop{position:absolute;top:-14px;left:50%;transform:translateX(-50%);background:var(--b600);color:#fff;font-family:'Sora',sans-serif;font-size:.7rem;font-weight:700;letter-spacing:.06em;text-transform:uppercase;padding:5px 16px;border-radius:100px;white-space:nowrap;box-shadow:0 4px 12px rgba(59,130,246,.45);z-index:2;}
+.plan-tier{font-family:'Sora',sans-serif;font-size:.72rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--b500);margin-bottom:.5rem;position:relative;z-index:1;}
+.plan-name{font-family:'Sora',sans-serif;font-size:1.3rem;font-weight:800;color:var(--text);margin-bottom:.5rem;transition:color .35s;position:relative;z-index:1;}
+.plan-price{display:flex;align-items:baseline;gap:4px;margin:1.25rem 0;position:relative;z-index:1;}
+.plan-cur{font-family:'Sora',sans-serif;font-size:1rem;font-weight:600;color:var(--text-muted);margin-top:4px;}
+.plan-amt{font-family:'Sora',sans-serif;font-size:2.6rem;font-weight:800;color:var(--text);line-height:1;letter-spacing:-.03em;transition:color .35s;}
+.plan-per{font-size:.85rem;color:var(--text-faint);align-self:flex-end;margin-bottom:3px;}
+.plan-desc{font-size:.85rem;color:var(--text-muted);border-bottom:1px solid var(--border);padding-bottom:1.25rem;margin-bottom:1.25rem;position:relative;z-index:1;}
+.plan-feats{list-style:none;display:flex;flex-direction:column;gap:.75rem;margin-bottom:1.75rem;position:relative;z-index:1;}
+.plan-feats li{display:flex;align-items:flex-start;gap:10px;font-size:.875rem;color:var(--text-muted);}
+.chk{width:18px;height:18px;min-width:18px;background:var(--b50);border-radius:50%;display:flex;align-items:center;justify-content:center;margin-top:1px;transition:background .35s;}
+.chk svg{width:10px;height:10px;stroke:var(--b500);stroke-width:2.5;fill:none;stroke-linecap:round;stroke-linejoin:round;}
+.plan-btn{width:100%;padding:13px;font-family:'Sora',sans-serif;font-size:.9rem;font-weight:700;border-radius:10px;border:2px solid var(--b600);cursor:pointer;transition:all .2s;text-decoration:none;display:block;text-align:center;position:relative;z-index:1;}
+.plan-btn.out{background:transparent;color:var(--b500);}
+.plan-btn.out:hover{background:var(--b600);color:#fff;}
+.plan-btn.fil{background:var(--b600);color:#fff;box-shadow:0 4px 16px rgba(59,130,246,.3);}
+.plan-btn.fil:hover{background:var(--b700);box-shadow:0 6px 20px rgba(59,130,246,.45);}
+
+/* ── FAQ ── */
+#faq{background:var(--bg);padding:80px 5%;}
+.faq-g{max-width:720px;margin:2.5rem auto 0;display:flex;flex-direction:column;gap:.75rem;}
+.faq-item{background:var(--bg-card);border:1px solid var(--border);border-radius:14px;overflow:hidden;transition:border-color .2s;}
+.faq-item.open{border-color:var(--border-blue);}
+.faq-q{display:flex;justify-content:space-between;align-items:center;padding:1.25rem 1.5rem;cursor:pointer;font-family:'Sora',sans-serif;font-size:.95rem;font-weight:700;color:var(--text);gap:1rem;user-select:none;transition:color .2s;}
+.faq-q:hover{color:var(--b500);}
+.faq-icon{width:28px;height:28px;border-radius:8px;background:var(--bg-alt);border:1px solid var(--border);display:flex;align-items:center;justify-content:center;flex-shrink:0;font-size:1rem;transition:transform .3s,background .2s;line-height:1;}
+.faq-item.open .faq-icon{transform:rotate(45deg);background:var(--b50);}
+.faq-a{max-height:0;overflow:hidden;transition:max-height .35s ease;}
+.faq-a-inner{padding:0 1.5rem 1.25rem;font-size:.9rem;color:var(--text-muted);line-height:1.8;}
+.faq-item.open .faq-a{max-height:300px;}
+
+/* ── CTA FINAL ── */
+#cta-final{background:linear-gradient(135deg,#1d4ed8 0%,#1e3a8a 100%);padding:80px 5%;text-align:center;}
+.cta-final-inner{max-width:600px;margin:0 auto;}
+.cta-final-inner h2{font-family:'Sora',sans-serif;font-size:clamp(1.8rem,3vw,2.4rem);font-weight:800;color:#fff;line-height:1.15;margin-bottom:1rem;}
+.cta-final-inner p{font-size:1rem;color:rgba(255,255,255,.75);margin-bottom:2rem;line-height:1.7;}
+.cta-final-btns{display:flex;gap:1rem;justify-content:center;flex-wrap:wrap;}
+.btn-wpp-lg{font-family:'Sora',sans-serif;font-weight:700;font-size:1rem;background:#fff;color:#15803d;border:none;padding:16px 32px;border-radius:10px;cursor:pointer;text-decoration:none;display:inline-flex;align-items:center;gap:9px;box-shadow:0 4px 20px rgba(0,0,0,.2);transition:all .2s;}
+.btn-wpp-lg:hover{transform:translateY(-2px);box-shadow:0 8px 28px rgba(0,0,0,.3);}
+.btn-outline-white{font-family:'Sora',sans-serif;font-weight:600;font-size:.95rem;background:transparent;color:rgba(255,255,255,.85);border:1.5px solid rgba(255,255,255,.35);padding:16px 28px;border-radius:10px;cursor:pointer;text-decoration:none;transition:all .2s;}
+.btn-outline-white:hover{border-color:#fff;color:#fff;}
+
+/* ── CONTATO ── */
+#contato{background:var(--bg-alt);}
+.ct-wrap{display:grid;grid-template-columns:1fr 1fr;gap:4rem;align-items:start;margin-top:3rem;}
+.ct-info{display:flex;flex-direction:column;gap:1rem;}
+.ct-urgency{background:var(--b50);border:1px solid var(--b100);border-radius:14px;padding:1.25rem 1.5rem;margin-bottom:.5rem;}
+.ct-urgency-title{font-family:'Sora',sans-serif;font-size:.9rem;font-weight:700;color:var(--b500);margin-bottom:.4rem;}
+.ct-urgency-text{font-size:.85rem;color:var(--text-muted);line-height:1.65;}
+.ct-item{display:flex;align-items:center;gap:1rem;padding:1.1rem 1.25rem;background:var(--ct-bg);border-radius:12px;border:1px solid var(--border);text-decoration:none;transition:all .2s;}
+.ct-item:hover{border-color:var(--border-blue);background:var(--ct-hov);transform:translateX(4px);}
+.ct-ico{width:42px;height:42px;background:var(--b600);border-radius:10px;display:flex;align-items:center;justify-content:center;font-size:1.1rem;flex-shrink:0;}
+.ct-ico.wpp{background:#16a34a;}
+.ct-lbl{font-size:.72rem;color:var(--text-faint);font-family:'Sora',sans-serif;font-weight:500;text-transform:uppercase;letter-spacing:.06em;margin-bottom:2px;}
+.ct-val{font-family:'Sora',sans-serif;font-weight:600;font-size:.9rem;color:var(--text);transition:color .35s;}
+.ct-form{background:var(--form-bg);border-radius:20px;padding:2.25rem;border:1px solid var(--border);transition:background .35s,border-color .35s;}
+.ct-ftitle{font-family:'Sora',sans-serif;font-size:1.15rem;font-weight:700;color:var(--text);margin-bottom:.4rem;transition:color .35s;}
+.ct-fsub{font-size:.83rem;color:var(--text-faint);margin-bottom:1.5rem;}
+.fg{margin-bottom:.9rem;}
+.fl{display:block;font-size:.78rem;font-family:'Sora',sans-serif;font-weight:600;color:var(--text-muted);margin-bottom:5px;letter-spacing:.04em;}
+.fi,.fta{width:100%;padding:11px 14px;border:1.5px solid var(--border);border-radius:8px;font-family:'DM Sans',sans-serif;font-size:.9rem;color:var(--text);background:var(--bg-input);outline:none;transition:border-color .2s,background .35s,color .35s;}
+.fi:focus,.fta:focus{border-color:var(--b500);box-shadow:0 0 0 3px rgba(59,130,246,.1);}
+.fi::placeholder,.fta::placeholder{color:var(--text-faint);}
+.fta{resize:vertical;min-height:100px;}
+.fsub{width:100%;padding:13px;background:#16a34a;color:#fff;border:none;border-radius:10px;font-family:'Sora',sans-serif;font-size:.95rem;font-weight:700;cursor:pointer;transition:all .2s;margin-top:.5rem;box-shadow:0 4px 16px rgba(22,163,74,.3);display:flex;align-items:center;justify-content:center;gap:8px;}
+.fsub:hover{background:#15803d;transform:translateY(-1px);box-shadow:0 6px 20px rgba(22,163,74,.45);}
+
+/* ── FOOTER ── */
+footer{background:var(--foot-bg);color:#fff;padding:3rem 5%;}
+.fi2{max-width:1200px;margin:0 auto;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:1rem;}
+.f-logo{font-family:'Sora',sans-serif;font-weight:800;font-size:1.4rem;letter-spacing:-.03em;color:#fff;}
+.f-logo span{color:var(--b400);}
+.f-copy{font-size:.82rem;color:var(--foot-txt);}
+.f-links{display:flex;gap:1.5rem;list-style:none;}
+.f-links a{font-size:.82rem;color:var(--foot-txt);text-decoration:none;transition:color .2s;}
+.f-links a:hover{color:#fff;}
+
+/* ── MODAL ── */
+.modal-ov{position:fixed;inset:0;background:rgba(0,0,0,.8);z-index:1000;display:none;align-items:center;justify-content:center;padding:20px;backdrop-filter:blur(8px);}
+.modal-ov.open{display:flex;}
+.modal-box{background:var(--modal-bg);border-radius:20px;width:100%;max-width:860px;max-height:90vh;overflow:auto;box-shadow:0 32px 80px rgba(0,0,0,.6);animation:mIn .3s ease;border:1px solid var(--border);}
+@keyframes mIn{from{opacity:0;transform:scale(.95) translateY(16px);}to{opacity:1;transform:scale(1) translateY(0);}}
+.modal-hdr{display:flex;justify-content:space-between;align-items:center;padding:1.25rem 1.5rem;border-bottom:1px solid var(--border);position:sticky;top:0;background:var(--modal-bg);z-index:1;}
+.modal-ttl{font-family:'Sora',sans-serif;font-size:1rem;font-weight:700;color:var(--text);}
+.modal-cls{background:var(--bg-alt);border:none;border-radius:8px;width:32px;height:32px;cursor:pointer;font-size:1.1rem;color:var(--text-muted);display:flex;align-items:center;justify-content:center;transition:background .2s;}
+.modal-cls:hover{background:var(--border);}
+.modal-body{padding:1.5rem;}
+.demo-site{border-radius:12px;overflow:hidden;border:1px solid var(--border);}
+.dr-hero{background:linear-gradient(160deg,#1c0800,#5c1f00);padding:2.5rem 2rem;color:#fff;}
+.dr-ey{font-family:'Sora',sans-serif;font-size:.65rem;font-weight:700;letter-spacing:.15em;text-transform:uppercase;color:#ffb347;margin-bottom:.5rem;}
+.dr-hero h2{font-family:'Sora',sans-serif;font-size:2rem;font-weight:800;color:#fff;line-height:1.15;margin-bottom:.5rem;}
+.dr-hero h2 span{color:#ff9a3c;}
+.dr-hero p{color:rgba(255,255,255,.65);margin-bottom:1.25rem;font-size:.9rem;}
+.dr-btns{display:flex;gap:.75rem;}
+.dr-btn{background:#e07b00;color:#fff;border:none;padding:9px 20px;border-radius:7px;font-family:'Sora',sans-serif;font-weight:700;font-size:.82rem;cursor:pointer;}
+.dr-btn-g{background:transparent;color:#fff;border:1.5px solid rgba(255,255,255,.35);padding:9px 20px;border-radius:7px;font-family:'Sora',sans-serif;font-weight:600;font-size:.82rem;cursor:pointer;}
+.dr-menu{background:#faf7f3;padding:2rem;}
+.dr-mhdr{display:flex;justify-content:space-between;align-items:center;margin-bottom:1rem;}
+.dr-mt{font-family:'Sora',sans-serif;font-size:1.1rem;font-weight:800;color:#1c0800;}
+.dr-filt{display:flex;gap:.5rem;}
+.dr-fc{font-family:'Sora',sans-serif;font-size:.65rem;font-weight:600;padding:4px 10px;border-radius:100px;cursor:pointer;}
+.dr-fc.on{background:#e07b00;color:#fff;}
+.dr-fc:not(.on){background:#f0ebe3;color:#9a3d00;}
+.dr-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:.85rem;}
+.dr-item{background:#fff;border-radius:10px;overflow:hidden;border:1px solid #f0e8dc;}
+.dr-img{height:80px;display:flex;align-items:center;justify-content:center;font-size:2.5rem;}
+.dr-i1{background:linear-gradient(135deg,#ff9a00,#ff6b00);}
+.dr-i2{background:linear-gradient(135deg,#4caf50,#2e7d32);}
+.dr-i3{background:linear-gradient(135deg,#ff5722,#bf360c);}
+.dr-ib{padding:8px 10px;}
+.dr-in{font-family:'Sora',sans-serif;font-size:.8rem;font-weight:700;color:#1c0800;}
+.dr-ip{font-size:.78rem;color:#e07b00;font-weight:700;}
+.dc-wrap{display:grid;grid-template-columns:180px 1fr;}
+.dc-side{background:#1d4ed8;padding:1.25rem 1rem;color:#fff;}
+.dc-brand{font-family:'Sora',sans-serif;font-size:.8rem;font-weight:800;margin-bottom:1.5rem;}
+.dc-menu{display:flex;flex-direction:column;gap:.5rem;}
+.dc-mi{font-size:.72rem;font-family:'Sora',sans-serif;padding:6px 9px;border-radius:6px;cursor:pointer;}
+.dc-mi.on{background:rgba(255,255,255,.2);font-weight:700;}
+.dc-mi:not(.on){color:rgba(255,255,255,.65);}
+.dc-main{background:#f0f7ff;padding:1.5rem;}
+.dc-top{display:flex;justify-content:space-between;align-items:center;margin-bottom:1rem;}
+.dc-wlc{font-family:'Sora',sans-serif;font-size:1rem;font-weight:800;color:#0c3b6e;}
+.dc-dt{font-size:.7rem;color:#6b7280;background:#fff;border:1px solid #dbeafe;padding:4px 10px;border-radius:6px;}
+.dc-stats{display:grid;grid-template-columns:repeat(3,1fr);gap:.75rem;margin-bottom:1rem;}
+.dc-stat{background:#fff;border-radius:8px;padding:.75rem;border:1px solid #dbeafe;}
+.dc-sn{font-family:'Sora',sans-serif;font-size:1.2rem;font-weight:800;color:#1d4ed8;}
+.dc-sl{font-size:.7rem;color:#6b7280;}
+.dc-apts{background:#fff;border-radius:8px;padding:.75rem;border:1px solid #dbeafe;}
+.dc-at{font-family:'Sora',sans-serif;font-size:.75rem;font-weight:700;color:#0c3b6e;margin-bottom:.6rem;}
+.dc-apt{display:flex;align-items:center;gap:.75rem;padding:.4rem 0;border-bottom:1px solid #f0f7ff;}
+.dc-apt:last-child{border-bottom:none;}
+.dc-atm{font-family:'Sora',sans-serif;font-size:.68rem;font-weight:700;color:#1d4ed8;width:36px;flex-shrink:0;}
+.dc-an{font-size:.72rem;color:#374151;flex:1;}
+.dc-ab{font-size:.58rem;font-family:'Sora',sans-serif;font-weight:700;padding:2px 7px;border-radius:100px;}
+.apt-ok{background:#dcfce7;color:#166534;}
+.apt-wt{background:#fef3c7;color:#92400e;}
+.db-wrap{background:#0a0d18;}
+.db-header{background:linear-gradient(135deg,#1d4ed8,#1e3a8a);padding:1.5rem 1.5rem 1.25rem;}
+.db-brand{display:flex;align-items:center;gap:10px;margin-bottom:.25rem;}
+.db-brand-icon{width:36px;height:36px;background:rgba(255,255,255,.15);border-radius:10px;display:flex;align-items:center;justify-content:center;font-size:1.1rem;}
+.db-brand-name{font-family:'Sora',sans-serif;font-size:.95rem;font-weight:800;color:#fff;}
+.db-brand-sub{font-size:.7rem;color:rgba(255,255,255,.6);}
+.db-status{display:inline-flex;align-items:center;gap:5px;background:rgba(74,222,128,.15);border:1px solid rgba(74,222,128,.3);border-radius:100px;padding:3px 10px;font-size:.62rem;font-family:'Sora',sans-serif;font-weight:700;color:#4ade80;margin-top:.5rem;}
+.db-chat{padding:1.25rem 1.5rem;display:flex;flex-direction:column;gap:.75rem;}
+.db-msg{max-width:80%;padding:9px 13px;border-radius:12px;font-family:'DM Sans',sans-serif;font-size:.82rem;line-height:1.55;}
+.db-msg.bot{background:#141829;color:#c7d2fe;border:1px solid #1e2240;align-self:flex-start;border-radius:12px 12px 12px 2px;}
+.db-msg.usr{background:#1d4ed8;color:#fff;align-self:flex-end;border-radius:12px 12px 2px 12px;}
+.db-options{display:flex;gap:.5rem;flex-wrap:wrap;}
+.db-opt{background:rgba(59,130,246,.1);border:1px solid rgba(59,130,246,.3);border-radius:8px;padding:6px 12px;font-size:.75rem;color:#60a5fa;font-family:'Sora',sans-serif;font-weight:600;cursor:pointer;transition:all .2s;}
+.db-opt:hover{background:rgba(59,130,246,.2);}
+.db-calendar{background:#141829;border:1px solid #1e2240;border-radius:10px;padding:.75rem 1rem;margin-top:.25rem;}
+.db-cal-title{font-family:'Sora',sans-serif;font-size:.72rem;font-weight:700;color:#93c5fd;margin-bottom:.6rem;}
+.db-cal-grid{display:grid;grid-template-columns:repeat(7,1fr);gap:3px;}
+.db-cal-day{text-align:center;font-size:.6rem;font-family:'Sora',sans-serif;padding:4px 2px;border-radius:4px;color:#8892b0;}
+.db-cal-day.avail{background:rgba(59,130,246,.15);color:#93c5fd;cursor:pointer;}
+.db-cal-day.sel{background:#1d4ed8;color:#fff;font-weight:700;}
+.db-cal-day.hdr{color:#4a5270;font-weight:600;}
+.dl-wrap{background:#0d1117;}
+.dl-nav{display:flex;justify-content:space-between;align-items:center;padding:10px 1.5rem;border-bottom:1px solid rgba(255,255,255,.07);}
+.dl-logo{font-family:'Sora',sans-serif;font-size:.9rem;font-weight:800;color:#fff;}
+.dl-logo span{color:#e1a030;}
+.dl-navl{display:flex;gap:1rem;}
+.dl-nl{font-size:.72rem;color:rgba(255,255,255,.5);font-family:'Sora',sans-serif;}
+.dl-cart{background:rgba(225,160,48,.15);border:1px solid rgba(225,160,48,.35);border-radius:6px;padding:5px 12px;font-family:'Sora',sans-serif;font-size:.7rem;font-weight:700;color:#e1a030;cursor:pointer;}
+.dl-hero{padding:2rem 1.5rem;background:linear-gradient(120deg,#08090e,#12151e);}
+.dl-hl{font-family:'Sora',sans-serif;font-size:.6rem;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:#e1a030;margin-bottom:.5rem;}
+.dl-hero h2{font-family:'Sora',sans-serif;font-size:1.6rem;font-weight:800;color:#fff;line-height:1.15;margin-bottom:.35rem;}
+.dl-hero p{font-size:.82rem;color:rgba(255,255,255,.5);margin-bottom:1rem;}
+.dl-hcta{display:inline-block;background:linear-gradient(90deg,#e1a030,#c07820);color:#fff;border:none;padding:8px 20px;border-radius:7px;font-family:'Sora',sans-serif;font-weight:700;font-size:.78rem;cursor:pointer;}
+.dl-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:.85rem;padding:.85rem 1.5rem 1.25rem;}
+.dl-item{background:rgba(255,255,255,.05);border:1px solid rgba(255,255,255,.08);border-radius:10px;overflow:hidden;}
+.dl-img{height:90px;display:flex;align-items:center;justify-content:center;font-size:2.2rem;}
+.dl-i1{background:linear-gradient(135deg,#6d28d9,#4c1d95);}
+.dl-i2{background:linear-gradient(135deg,#b45309,#78350f);}
+.dl-i3{background:linear-gradient(135deg,#0f766e,#064e3b);}
+.dl-ib{padding:8px 10px;}
+.dl-in{font-family:'Sora',sans-serif;font-size:.78rem;font-weight:700;color:#fff;}
+.dl-ip{font-size:.72rem;color:#e1a030;font-weight:700;}
+.dl-io{font-size:.65rem;color:rgba(255,255,255,.3);text-decoration:line-through;margin-left:4px;}
+.dcu-wrap{background:var(--bg-alt);padding:2.5rem 2rem;text-align:center;}
+.dcu-icon{font-size:3rem;margin-bottom:1rem;}
+.dcu-title{font-family:'Sora',sans-serif;font-size:1.4rem;font-weight:800;color:var(--text);margin-bottom:.75rem;}
+.dcu-desc{font-size:.95rem;color:var(--text-muted);max-width:440px;margin:0 auto 1.75rem;line-height:1.7;}
+.dcu-feats{display:grid;grid-template-columns:1fr 1fr;gap:.75rem;max-width:480px;margin:0 auto 2rem;}
+.dcu-feat{background:var(--bg-card);border:1px solid var(--border);border-radius:10px;padding:.75rem 1rem;display:flex;align-items:center;gap:.6rem;font-size:.85rem;color:var(--text-muted);text-align:left;}
+.dcu-feat-ico{font-size:1.1rem;flex-shrink:0;}
+.dcu-cta{display:inline-block;background:var(--b600);color:#fff;font-family:'Sora',sans-serif;font-weight:700;font-size:.95rem;padding:13px 30px;border-radius:10px;text-decoration:none;cursor:pointer;border:none;transition:all .2s;}
+.dcu-cta:hover{background:var(--b700);}
+
+/* ── RESPONSIVE ── */
+@media(max-width:900px){
+  .modelos-g{grid-template-columns:1fr 1fr;}
+  .mod-card.custom-card{flex-direction:column;}
+  .mod-card.custom-card .mod-prev{width:100%;height:180px;}
+  .testi-g{grid-template-columns:1fr 1fr;}
+  .steps-g{grid-template-columns:1fr 1fr;}
+}
+@media(max-width:768px){
+  .hero-inner,.ct-wrap{grid-template-columns:1fr;}
+  .hero-visual{display:none;}
+  .modelos-g,.planos-g,.testi-g,.steps-g{grid-template-columns:1fr;}
+  .mod-card.custom-card{flex-direction:column;}
+  .mod-card.custom-card .mod-prev{width:100%;height:180px;}
+  .plan-card.feat{transform:none;}
+  .nav-links{display:none;}
+  .dc-wrap{grid-template-columns:1fr;}
+  .dc-side{display:none;}
+  .hero-proof{gap:1.25rem;}
+  .cta-final-btns{flex-direction:column;align-items:center;}
+}
+</style>
+</head>
+<body>
+
+<div class="mesh-bg">
+  <div class="mesh-blob b1"></div>
+  <div class="mesh-blob b2"></div>
+</div>
+
+<!-- NAV -->
+<nav>
+  <div class="nav-left">
+    <a href="#" class="nav-logo">Vorin<span>Web</span></a>
+    <ul class="nav-links">
+      <li><a href="#como">Como funciona</a></li>
+      <li><a href="#modelos">Modelos</a></li>
+      <li><a href="#planos">Planos</a></li>
+      <li><a href="#faq">Dúvidas</a></li>
+    </ul>
+  </div>
+  <div class="nav-right">
+    <button class="tog" id="themeToggle" aria-label="Alternar tema">
+      <span class="tog-icon icon-moon">🌙</span>
+      <span class="tog-icon icon-sun">☀️</span>
+    </button>
+    <a href="https://wa.me/5511934900204" target="_blank" class="nav-cta">
+      💬 Falar no WhatsApp
+    </a>
+  </div>
+</nav>
+
+<!-- HERO -->
+<section class="hero" id="home">
+  <div class="hero-grid-lines"></div>
+  <div class="hero-inner">
+    <div>
+      <div class="hero-tag">
+        <span class="hero-tag-dot"></span>
+        Aberto para novos projetos
+      </div>
+      <h1>
+        Seu negócio merece<br>
+        um site que<br>
+        <em>realmente vende</em>
+      </h1>
+      <p class="hero-sub">
+        A maioria dos sites existe mas não trabalha. A gente cria sites, lojas e bots de agendamento para negócios que querem <strong>mais clientes</strong> — com entrega em até 10 dias úteis.
+      </p>
+      <div class="hero-btns">
+        <a href="https://wa.me/5511934900204" target="_blank" class="btn-wpp">💬 Quero começar agora</a>
+        <a href="#modelos" class="btn-o">Ver o que entregamos</a>
+      </div>
+      <div class="hero-proof">
+        <div class="hp">
+          <span class="hp-val">50+</span>
+          <span class="hp-label">negócios atendidos</span>
+        </div>
+        <div class="hp-sep"></div>
+        <div class="hp">
+          <span class="hp-val">10 dias</span>
+          <span class="hp-label">prazo médio de entrega</span>
+        </div>
+        <div class="hp-sep"></div>
+        <div class="hp">
+          <span class="hp-val">&lt; 1h</span>
+          <span class="hp-label">tempo de resposta</span>
+        </div>
+      </div>
+    </div>
+    <div class="hero-visual">
+      <div class="hero-glow"></div>
+      <div class="hero-mockup">
+        <div class="mk-bar">
+          <div class="mk-dot"></div><div class="mk-dot"></div><div class="mk-dot"></div>
+          <div class="mk-url">seunegocio.com.br</div>
+        </div>
+        <div class="mk-body">
+          <div class="mk-strip">
+            <div class="mk-t1"></div><div class="mk-t2"></div><div class="mk-t3"></div>
+          </div>
+          <div class="mk-cards">
+            <div class="mk-card"><div class="mk-ci"></div><div class="mk-l"></div><div class="mk-ls"></div></div>
+            <div class="mk-card"><div class="mk-ci"></div><div class="mk-l"></div><div class="mk-ls"></div></div>
+            <div class="mk-card"><div class="mk-ci"></div><div class="mk-l"></div><div class="mk-ls"></div></div>
+          </div>
+        </div>
+      </div>
+      <div class="hero-badge-float hbf-left">
+        <div class="hbf-label">Novo contato via site</div>
+        <div class="hbf-val" style="color:#22c55e;font-size:.85rem;">+1 lead recebido 🎉</div>
+        <div class="hbf-sub">agora mesmo</div>
+      </div>
+      <div class="hero-badge-float hbf-right">
+        <div class="hbf-label"><span class="online-dot"></span>Suporte ativo</div>
+        <div class="hbf-val" style="font-size:.9rem;">Online</div>
+        <div class="hbf-sub">resposta em &lt; 1h</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- SEGMENTOS -->
+<section id="segmentos">
+  <div class="seg-inner">
+    <div class="seg-label">Já desenvolvemos para</div>
+    <div class="seg-list">
+      <div class="seg-chip"><span>🍽</span> Restaurantes e bares</div>
+      <div class="seg-chip"><span>🏥</span> Clínicas e consultórios</div>
+      <div class="seg-chip"><span>🛍</span> Lojas online</div>
+      <div class="seg-chip"><span>💈</span> Salões e estéticas</div>
+      <div class="seg-chip"><span>🏋️</span> Academias e studios</div>
+      <div class="seg-chip"><span>⚖️</span> Escritórios e autônomos</div>
+    </div>
+  </div>
+</section>
+
+<div class="section-line"></div>
+
+<!-- COMO FUNCIONA -->
+<section id="como">
+  <div class="si">
+    <div class="s-label">Processo</div>
+    <h2 class="s-title">Do zero ao ar em 3 passos</h2>
+    <p class="s-sub">Sem reuniões intermináveis, sem surpresas no caminho. Você explica o que precisa e a gente faz acontecer.</p>
+    <div class="steps-g">
+      <div class="step-card">
+        <div class="step-num">01</div>
+        <div class="step-t">Você conta o projeto</div>
+        <div class="step-d">Uma conversa rápida pelo WhatsApp ou preenchendo o formulário. A gente entende o seu negócio, o que precisa e o prazo que faz sentido pra você.</div>
+        <div class="step-detail">⏱ 15 min de conversa</div>
+      </div>
+      <div class="step-card">
+        <div class="step-num">02</div>
+        <div class="step-t">A gente desenvolve</div>
+        <div class="step-d">Prazo combinado e cumprido. Você acompanha o andamento e vê o rascunho antes de finalizar. Nada vai pro ar sem a sua aprovação.</div>
+        <div class="step-detail">📅 Até 10 dias úteis</div>
+      </div>
+      <div class="step-card">
+        <div class="step-num">03</div>
+        <div class="step-t">No ar e gerando cliente</div>
+        <div class="step-d">Site publicado, domínio configurado, pronto pra receber visitas. Se quiser continuar evoluindo, temos planos mensais sem fidelidade.</div>
+        <div class="step-detail">🚀 Suporte pós-entrega</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="section-line"></div>
+
+<!-- MODELOS -->
+<section id="modelos">
+  <div class="si">
+    <div class="s-label">Portfólio</div>
+    <h2 class="s-title">Veja o que já entregamos</h2>
+    <p class="s-sub" style="margin-bottom:2.5rem;">Cada segmento tem suas particularidades. Passe o mouse e clique em "Ver Demo" para explorar cada modelo por dentro.</p>
+    <div class="modelos-g">
+
+      <div class="mod-card">
+        <div class="mod-prev">
+          <div class="prev-rest">
+            <div class="pr-nav">
+              <div class="pr-logo">Sabores & Arte</div>
+              <div class="pr-links"><div class="pr-link" style="width:28px"></div><div class="pr-link" style="width:22px"></div><div class="pr-link" style="width:28px"></div></div>
+            </div>
+            <div class="pr-body">
+              <div class="pr-ey">Gastronomia Premium</div>
+              <div class="pr-h1">Sabor que<br><span>marca memória</span></div>
+              <div class="pr-sub"></div><div class="pr-sub2"></div>
+              <div class="pr-cta">📅 Reservar Mesa</div>
+            </div>
+            <div class="pr-plates"><div class="pr-plate">🥩</div><div class="pr-plate">🍝</div><div class="pr-plate">🍮</div></div>
+          </div>
+          <div class="demo-ov"><button class="demo-btn" onclick="openDemo('restaurante')">👁 Ver Demo</button></div>
+        </div>
+        <div class="mod-info">
+          <span class="mod-badge b-rest">🍽 Restaurante & Bar</span>
+          <div class="mod-name">Sabores & Arte</div>
+          <div class="mod-desc">Visual quente e apetitoso. Cardápio interativo, reservas e integração com delivery.</div>
+          <div class="mod-tags"><span class="mod-tag">Cardápio</span><span class="mod-tag">Reservas</span><span class="mod-tag">Delivery</span></div>
+        </div>
+      </div>
+
+      <div class="mod-card">
+        <div class="mod-prev">
+          <div class="prev-clin">
+            <div class="pc-side">
+              <div class="pc-si on">🏠</div><div class="pc-si">📅</div><div class="pc-si">👥</div><div class="pc-si">📋</div>
+            </div>
+            <div class="pc-main">
+              <div class="pc-hdr"><div class="pc-ttl">Clínica Saúde Plena</div><div class="pc-av">Dr</div></div>
+              <div class="pc-stats">
+                <div class="pc-stat"><div class="pc-sn">24</div><div class="pc-sl">Pacientes hoje</div></div>
+                <div class="pc-stat"><div class="pc-sn">3</div><div class="pc-sl">Aguardando</div></div>
+                <div class="pc-stat"><div class="pc-sn">12</div><div class="pc-sl">Esta semana</div></div>
+              </div>
+              <div class="pc-rows">
+                <div class="pc-row"><div class="pc-dot" style="background:#3b82f6"></div><div class="pc-rl"></div><div class="pc-rs"></div></div>
+                <div class="pc-row"><div class="pc-dot" style="background:#22c55e"></div><div class="pc-rl"></div><div class="pc-rs"></div></div>
+                <div class="pc-row"><div class="pc-dot" style="background:#f59e0b"></div><div class="pc-rl"></div><div class="pc-rs"></div></div>
+              </div>
+            </div>
+          </div>
+          <div class="demo-ov"><button class="demo-btn" onclick="openDemo('clinica')">👁 Ver Demo</button></div>
+        </div>
+        <div class="mod-info">
+          <span class="mod-badge b-clin">🏥 Saúde & Clínicas</span>
+          <div class="mod-name">Clínica Saúde Plena</div>
+          <div class="mod-desc">Dashboard clínico completo. Agendamento online, perfil de médicos e área do paciente.</div>
+          <div class="mod-tags"><span class="mod-tag">Dashboard</span><span class="mod-tag">Agendamento</span><span class="mod-tag">Especialidades</span></div>
+        </div>
+      </div>
+
+      <div class="mod-card">
+        <div class="mod-prev">
+          <div class="prev-bot">
+            <div class="pb-top">
+              <div class="pb-brand"><span class="pb-live"></span>AgendaBot</div>
+            </div>
+            <div class="pb-chat">
+              <div class="pb-msg bot">👋 Olá! Qual serviço você deseja agendar?</div>
+              <div class="pb-options">
+                <div class="pb-opt">Consulta</div>
+                <div class="pb-opt">Retorno</div>
+                <div class="pb-opt">Exame</div>
+              </div>
+              <div class="pb-msg usr">Consulta</div>
+              <div class="pb-msg bot">📅 Ótimo! Escolha uma data disponível:</div>
+              <div class="pb-typing"><div class="pb-t-dot"></div><div class="pb-t-dot"></div><div class="pb-t-dot"></div></div>
+            </div>
+          </div>
+          <div class="demo-ov"><button class="demo-btn" onclick="openDemo('bot')">👁 Ver Demo</button></div>
+        </div>
+        <div class="mod-info">
+          <span class="mod-badge b-bot">🤖 Bot de Agendamento</span>
+          <div class="mod-name">AgendaBot Pro</div>
+          <div class="mod-desc">Bot inteligente para agendamentos automáticos 24h via WhatsApp ou direto no site.</div>
+          <div class="mod-tags"><span class="mod-tag">WhatsApp</span><span class="mod-tag">Agendamento</span><span class="mod-tag">24h</span></div>
+        </div>
+      </div>
+
+      <div class="mod-card">
+        <div class="mod-prev">
+          <div class="prev-loja">
+            <div class="pl-top"><div class="pl-logo">Shop<span>Premium</span></div><div class="pl-cart">🛒 Carrinho (2)</div></div>
+            <div class="pl-banner"><div class="pl-sale">🔥 Oferta relâmpago</div><div class="pl-off">Até 40% OFF</div><div class="pl-sub">em toda linha de verão</div></div>
+            <div class="pl-grid">
+              <div class="pl-item"><div class="pl-img pl-i1">👗</div><div class="pl-price">R$ 149</div></div>
+              <div class="pl-item"><div class="pl-img pl-i2">👟</div><div class="pl-price">R$ 289</div></div>
+              <div class="pl-item"><div class="pl-img pl-i3">👜</div><div class="pl-price">R$ 199</div></div>
+            </div>
+          </div>
+          <div class="demo-ov"><button class="demo-btn" onclick="openDemo('loja')">👁 Ver Demo</button></div>
+        </div>
+        <div class="mod-info">
+          <span class="mod-badge b-shop">🛍 E-commerce</span>
+          <div class="mod-name">Shop Premium</div>
+          <div class="mod-desc">Loja dark e sofisticada. Vitrine com promoções, catálogo filtrado e checkout integrado.</div>
+          <div class="mod-tags"><span class="mod-tag">Vitrine</span><span class="mod-tag">Carrinho</span><span class="mod-tag">Checkout</span></div>
+        </div>
+      </div>
+
+      <div class="mod-card custom-card">
+        <div class="mod-prev">
+          <div class="prev-cust">
+            <div class="pc-grid-bg"></div>
+            <div class="pc-sparks">
+              <div class="pc-spark" style="top:18%;left:12%;animation-delay:0s;"></div>
+              <div class="pc-spark" style="top:72%;left:22%;animation-delay:.9s;"></div>
+              <div class="pc-spark" style="top:28%;left:78%;animation-delay:1.8s;"></div>
+              <div class="pc-spark" style="top:78%;left:70%;animation-delay:2.7s;"></div>
+              <div class="pc-spark" style="top:50%;left:50%;animation-delay:1.4s;width:9px;height:9px;background:var(--b400);"></div>
+            </div>
+            <div class="pc-inner">
+              <div class="pc-plus">+</div>
+              <div class="pc-lbl">Seu projeto aqui</div>
+              <div class="pc-dots">
+                <div class="pc-dot2" style="background:#3b82f6;"></div>
+                <div class="pc-dot2" style="background:#8b5cf6;"></div>
+                <div class="pc-dot2" style="background:#ec4899;"></div>
+                <div class="pc-dot2" style="background:#10b981;"></div>
+                <div class="pc-dot2" style="background:#f59e0b;"></div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="mod-info">
+          <span class="mod-badge b-cust">✨ Exclusivo</span>
+          <div class="mod-name">Site 100% Personalizado</div>
+          <div class="mod-desc">Nenhum template, nenhuma limitação. Design único do zero, funcionalidades pensadas para o seu negócio específico e identidade visual que é só sua.</div>
+          <div class="mod-tags" style="margin-top:.5rem;">
+            <span class="mod-tag">Design exclusivo</span>
+            <span class="mod-tag">Sob medida</span>
+            <span class="mod-tag">Identidade própria</span>
+            <span class="mod-tag">Integrações customizadas</span>
+          </div>
+          <div style="margin-top:1.25rem;">
+            <a href="https://wa.me/5511934900204" target="_blank" class="plan-btn fil" style="display:inline-block;width:auto;padding:11px 24px;text-decoration:none;background:#16a34a;border-color:#16a34a;">💬 Contar meu projeto</a>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<div class="section-line"></div>
+
+<!-- DEPOIMENTOS -->
+<section id="depoimentos">
+  <div class="si">
+    <div class="s-label">O que dizem</div>
+    <h2 class="s-title">Quem já passou pela VorinWeb</h2>
+    <p class="s-sub">Não pedimos para ninguém escrever algo bonito. Pedimos para dizer o que mudou de verdade.</p>
+    <div class="testi-g">
+
+      <div class="testi-card">
+        <div class="testi-stars">
+          <span class="testi-star">⭐</span><span class="testi-star">⭐</span><span class="testi-star">⭐</span><span class="testi-star">⭐</span><span class="testi-star">⭐</span>
+        </div>
+        <div class="testi-text">
+          "Antes eu dependia 100% do Instagram. Hoje tenho site, <strong>apareço no Google quando alguém pesquisa restaurante aqui perto</strong> e já tive mesa reservada por cliente que nem me seguia. Valeu cada centavo."
+        </div>
+        <div class="testi-author">
+          <div class="testi-avatar" style="background:linear-gradient(135deg,#f59e0b,#d97706);">R</div>
+          <div>
+            <div class="testi-name">Rodrigo Mendes</div>
+            <div class="testi-role">Dono do Bistrô Carioca — RJ</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="testi-card">
+        <div class="testi-stars">
+          <span class="testi-star">⭐</span><span class="testi-star">⭐</span><span class="testi-star">⭐</span><span class="testi-star">⭐</span><span class="testi-star">⭐</span>
+        </div>
+        <div class="testi-text">
+          "O bot de agendamento <strong>eliminou boa parte das ligações</strong> que eu recebia só pra marcar consulta. Minha secretária agora foca no que importa. Os pacientes adoraram — simples e rápido."
+        </div>
+        <div class="testi-author">
+          <div class="testi-avatar" style="background:linear-gradient(135deg,#3b82f6,#1d4ed8);">C</div>
+          <div>
+            <div class="testi-name">Dra. Camila Freitas</div>
+            <div class="testi-role">Psicóloga — São Paulo, SP</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="testi-card">
+        <div class="testi-stars">
+          <span class="testi-star">⭐</span><span class="testi-star">⭐</span><span class="testi-star">⭐</span><span class="testi-star">⭐</span><span class="testi-star">⭐</span>
+        </div>
+        <div class="testi-text">
+          "Tinha medo de gastar e não ver retorno. Mas em 2 meses o volume de contatos pelo site <strong>triplicou</strong>. Hoje o site trabalha por mim enquanto eu cuido da loja física."
+        </div>
+        <div class="testi-author">
+          <div class="testi-avatar" style="background:linear-gradient(135deg,#8b5cf6,#6d28d9);">L</div>
+          <div>
+            <div class="testi-name">Lucas Tavares</div>
+            <div class="testi-role">Loja de moda masculina — Belo Horizonte, MG</div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<div class="section-line"></div>
+
+<!-- PLANOS -->
+<section id="planos">
+  <div class="si">
+    <div class="s-label">Planos mensais</div>
+    <h2 class="s-title">Seu site nunca para de evoluir</h2>
+    <p class="s-sub">Entregamos o site. Se quiser continuar melhorando — conteúdo, SEO, novas funcionalidades — é só escolher o plano. Sem fidelidade, cancela quando quiser.</p>
+    <div class="planos-g">
+      <div class="plan-card">
+        <div class="plan-tier">Plano 1</div>
+        <div class="plan-name">Essencial</div>
+        <div class="plan-price"><span class="plan-cur">R$</span><span class="plan-amt">99</span><span class="plan-per">,90/mês</span></div>
+        <div class="plan-desc">Para quem quer estabilidade e um suporte de confiança sem se preocupar com nada técnico.</div>
+        <ul class="plan-feats">
+          <li><span class="chk"><svg viewBox="0 0 12 12"><polyline points="2,6 5,9 10,3"/></svg></span>Hospedagem e domínio monitorados</li>
+          <li><span class="chk"><svg viewBox="0 0 12 12"><polyline points="2,6 5,9 10,3"/></svg></span>1 atualização de conteúdo por mês</li>
+          <li><span class="chk"><svg viewBox="0 0 12 12"><polyline points="2,6 5,9 10,3"/></svg></span>Suporte via WhatsApp (horário comercial)</li>
+          <li><span class="chk"><svg viewBox="0 0 12 12"><polyline points="2,6 5,9 10,3"/></svg></span>Backup mensal do site</li>
+          <li><span class="chk"><svg viewBox="0 0 12 12"><polyline points="2,6 5,9 10,3"/></svg></span>Relatório básico de acessos</li>
+        </ul>
+        <a href="https://wa.me/5511934900204" target="_blank" class="plan-btn out">Quero esse plano</a>
+      </div>
+      <div class="plan-card feat">
+        <div class="plan-pop">Mais escolhido</div>
+        <div class="plan-tier">Plano 2</div>
+        <div class="plan-name">Profissional</div>
+        <div class="plan-price"><span class="plan-cur">R$</span><span class="plan-amt">149</span><span class="plan-per">,90/mês</span></div>
+        <div class="plan-desc">Para quem quer crescer todo mês — mais conteúdo, novas funcionalidades, mais visibilidade no Google.</div>
+        <ul class="plan-feats">
+          <li><span class="chk"><svg viewBox="0 0 12 12"><polyline points="2,6 5,9 10,3"/></svg></span>Tudo do plano Essencial</li>
+          <li><span class="chk"><svg viewBox="0 0 12 12"><polyline points="2,6 5,9 10,3"/></svg></span>3 atualizações de conteúdo por mês</li>
+          <li><span class="chk"><svg viewBox="0 0 12 12"><polyline points="2,6 5,9 10,3"/></svg></span>1 nova funcionalidade ou seção/mês</li>
+          <li><span class="chk"><svg viewBox="0 0 12 12"><polyline points="2,6 5,9 10,3"/></svg></span>Suporte prioritário 7 dias/semana</li>
+          <li><span class="chk"><svg viewBox="0 0 12 12"><polyline points="2,6 5,9 10,3"/></svg></span>Otimização de SEO mensal</li>
+          <li><span class="chk"><svg viewBox="0 0 12 12"><polyline points="2,6 5,9 10,3"/></svg></span>Relatório completo de performance</li>
+        </ul>
+        <a href="https://wa.me/5511934900204" target="_blank" class="plan-btn fil">Quero esse plano</a>
+      </div>
+      <div class="plan-card">
+        <div class="plan-tier">Plano 3</div>
+        <div class="plan-name">Premium</div>
+        <div class="plan-price"><span class="plan-cur">R$</span><span class="plan-amt">300</span><span class="plan-per">,00/mês</span></div>
+        <div class="plan-desc">Para negócios em ritmo acelerado. Evolução constante, automações e um time dedicado ao seu site.</div>
+        <ul class="plan-feats">
+          <li><span class="chk"><svg viewBox="0 0 12 12"><polyline points="2,6 5,9 10,3"/></svg></span>Tudo do plano Profissional</li>
+          <li><span class="chk"><svg viewBox="0 0 12 12"><polyline points="2,6 5,9 10,3"/></svg></span>Atualizações ilimitadas de conteúdo</li>
+          <li><span class="chk"><svg viewBox="0 0 12 12"><polyline points="2,6 5,9 10,3"/></svg></span>2 novas funcionalidades/mês</li>
+          <li><span class="chk"><svg viewBox="0 0 12 12"><polyline points="2,6 5,9 10,3"/></svg></span>Integração com bots e automações</li>
+          <li><span class="chk"><svg viewBox="0 0 12 12"><polyline points="2,6 5,9 10,3"/></svg></span>Consultoria estratégica mensal</li>
+          <li><span class="chk"><svg viewBox="0 0 12 12"><polyline points="2,6 5,9 10,3"/></svg></span>Gerente de projeto dedicado</li>
+        </ul>
+        <a href="https://wa.me/5511934900204" target="_blank" class="plan-btn out">Quero esse plano</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="section-line"></div>
+
+<!-- FAQ -->
+<section id="faq">
+  <div class="si" style="max-width:800px;">
+    <div class="s-label">Dúvidas</div>
+    <h2 class="s-title">Perguntas que a gente recebe muito</h2>
+    <div class="faq-g">
+
+      <div class="faq-item">
+        <div class="faq-q" onclick="toggleFaq(this)">
+          Quanto tempo leva para o site ficar pronto?
+          <span class="faq-icon">+</span>
+        </div>
+        <div class="faq-a">
+          <div class="faq-a-inner">Em média, <strong>8 a 10 dias úteis</strong> para modelos do nosso portfólio. Sites personalizados do zero podem levar de 2 a 4 semanas dependendo da complexidade. Sempre combinamos o prazo antes de começar — e cumprimos.</div>
+        </div>
+      </div>
+
+      <div class="faq-item">
+        <div class="faq-q" onclick="toggleFaq(this)">
+          Preciso entender de tecnologia para contratar?
+          <span class="faq-icon">+</span>
+        </div>
+        <div class="faq-a">
+          <div class="faq-a-inner">Não. Você só precisa saber o que quer para o seu negócio. A gente cuida de tudo: domínio, hospedagem, código, publicação. Se surgir dúvida técnica, a gente explica em linguagem normal.</div>
+        </div>
+      </div>
+
+      <div class="faq-item">
+        <div class="faq-q" onclick="toggleFaq(this)">
+          E se eu quiser mudar algo depois de pronto?
+          <span class="faq-icon">+</span>
+        </div>
+        <div class="faq-a">
+          <div class="faq-a-inner">Após a entrega, tem <strong>7 dias de ajustes gratuitos</strong>. Depois disso, é só contratar um dos planos mensais ou solicitar um orçamento pontual. Nenhum site fica abandonado na nossa mão.</div>
+        </div>
+      </div>
+
+      <div class="faq-item">
+        <div class="faq-q" onclick="toggleFaq(this)">
+          Posso pedir um orçamento sem compromisso?
+          <span class="faq-icon">+</span>
+        </div>
+        <div class="faq-a">
+          <div class="faq-a-inner">Sim, e é assim que começa todo projeto. Manda uma mensagem no WhatsApp contando o que você precisa. A gente responde com um orçamento claro — e você decide com calma.</div>
+        </div>
+      </div>
+
+      <div class="faq-item">
+        <div class="faq-q" onclick="toggleFaq(this)">
+          O site vai aparecer no Google?
+          <span class="faq-icon">+</span>
+        </div>
+        <div class="faq-a">
+          <div class="faq-a-inner">Todo site que entregamos já sai com o básico de SEO configurado — título, descrição, Google Search Console. Para quem quer aparecer nas primeiras posições, recomendamos o Plano Profissional com otimização de SEO mensal.</div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- CTA FINAL -->
+<section id="cta-final">
+  <div class="cta-final-inner">
+    <h2>Pronto para ter um site que trabalha por você?</h2>
+    <p>Manda uma mensagem agora. A gente responde em menos de 1 hora e já começa a conversa sobre o seu projeto — sem compromisso nenhum.</p>
+    <div class="cta-final-btns">
+      <a href="https://wa.me/5511934900204" target="_blank" class="btn-wpp-lg">💬 Falar no WhatsApp agora</a>
+      <a href="#contato" class="btn-outline-white">Prefiro enviar e-mail</a>
+    </div>
+  </div>
+</section>
+
+<!-- CONTATO -->
+<section id="contato">
+  <div class="si">
+    <div class="s-label">Contato</div>
+    <h2 class="s-title">Fale com a gente</h2>
+    <div class="ct-wrap">
+      <div>
+        <div class="ct-urgency">
+          <div class="ct-urgency-title">💬 Resposta garantida em até 1 hora</div>
+          <div class="ct-urgency-text">Durante o horário comercial (seg–sex, 9h às 18h), qualquer mensagem recebe retorno rápido. Fora do horário, respondemos na primeira hora do próximo dia útil.</div>
+        </div>
+        <div class="ct-info">
+          <a href="https://wa.me/5511934900204" target="_blank" class="ct-item">
+            <div class="ct-ico wpp">💬</div>
+            <div>
+              <div class="ct-lbl">WhatsApp — canal preferido</div>
+              <div class="ct-val">(11) 93490-0204</div>
+            </div>
+          </a>
+          <a href="mailto:claracg008@gmail.com" class="ct-item">
+            <div class="ct-ico">✉️</div>
+            <div>
+              <div class="ct-lbl">E-mail</div>
+              <div class="ct-val">claracg008@gmail.com</div>
+            </div>
+          </a>
+          <div class="ct-item" style="cursor:default;">
+            <div class="ct-ico">🕐</div>
+            <div>
+              <div class="ct-lbl">Atendimento</div>
+              <div class="ct-val">Segunda a sexta, das 9h às 18h</div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="ct-form">
+        <div class="ct-ftitle">Deixa que a gente entra em contato</div>
+        <div class="ct-fsub">Preencha abaixo e respondemos com um orçamento em até 1h.</div>
+        <div class="fg"><label class="fl">Seu nome</label><input type="text" class="fi" placeholder="Como posso te chamar?"></div>
+        <div class="fg"><label class="fl">E-mail</label><input type="email" class="fi" placeholder="seuemail@gmail.com"></div>
+        <div class="fg"><label class="fl">Tipo de projeto</label><input type="text" class="fi" placeholder="Site, loja, bot de agendamento..."></div>
+        <div class="fg"><label class="fl">Conta mais</label><textarea class="fta" placeholder="Me conta um pouco sobre o seu negócio e o que você precisa..."></textarea></div>
+        <button class="fsub" onclick="submitForm(this)">💬 Enviar mensagem</button>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="fi2">
+    <div class="f-logo">Vorin<span>Web</span></div>
+    <div class="f-copy">© 2025 VorinWeb. Feito com cuidado para negócios reais.</div>
+    <ul class="f-links">
+      <li><a href="#como">Como funciona</a></li>
+      <li><a href="#planos">Planos</a></li>
+      <li><a href="#contato">Contato</a></li>
+    </ul>
+  </div>
+</footer>
+
+<!-- MODAL -->
+<div class="modal-ov" id="demoModal">
+  <div class="modal-box">
+    <div class="modal-hdr">
+      <div class="modal-ttl" id="modalTitle">Demo</div>
+      <button class="modal-cls" onclick="closeDemo()">✕</button>
+    </div>
+    <div class="modal-body" id="modalContent"></div>
+  </div>
+</div>
+
+<script>
+(function(){
+  var html = document.documentElement;
+  var saved = localStorage.getItem('vw-theme') || 'dark';
+  html.setAttribute('data-theme', saved);
+  document.getElementById('themeToggle').addEventListener('click', function(){
+    var next = html.getAttribute('data-theme') === 'light' ? 'dark' : 'light';
+    html.setAttribute('data-theme', next);
+    localStorage.setItem('vw-theme', next);
+  });
+})();
+
+function toggleFaq(el) {
+  var item = el.parentElement;
+  var isOpen = item.classList.contains('open');
+  document.querySelectorAll('.faq-item.open').forEach(function(i){ i.classList.remove('open'); });
+  if (!isOpen) item.classList.add('open');
+}
+
+var demos = {
+  restaurante: {
+    title: '🍽 Demo — Sabores & Arte',
+    html: '<div class="demo-site"><div class="dr-hero"><div class="dr-ey">Gastronomia Premium · São Paulo</div><h2>Sabor que <span>marca memória</span></h2><p>Ingredientes selecionados, receitas autorais e um ambiente que transforma qualquer refeição em experiência.</p><div class="dr-btns"><button class="dr-btn">📅 Reservar Mesa</button><button class="dr-btn-g">🍴 Ver Cardápio</button></div></div><div class="dr-menu"><div class="dr-mhdr"><div class="dr-mt">Destaques do Chef</div><div class="dr-filt"><div class="dr-fc on">Todos</div><div class="dr-fc">Carnes</div><div class="dr-fc">Massas</div><div class="dr-fc">Sobremesas</div></div></div><div class="dr-grid"><div class="dr-item"><div class="dr-img dr-i1">🥩</div><div class="dr-ib"><div class="dr-in">Picanha Premium</div><div class="dr-ip">R$ 89,90</div></div></div><div class="dr-item"><div class="dr-img dr-i2">🫕</div><div class="dr-ib"><div class="dr-in">Risoto de Cogumelos</div><div class="dr-ip">R$ 62,00</div></div></div><div class="dr-item"><div class="dr-img dr-i3">🍮</div><div class="dr-ib"><div class="dr-in">Crème Brûlée</div><div class="dr-ip">R$ 28,50</div></div></div></div></div></div>'
+  },
+  clinica: {
+    title: '🏥 Demo — Clínica Saúde Plena',
+    html: '<div class="demo-site"><div class="dc-wrap"><div class="dc-side"><div class="dc-brand">🏥 Saúde Plena</div><div class="dc-menu"><div class="dc-mi on">🏠 Dashboard</div><div class="dc-mi">📅 Agendamentos</div><div class="dc-mi">👥 Pacientes</div><div class="dc-mi">🩺 Especialidades</div><div class="dc-mi">📋 Prontuários</div></div></div><div class="dc-main"><div class="dc-top"><div class="dc-wlc">Bom dia, Dr. Silva 👋</div><div class="dc-dt">📅 Segunda, 9 Jun</div></div><div class="dc-stats"><div class="dc-stat"><div class="dc-sn">24</div><div class="dc-sl">Pacientes hoje</div></div><div class="dc-stat"><div class="dc-sn" style="color:#16a34a">3</div><div class="dc-sl">Aguardando</div></div><div class="dc-stat"><div class="dc-sn" style="color:#d97706">5</div><div class="dc-sl">Confirmados</div></div></div><div class="dc-apts"><div class="dc-at">Próximas consultas</div><div class="dc-apt"><div class="dc-atm">09:30</div><div class="dc-an">Maria Oliveira — Cardiologia</div><div class="dc-ab apt-ok">Confirmado</div></div><div class="dc-apt"><div class="dc-atm">10:00</div><div class="dc-an">João Santos — Clínico Geral</div><div class="dc-ab apt-wt">Aguardando</div></div><div class="dc-apt"><div class="dc-atm">11:15</div><div class="dc-an">Ana Ferreira — Dermatologia</div><div class="dc-ab apt-ok">Confirmado</div></div></div></div></div></div>'
+  },
+  bot: {
+    title: '🤖 Demo — AgendaBot Pro',
+    html: '<div class="demo-site"><div class="db-wrap"><div class="db-header"><div class="db-brand"><div class="db-brand-icon">🤖</div><div><div class="db-brand-name">AgendaBot Pro</div><div class="db-brand-sub">Assistente de Agendamentos</div></div></div><div class="db-status"><span style="width:6px;height:6px;background:#4ade80;border-radius:50%;display:inline-block;margin-right:4px;"></span> Online agora</div></div><div class="db-chat"><div class="db-msg bot">👋 Olá! Sou o AgendaBot. Vou te ajudar a marcar seu horário. Qual serviço você deseja?</div><div class="db-options"><div class="db-opt">💆 Consulta</div><div class="db-opt">🔁 Retorno</div><div class="db-opt">🧪 Exame</div></div><div class="db-msg usr">Consulta</div><div class="db-msg bot">📅 Perfeito! Aqui estão os dias disponíveis essa semana:</div><div class="db-calendar"><div class="db-cal-title">Junho 2026 — Dias disponíveis</div><div class="db-cal-grid"><div class="db-cal-day hdr">D</div><div class="db-cal-day hdr">S</div><div class="db-cal-day hdr">T</div><div class="db-cal-day hdr">Q</div><div class="db-cal-day hdr">Q</div><div class="db-cal-day hdr">S</div><div class="db-cal-day hdr">S</div><div class="db-cal-day">1</div><div class="db-cal-day avail">2</div><div class="db-cal-day avail">3</div><div class="db-cal-day sel">4</div><div class="db-cal-day avail">5</div><div class="db-cal-day">6</div><div class="db-cal-day">7</div></div></div><div class="db-msg bot">✅ Você escolheu <strong>Quarta, 4 de Junho</strong>. Qual horário prefere?</div><div class="db-options"><div class="db-opt">🌅 09:00</div><div class="db-opt">🌅 10:30</div><div class="db-opt">🌇 14:00</div><div class="db-opt">🌇 16:00</div></div></div></div></div>'
+  },
+  loja: {
+    title: '🛍 Demo — Shop Premium',
+    html: '<div class="demo-site"><div class="dl-wrap"><div class="dl-nav"><div class="dl-logo">Shop<span>Premium</span></div><div class="dl-navl"><span class="dl-nl">Feminino</span><span class="dl-nl">Masculino</span><span class="dl-nl">Acessórios</span></div><button class="dl-cart">🛒 Carrinho (2)</button></div><div class="dl-hero"><div class="dl-hl">🔥 Coleção Verão 2025</div><h2>Estilo que fala<br>por você</h2><p>Peças exclusivas para quem não se contenta com o óbvio.</p><button class="dl-hcta">Ver coleção completa →</button></div><div class="dl-grid"><div class="dl-item"><div class="dl-img dl-i1">👗</div><div class="dl-ib"><div class="dl-in">Vestido Exclusivo</div><div><span class="dl-ip">R$ 249,90</span><span class="dl-io">R$ 399</span></div></div></div><div class="dl-item"><div class="dl-img dl-i2">👟</div><div class="dl-ib"><div class="dl-in">Tênis Urban</div><div><span class="dl-ip">R$ 389,00</span></div></div></div><div class="dl-item"><div class="dl-img dl-i3">👜</div><div class="dl-ib"><div class="dl-in">Bolsa Couro</div><div><span class="dl-ip">R$ 179,90</span><span class="dl-io">R$ 280</span></div></div></div></div></div></div>'
+  }
+};
+
+function openDemo(type) {
+  var d = demos[type];
+  if (!d) return;
+  document.getElementById('modalTitle').textContent = d.title;
+  document.getElementById('modalContent').innerHTML = d.html;
+  document.getElementById('demoModal').classList.add('open');
+  document.body.style.overflow = 'hidden';
+}
+function closeDemo() {
+  document.getElementById('demoModal').classList.remove('open');
+  document.body.style.overflow = '';
+}
+document.getElementById('demoModal').addEventListener('click', function(e){
+  if (e.target === this) closeDemo();
+});
+document.addEventListener('keydown', function(e){
+  if (e.key === 'Escape') closeDemo();
+});
+
+function submitForm(btn) {
+  btn.textContent = '✓ Mensagem enviada! Retornamos em breve.';
+  btn.style.background = '#15803d';
+  btn.disabled = true;
+  setTimeout(function(){
+    btn.innerHTML = '💬 Enviar mensagem';
+    btn.style.background = '';
+    btn.disabled = false;
+  }, 4000);
+}
+</script>
+</body>
+</html>

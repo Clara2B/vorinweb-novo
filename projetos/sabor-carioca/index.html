@@ -1,0 +1,361 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Sabor Carioca — A tradição carioca no seu prato</title>
+  <meta name="description" content="Restaurante tradicional carioca com cardápio autêntico, ambiente acolhedor e reservas online. Venha saborear o Rio de Janeiro." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=Playfair+Display:ital,wght@0,600;0,700;1,600&display=swap" rel="stylesheet" />
+  <style>
+    *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+    :root {
+      --bg: #1a0f07;
+      --bg2: #120b05;
+      --bg3: #241508;
+      --orange: #f59e0b;
+      --orange-light: #fbbf24;
+      --orange-dim: rgba(245,158,11,0.12);
+      --red: #dc2626;
+      --text: #fef3e2;
+      --muted: #b08860;
+      --border: #2d1a08;
+      --card: #1f1009;
+      --font: 'Inter', sans-serif;
+      --serif: 'Playfair Display', Georgia, serif;
+      --radius: 10px;
+      --transition: 0.3s cubic-bezier(0.4,0,0.2,1);
+    }
+    html { scroll-behavior: smooth; }
+    body { font-family: var(--font); background: var(--bg); color: var(--text); line-height: 1.6; overflow-x: hidden; -webkit-font-smoothing: antialiased; }
+    a { text-decoration: none; color: inherit; transition: var(--transition); }
+    ul { list-style: none; }
+    .container { max-width: 1100px; margin: 0 auto; padding: 0 1.5rem; }
+
+    /* NAV */
+    nav { position: fixed; top: 0; left: 0; right: 0; z-index: 100; padding: 1.1rem 0; background: rgba(26,15,7,0.94); backdrop-filter: blur(16px); border-bottom: 1px solid var(--border); }
+    .nav-inner { display: flex; align-items: center; justify-content: space-between; }
+    .nav-brand { font-family: var(--serif); font-size: 1.2rem; font-weight: 700; color: var(--orange); }
+    .nav-brand span { color: var(--muted); font-family: var(--font); font-size: 0.72rem; display: block; font-weight: 400; letter-spacing: 0.06em; text-transform: uppercase; margin-top: -2px; }
+    nav ul { display: flex; gap: 0.25rem; align-items: center; }
+    nav ul li a { font-size: 0.875rem; color: var(--muted); padding: 0.45rem 0.75rem; border-radius: 6px; }
+    nav ul li a:hover { color: var(--text); }
+    .nav-reserva { background: var(--orange) !important; color: #1a0f07 !important; font-weight: 700 !important; padding: 0.55rem 1.2rem !important; border-radius: 8px !important; }
+    .nav-reserva:hover { background: var(--orange-light) !important; }
+
+    /* HERO */
+    .hero { min-height: 100vh; display: flex; align-items: center; padding: 7rem 0 4rem; position: relative; overflow: hidden; }
+    .hero-bg { position: absolute; inset: 0; background: linear-gradient(160deg, #0a0600 0%, #1a0f07 40%, #241508 100%); }
+    .hero-overlay { position: absolute; inset: 0; background: radial-gradient(ellipse 80% 70% at 50% 30%, rgba(245,158,11,0.1) 0%, transparent 70%); pointer-events: none; }
+    .hero-inner { display: grid; grid-template-columns: 1fr 1fr; gap: 4rem; align-items: center; position: relative; z-index: 1; }
+    .hero-tag { display: flex; align-items: center; gap: 0.5rem; margin-bottom: 1.5rem; }
+    .hero-tag span { font-size: 0.78rem; letter-spacing: 0.1em; text-transform: uppercase; font-weight: 700; color: var(--orange); }
+    .hero-tag::before { content: ''; width: 24px; height: 2px; background: var(--orange); }
+    .hero h1 { font-family: var(--serif); font-size: clamp(2rem, 4vw, 3.2rem); font-weight: 700; line-height: 1.2; margin-bottom: 1.25rem; }
+    .hero h1 em { font-style: italic; color: var(--orange); }
+    .hero p { font-size: 1rem; color: var(--muted); margin-bottom: 2rem; line-height: 1.75; max-width: 450px; }
+    .hero-btns { display: flex; gap: 1rem; flex-wrap: wrap; }
+    .btn { display: inline-flex; align-items: center; gap: 0.5rem; font-family: var(--font); font-weight: 600; font-size: 0.95rem; padding: 0.8rem 1.75rem; border-radius: var(--radius); cursor: pointer; border: none; transition: var(--transition); }
+    .btn-orange { background: var(--orange); color: #1a0f07; }
+    .btn-orange:hover { background: var(--orange-light); transform: translateY(-2px); box-shadow: 0 8px 24px rgba(245,158,11,0.3); }
+    .btn-outline { background: transparent; color: var(--text); border: 1.5px solid var(--border); }
+    .btn-outline:hover { border-color: var(--orange); color: var(--orange); }
+    .hero-visual { background: var(--card); border: 1px solid var(--border); border-radius: 16px; overflow: hidden; }
+    .hv-top { background: linear-gradient(135deg, #451a03, #1a0f07); padding: 2.5rem; text-align: center; border-bottom: 1px solid var(--border); }
+    .hv-emoji { font-size: 4rem; display: block; margin-bottom: 0.5rem; }
+    .hv-name { font-family: var(--serif); font-size: 1.25rem; color: var(--orange); }
+    .hv-sub { font-size: 0.85rem; color: var(--muted); }
+    .hv-items { padding: 1.5rem; display: flex; flex-direction: column; gap: 1rem; }
+    .hv-item { display: flex; align-items: center; justify-content: space-between; padding-bottom: 0.75rem; border-bottom: 1px solid var(--border); }
+    .hv-item:last-child { border-bottom: none; padding-bottom: 0; }
+    .hv-item-name { font-size: 0.9rem; font-weight: 600; }
+    .hv-item-desc { font-size: 0.78rem; color: var(--muted); }
+    .hv-item-price { font-weight: 700; color: var(--orange); font-size: 0.95rem; flex-shrink: 0; }
+
+    /* SECTION */
+    .section { padding: 5.5rem 0; }
+    .section-dark { background: var(--bg2); }
+    .section-header { text-align: center; margin-bottom: 3.5rem; }
+    .section-tag { font-size: 0.78rem; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; color: var(--orange); display: block; margin-bottom: 0.5rem; }
+    .section-title { font-family: var(--serif); font-size: clamp(1.6rem, 3vw, 2.25rem); font-weight: 700; margin-bottom: 0.75rem; }
+    .section-sub { font-size: 1rem; color: var(--muted); max-width: 520px; margin: 0 auto; }
+
+    /* MENU */
+    .menu-tabs { display: flex; justify-content: center; gap: 0.5rem; margin-bottom: 3rem; flex-wrap: wrap; }
+    .menu-tab { padding: 0.5rem 1.25rem; border-radius: 100px; font-size: 0.875rem; font-weight: 600; cursor: pointer; transition: var(--transition); border: 1.5px solid var(--border); color: var(--muted); background: transparent; font-family: var(--font); }
+    .menu-tab.active, .menu-tab:hover { border-color: var(--orange); color: var(--orange); background: var(--orange-dim); }
+    .menu-category { margin-bottom: 3.5rem; }
+    .menu-cat-title { font-family: var(--serif); font-size: 1.35rem; font-weight: 600; color: var(--orange); margin-bottom: 1.5rem; padding-bottom: 0.75rem; border-bottom: 1px solid var(--border); display: flex; align-items: center; gap: 0.5rem; }
+    .menu-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.25rem; }
+    .menu-card { background: var(--card); border: 1px solid var(--border); border-radius: var(--radius); padding: 1.5rem; transition: var(--transition); }
+    .menu-card:hover { border-color: rgba(245,158,11,0.3); transform: translateY(-3px); }
+    .mc-icon { font-size: 2rem; margin-bottom: 0.75rem; }
+    .mc-name { font-weight: 700; font-size: 0.975rem; margin-bottom: 0.25rem; }
+    .mc-desc { font-size: 0.85rem; color: var(--muted); line-height: 1.55; margin-bottom: 0.75rem; }
+    .mc-price { font-weight: 700; color: var(--orange); font-size: 1rem; }
+
+    /* ABOUT */
+    .about-inner { display: grid; grid-template-columns: 1fr 1fr; gap: 4rem; align-items: center; }
+    .about-img { background: linear-gradient(135deg, #2d1a08, #451a03); border-radius: 16px; padding: 3rem; text-align: center; border: 1px solid var(--border); }
+    .about-img-emoji { font-size: 5rem; display: block; margin-bottom: 1rem; }
+    .about-img-caption { font-family: var(--serif); font-style: italic; font-size: 1rem; color: var(--orange); }
+    .about-content span { font-size: 0.78rem; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; color: var(--orange); display: block; margin-bottom: 0.5rem; }
+    .about-content h2 { font-family: var(--serif); font-size: clamp(1.5rem, 2.5vw, 2rem); font-weight: 700; margin-bottom: 1rem; }
+    .about-content p { color: var(--muted); line-height: 1.75; margin-bottom: 1rem; font-size: 0.975rem; }
+
+    /* HOURS */
+    .info-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 2rem; }
+    .info-card { background: var(--card); border: 1px solid var(--border); border-radius: var(--radius); padding: 2rem; }
+    .info-card-title { display: flex; align-items: center; gap: 0.6rem; font-weight: 700; font-size: 1rem; margin-bottom: 1.25rem; color: var(--orange); }
+    .info-row { display: flex; justify-content: space-between; align-items: center; padding: 0.6rem 0; border-bottom: 1px solid var(--border); font-size: 0.875rem; }
+    .info-row:last-child { border-bottom: none; }
+    .info-day { color: var(--muted); }
+    .info-time { font-weight: 600; }
+    .info-closed { color: #ef4444; }
+    .info-address { font-size: 0.9rem; color: var(--muted); line-height: 1.7; }
+    .info-address strong { color: var(--text); display: block; margin-bottom: 0.25rem; }
+
+    /* CTA */
+    .cta-section { background: linear-gradient(160deg, #0a0600 0%, #1a0f07 100%); text-align: center; padding: 5.5rem 0; position: relative; }
+    .cta-section::before { content: ''; position: absolute; top: 0; left: 0; right: 0; height: 2px; background: linear-gradient(90deg, transparent, var(--orange), transparent); }
+    .cta-section h2 { font-family: var(--serif); font-size: clamp(1.75rem, 3.5vw, 2.5rem); font-weight: 700; margin-bottom: 1rem; }
+    .cta-section p { color: var(--muted); font-size: 1rem; margin-bottom: 2.5rem; }
+
+    /* FOOTER */
+    footer { background: var(--bg2); border-top: 1px solid var(--border); padding: 2.5rem 0; }
+    .footer-inner { display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 1rem; }
+    .footer-brand { font-family: var(--serif); font-weight: 600; color: var(--orange); font-size: 0.95rem; }
+    .footer-copy { font-size: 0.8rem; color: var(--muted); }
+    .footer-back { font-size: 0.875rem; color: var(--orange); border: 1px solid rgba(245,158,11,0.3); padding: 0.4rem 1rem; border-radius: 6px; }
+    .footer-back:hover { background: var(--orange-dim); }
+
+    @media (max-width: 900px) {
+      .hero-inner, .about-inner, .info-grid { grid-template-columns: 1fr; }
+      .hero-visual { display: none; }
+      .menu-grid { grid-template-columns: repeat(2, 1fr); }
+    }
+    @media (max-width: 600px) {
+      .menu-grid { grid-template-columns: 1fr; }
+      nav ul { display: none; }
+    }
+  </style>
+</head>
+<body>
+
+  <nav>
+    <div class="container">
+      <div class="nav-inner">
+        <div class="nav-brand">
+          Sabor Carioca
+          <span>Restaurante Tradicional</span>
+        </div>
+        <ul>
+          <li><a href="#cardapio">Cardápio</a></li>
+          <li><a href="#sobre">Nossa história</a></li>
+          <li><a href="https://wa.me/5511934900204?text=Olá,%20gostaria%20de%20reservar%20uma%20mesa%20no%20Sabor%20Carioca!" class="nav-reserva" target="_blank" rel="noopener">Reservar mesa</a></li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+
+  <section class="hero">
+    <div class="hero-bg"></div>
+    <div class="hero-overlay"></div>
+    <div class="container">
+      <div class="hero-inner">
+        <div>
+          <div class="hero-tag"><span>Desde 1987</span></div>
+          <h1>A tradição carioca <em>no seu prato</em></h1>
+          <p>Sabores autênticos do Rio de Janeiro preparados com receitas de família, ingredientes frescos e o carinho de quem ama a boa cozinha brasileira.</p>
+          <div class="hero-btns">
+            <a href="#cardapio" class="btn btn-orange">Ver cardápio</a>
+            <a href="https://wa.me/5511934900204?text=Olá,%20gostaria%20de%20reservar%20uma%20mesa%20no%20Sabor%20Carioca!" class="btn btn-outline" target="_blank" rel="noopener">Reservar mesa</a>
+          </div>
+        </div>
+        <div class="hero-visual">
+          <div class="hv-top">
+            <span class="hv-emoji">🍲</span>
+            <div class="hv-name">Prato do Dia</div>
+            <div class="hv-sub">Feijoada Completa — Sábados</div>
+          </div>
+          <div class="hv-items">
+            <div class="hv-item">
+              <div>
+                <div class="hv-item-name">Picanha na Brasa</div>
+                <div class="hv-item-desc">com arroz, farofa e vinagrete</div>
+              </div>
+              <div class="hv-item-price">R$ 89,90</div>
+            </div>
+            <div class="hv-item">
+              <div>
+                <div class="hv-item-name">Feijoada Completa</div>
+                <div class="hv-item-desc">porção para 2 pessoas</div>
+              </div>
+              <div class="hv-item-price">R$ 75,00</div>
+            </div>
+            <div class="hv-item">
+              <div>
+                <div class="hv-item-name">Camarão na Moranga</div>
+                <div class="hv-item-desc">com creme de coco</div>
+              </div>
+              <div class="hv-item-price">R$ 69,90</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section section-dark" id="cardapio">
+    <div class="container">
+      <div class="section-header">
+        <span class="section-tag">Cardápio</span>
+        <h2 class="section-title">Nossa culinária</h2>
+        <p class="section-sub">Pratos preparados com ingredientes selecionados e receitas passadas de geração em geração</p>
+      </div>
+
+      <div class="menu-category">
+        <div class="menu-cat-title">🥗 Entradas</div>
+        <div class="menu-grid">
+          <div class="menu-card">
+            <div class="mc-icon">🥗</div>
+            <div class="mc-name">Salada Carioca</div>
+            <div class="mc-desc">Mix de folhas frescas com manga, castanha-do-pará, palmito e molho de maracujá.</div>
+            <div class="mc-price">R$ 32,00</div>
+          </div>
+          <div class="menu-card">
+            <div class="mc-icon">🍢</div>
+            <div class="mc-name">Bolinho de Bacalhau</div>
+            <div class="mc-desc">Porção com 8 unidades, servidos com maionese de ervas e azeitonas pretas.</div>
+            <div class="mc-price">R$ 38,90</div>
+          </div>
+          <div class="menu-card">
+            <div class="mc-icon">🐟</div>
+            <div class="mc-name">Ceviche Carioca</div>
+            <div class="mc-desc">Peixe branco marinado no limão taiti com pimenta dedo-de-moça, coentro e milho.</div>
+            <div class="mc-price">R$ 45,00</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="menu-category">
+        <div class="menu-cat-title">🍖 Pratos Principais</div>
+        <div class="menu-grid">
+          <div class="menu-card">
+            <div class="mc-icon">🥩</div>
+            <div class="mc-name">Picanha na Brasa</div>
+            <div class="mc-desc">350g de picanha grelhada na brasa, acompanhada de arroz, farofa e vinagrete da casa.</div>
+            <div class="mc-price">R$ 89,90</div>
+          </div>
+          <div class="menu-card">
+            <div class="mc-icon">🍲</div>
+            <div class="mc-name">Feijoada Completa</div>
+            <div class="mc-desc">Feijoada tradicional com todos os cortes, arroz, couve refogada, farofa e laranja. Serve 2.</div>
+            <div class="mc-price">R$ 75,00</div>
+          </div>
+          <div class="menu-card">
+            <div class="mc-icon">🦐</div>
+            <div class="mc-name">Camarão na Moranga</div>
+            <div class="mc-desc">Camarões salteados com alho, servidos dentro da moranga com creme de queijo e coco.</div>
+            <div class="mc-price">R$ 69,90</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="menu-category">
+        <div class="menu-cat-title">🍮 Sobremesas</div>
+        <div class="menu-grid">
+          <div class="menu-card">
+            <div class="mc-icon">🍮</div>
+            <div class="mc-name">Pudim de Leite</div>
+            <div class="mc-desc">Clássico pudim de leite condensado com calda de caramelo dourado. Receita de avó.</div>
+            <div class="mc-price">R$ 18,00</div>
+          </div>
+          <div class="menu-card">
+            <div class="mc-icon">🍰</div>
+            <div class="mc-name">Mousse de Maracujá</div>
+            <div class="mc-desc">Mousse cremoso de maracujá com calda ácida e raspas de limão. Refrescante e delicioso.</div>
+            <div class="mc-price">R$ 16,00</div>
+          </div>
+          <div class="menu-card">
+            <div class="mc-icon">🍫</div>
+            <div class="mc-name">Brigadeiro Gourmet</div>
+            <div class="mc-desc">3 brigadeiros artesanais de chocolate belga 70%, servidos com sorvete de creme.</div>
+            <div class="mc-price">R$ 22,00</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section" id="sobre">
+    <div class="container">
+      <div class="about-inner">
+        <div class="about-img">
+          <span class="about-img-emoji">👨‍🍳</span>
+          <div class="about-img-caption">"Cozinhar é um ato de amor"<br>— Dona Maria, fundadora</div>
+        </div>
+        <div class="about-content">
+          <span>Nossa história</span>
+          <h2>Mais de 35 anos alimentando corações cariocas</h2>
+          <p>O Sabor Carioca nasceu em 1987 quando Dona Maria trouxe da Zona Norte do Rio as receitas da família para um pequeno boteco no Leblon. O que era um humilde ponto de feijoada tornou-se um dos restaurantes mais queridos da cidade.</p>
+          <p>Hoje, sob o comando do chef Eduardo — filho de Dona Maria — o restaurante mantém as receitas originais com o cuidado de sempre, mas com um toque contemporâneo que conquistou até os paladares mais exigentes.</p>
+          <p>Cada prato conta uma história. Venha fazer parte da nossa.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section section-dark">
+    <div class="container">
+      <div class="section-header">
+        <span class="section-tag">Informações</span>
+        <h2 class="section-title">Horários &amp; Localização</h2>
+      </div>
+      <div class="info-grid">
+        <div class="info-card">
+          <div class="info-card-title">🕐 Horário de funcionamento</div>
+          <div class="info-row"><span class="info-day">Segunda a Quinta</span><span class="info-time">12h – 23h</span></div>
+          <div class="info-row"><span class="info-day">Sexta e Sábado</span><span class="info-time">12h – 00h</span></div>
+          <div class="info-row"><span class="info-day">Domingo</span><span class="info-time">12h – 22h</span></div>
+          <div class="info-row"><span class="info-day">Feriados</span><span class="info-time">12h – 20h</span></div>
+        </div>
+        <div class="info-card">
+          <div class="info-card-title">📍 Onde estamos</div>
+          <div class="info-address">
+            <strong>Sabor Carioca — Restaurante</strong>
+            Rua do Leblon, 428<br>
+            Leblon — Rio de Janeiro, RJ<br>
+            CEP: 22430-060<br><br>
+            📞 (21) 98765-4321<br>
+            📧 contato@saborcarioca.com.br<br><br>
+            <em style="color: var(--orange); font-size: 0.85rem;">Estacionamento conveniado ao lado</em>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="cta-section">
+    <div class="container">
+      <h2>Reserve sua mesa agora</h2>
+      <p>Garanta seu lugar e venha saborear a verdadeira culinária carioca. Aceitamos reservas para grupos a partir de 4 pessoas.</p>
+      <a href="https://wa.me/5511934900204?text=Olá,%20gostaria%20de%20reservar%20uma%20mesa%20no%20Sabor%20Carioca!" class="btn btn-orange" target="_blank" rel="noopener">
+        📅 Reservar uma mesa
+      </a>
+    </div>
+  </section>
+
+  <footer>
+    <div class="container">
+      <div class="footer-inner">
+        <div class="footer-brand">Sabor Carioca</div>
+        <div class="footer-copy">Leblon, Rio de Janeiro — Desde 1987</div>
+        <a href="/" class="footer-back">← Criado pela VorinWeb</a>
+      </div>
+    </div>
+  </footer>
+
+</body>
+</html>

@@ -1,0 +1,276 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Advocacia Silva &amp; Braga — Escritório de Advocacia</title>
+  <meta name="description" content="Defendendo seus direitos com excelência e comprometimento. Advocacia especializada em Direito Civil, Trabalhista, Empresarial e de Família." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=Playfair+Display:wght@600;700;800&display=swap" rel="stylesheet" />
+  <style>
+    *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+    :root {
+      --bg: #0f1623;
+      --bg2: #0a0f1a;
+      --bg3: #141e30;
+      --gold: #c9a227;
+      --gold-light: #e0bb58;
+      --gold-dim: rgba(201,162,39,0.15);
+      --text: #f0ebe0;
+      --muted: #8899aa;
+      --border: #1e2d42;
+      --card: #111827;
+      --font: 'Inter', sans-serif;
+      --serif: 'Playfair Display', Georgia, serif;
+      --radius: 10px;
+      --transition: 0.3s cubic-bezier(0.4,0,0.2,1);
+    }
+    html { scroll-behavior: smooth; }
+    body { font-family: var(--font); background: var(--bg); color: var(--text); line-height: 1.6; overflow-x: hidden; -webkit-font-smoothing: antialiased; }
+    a { text-decoration: none; color: inherit; transition: var(--transition); }
+    ul { list-style: none; }
+    .container { max-width: 1100px; margin: 0 auto; padding: 0 1.5rem; }
+
+    /* NAV */
+    nav { position: fixed; top: 0; left: 0; right: 0; z-index: 100; padding: 1.25rem 0; background: rgba(15,22,35,0.92); backdrop-filter: blur(16px); border-bottom: 1px solid var(--border); }
+    .nav-inner { display: flex; align-items: center; justify-content: space-between; }
+    .nav-brand { font-family: var(--serif); font-size: 1.2rem; font-weight: 700; color: var(--gold); letter-spacing: 0.02em; }
+    .nav-brand span { color: var(--text); font-size: 0.75rem; display: block; font-family: var(--font); font-weight: 400; letter-spacing: 0.05em; text-transform: uppercase; color: var(--muted); }
+    nav ul { display: flex; gap: 0.25rem; align-items: center; }
+    nav ul li a { font-size: 0.875rem; color: var(--muted); padding: 0.5rem 0.75rem; border-radius: 6px; }
+    nav ul li a:hover { color: var(--text); }
+    .nav-cta { background: var(--gold) !important; color: #0f1623 !important; font-weight: 700 !important; padding: 0.55rem 1.2rem !important; border-radius: 6px !important; font-size: 0.875rem !important; }
+    .nav-cta:hover { background: var(--gold-light) !important; }
+
+    /* HERO */
+    .hero { min-height: 100vh; display: flex; align-items: center; padding: 8rem 0 5rem; position: relative; overflow: hidden; }
+    .hero-bg { position: absolute; inset: 0; background: linear-gradient(160deg, #0a0f1a 0%, #0f1623 40%, #141e30 100%); }
+    .hero-bg::after { content: ''; position: absolute; top: 0; right: 0; width: 60%; height: 100%; background: linear-gradient(to left, rgba(201,162,39,0.04) 0%, transparent 60%); }
+    .hero-deco { position: absolute; bottom: -60px; left: -60px; width: 400px; height: 400px; background: radial-gradient(circle, rgba(201,162,39,0.05), transparent 70%); pointer-events: none; }
+    .hero-inner { display: grid; grid-template-columns: 3fr 2fr; gap: 5rem; align-items: center; position: relative; z-index: 1; }
+    .hero-label { display: flex; align-items: center; gap: 0.6rem; margin-bottom: 1.5rem; }
+    .hero-label span { width: 28px; height: 1px; background: var(--gold); }
+    .hero-label p { font-size: 0.78rem; font-weight: 700; letter-spacing: 0.12em; text-transform: uppercase; color: var(--gold); }
+    .hero h1 { font-family: var(--serif); font-size: clamp(2rem, 4vw, 3.2rem); font-weight: 700; line-height: 1.2; letter-spacing: -0.01em; margin-bottom: 1.5rem; }
+    .hero h1 span { color: var(--gold); }
+    .hero p { font-size: 1rem; color: var(--muted); margin-bottom: 2.5rem; line-height: 1.75; max-width: 480px; }
+    .btn { display: inline-flex; align-items: center; gap: 0.5rem; font-family: var(--font); font-weight: 600; font-size: 0.95rem; padding: 0.75rem 1.75rem; border-radius: var(--radius); cursor: pointer; border: none; transition: var(--transition); }
+    .btn-gold { background: var(--gold); color: #0f1623; }
+    .btn-gold:hover { background: var(--gold-light); transform: translateY(-2px); box-shadow: 0 8px 24px rgba(201,162,39,0.3); }
+    .btn-outline { background: transparent; color: var(--text); border: 1.5px solid var(--border); }
+    .btn-outline:hover { border-color: var(--gold); color: var(--gold); }
+    .hero-btns { display: flex; gap: 1rem; flex-wrap: wrap; margin-bottom: 3rem; }
+    .hero-trust { display: flex; gap: 2rem; padding-top: 2rem; border-top: 1px solid var(--border); }
+    .trust-item { text-align: center; }
+    .trust-num { font-size: 1.5rem; font-weight: 800; color: var(--gold); font-family: var(--serif); }
+    .trust-label { font-size: 0.78rem; color: var(--muted); }
+    .hero-badge-box { background: var(--bg3); border: 1px solid var(--border); border-radius: var(--radius); padding: 2rem; text-align: center; }
+    .hbb-icon { font-size: 3rem; margin-bottom: 1rem; }
+    .hbb-title { font-family: var(--serif); font-size: 1.2rem; color: var(--gold); margin-bottom: 0.5rem; }
+    .hbb-sub { font-size: 0.85rem; color: var(--muted); line-height: 1.6; }
+    .hbb-list { display: flex; flex-direction: column; gap: 0.6rem; margin-top: 1.25rem; text-align: left; }
+    .hbb-item { display: flex; align-items: center; gap: 0.5rem; font-size: 0.85rem; color: var(--muted); }
+    .hbb-item::before { content: '§'; color: var(--gold); font-weight: 700; flex-shrink: 0; }
+
+    /* AREAS */
+    .section { padding: 5.5rem 0; }
+    .section-dark { background: var(--bg2); }
+    .section-header { text-align: center; margin-bottom: 3.5rem; }
+    .section-tag { font-size: 0.78rem; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; color: var(--gold); display: block; margin-bottom: 0.5rem; }
+    .section-title { font-family: var(--serif); font-size: clamp(1.6rem, 3vw, 2.25rem); font-weight: 700; letter-spacing: -0.01em; margin-bottom: 0.75rem; }
+    .section-sub { font-size: 1rem; color: var(--muted); max-width: 520px; margin: 0 auto; }
+    .areas-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 1.25rem; }
+    .area-card { background: var(--bg3); border: 1px solid var(--border); border-radius: var(--radius); padding: 2rem 1.5rem; transition: var(--transition); }
+    .area-card:hover { border-color: var(--gold); transform: translateY(-4px); box-shadow: 0 12px 40px rgba(0,0,0,0.4); }
+    .area-number { font-family: var(--serif); font-size: 2.5rem; font-weight: 700; color: rgba(201,162,39,0.2); line-height: 1; margin-bottom: 1rem; }
+    .area-title { font-weight: 700; font-size: 1rem; color: var(--text); margin-bottom: 0.5rem; }
+    .area-desc { font-size: 0.875rem; color: var(--muted); line-height: 1.6; }
+
+    /* TEAM */
+    .team-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 2rem; max-width: 700px; margin: 0 auto; }
+    .team-card { background: var(--bg3); border: 1px solid var(--border); border-radius: var(--radius); padding: 2rem; display: flex; gap: 1.25rem; align-items: flex-start; transition: var(--transition); }
+    .team-card:hover { border-color: var(--gold); }
+    .team-avatar { width: 64px; height: 64px; border-radius: 50%; background: linear-gradient(135deg, var(--gold), #8b6914); display: flex; align-items: center; justify-content: center; font-family: var(--serif); font-size: 1.25rem; font-weight: 700; color: #0f1623; flex-shrink: 0; }
+    .team-name { font-weight: 700; font-size: 1rem; margin-bottom: 0.2rem; }
+    .team-role { font-size: 0.8rem; color: var(--gold); font-weight: 600; margin-bottom: 0.6rem; }
+    .team-desc { font-size: 0.85rem; color: var(--muted); line-height: 1.6; }
+    .team-oab { display: inline-block; font-size: 0.75rem; color: var(--muted); border: 1px solid var(--border); padding: 0.2rem 0.6rem; border-radius: 4px; margin-top: 0.5rem; }
+
+    /* CTA */
+    .cta-section { background: linear-gradient(160deg, #0a0f1a 0%, #141e30 100%); text-align: center; padding: 5.5rem 0; position: relative; overflow: hidden; }
+    .cta-section::before { content: ''; position: absolute; top: 0; left: 50%; transform: translateX(-50%); width: 600px; height: 3px; background: linear-gradient(90deg, transparent, var(--gold), transparent); }
+    .cta-section h2 { font-family: var(--serif); font-size: clamp(1.75rem, 3.5vw, 2.5rem); font-weight: 700; margin-bottom: 1rem; }
+    .cta-section h2 span { color: var(--gold); }
+    .cta-section p { color: var(--muted); font-size: 1rem; margin-bottom: 2.5rem; max-width: 500px; margin-left: auto; margin-right: auto; }
+
+    /* FOOTER */
+    footer { background: var(--bg2); border-top: 1px solid var(--border); padding: 2.5rem 0; }
+    .footer-inner { display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 1rem; }
+    .footer-brand { font-family: var(--serif); font-weight: 600; color: var(--gold); font-size: 0.95rem; }
+    .footer-copy { font-size: 0.8rem; color: var(--muted); }
+    .footer-back { font-size: 0.875rem; color: var(--gold); border: 1px solid rgba(201,162,39,0.3); padding: 0.4rem 1rem; border-radius: 6px; }
+    .footer-back:hover { background: var(--gold-dim); }
+
+    @media (max-width: 900px) {
+      .hero-inner { grid-template-columns: 1fr; }
+      .hero-badge-box { display: none; }
+      .areas-grid { grid-template-columns: repeat(2, 1fr); }
+      .team-grid { grid-template-columns: 1fr; }
+    }
+    @media (max-width: 600px) {
+      .areas-grid { grid-template-columns: 1fr; }
+      nav ul { display: none; }
+    }
+  </style>
+</head>
+<body>
+
+  <nav>
+    <div class="container">
+      <div class="nav-inner">
+        <div class="nav-brand">
+          Silva &amp; Braga Advocacia
+          <span>Escritório de Advocacia</span>
+        </div>
+        <ul>
+          <li><a href="#areas">Áreas</a></li>
+          <li><a href="#equipe">Equipe</a></li>
+          <li><a href="https://wa.me/5511934900204?text=Olá,%20vim%20pelo%20site%20Silva%20%26%20Braga%20e%20gostaria%20de%20agendar%20uma%20consulta" class="nav-cta" target="_blank" rel="noopener">Agendar consulta</a></li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+
+  <section class="hero">
+    <div class="hero-bg"></div>
+    <div class="hero-deco"></div>
+    <div class="container">
+      <div class="hero-inner">
+        <div>
+          <div class="hero-label">
+            <span></span>
+            <p>Advocacia especializada</p>
+          </div>
+          <h1>Defendendo seus direitos com <span>excelência</span> e comprometimento</h1>
+          <p>Com mais de 15 anos de atuação, o escritório Silva &amp; Braga oferece assessoria jurídica completa, ética e personalizada para pessoas físicas e empresas.</p>
+          <div class="hero-btns">
+            <a href="https://wa.me/5511934900204?text=Olá,%20vim%20pelo%20site%20Silva%20%26%20Braga%20e%20gostaria%20de%20agendar%20uma%20consulta" class="btn btn-gold" target="_blank" rel="noopener">
+              Agendar consulta gratuita
+            </a>
+            <a href="#areas" class="btn btn-outline">Nossas áreas</a>
+          </div>
+          <div class="hero-trust">
+            <div class="trust-item">
+              <div class="trust-num">+500</div>
+              <div class="trust-label">Casos resolvidos</div>
+            </div>
+            <div class="trust-item">
+              <div class="trust-num">15+</div>
+              <div class="trust-label">Anos de experiência</div>
+            </div>
+            <div class="trust-item">
+              <div class="trust-num">98%</div>
+              <div class="trust-label">Taxa de êxito</div>
+            </div>
+          </div>
+        </div>
+        <div class="hero-badge-box">
+          <div class="hbb-icon">⚖️</div>
+          <div class="hbb-title">Consultoria jurídica</div>
+          <div class="hbb-sub">Atendimento personalizado para cada situação</div>
+          <div class="hbb-list">
+            <div class="hbb-item">Análise completa do caso</div>
+            <div class="hbb-item">Estratégia jurídica personalizada</div>
+            <div class="hbb-item">Acompanhamento em todas as fases</div>
+            <div class="hbb-item">Comunicação clara e transparente</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section section-dark" id="areas">
+    <div class="container">
+      <div class="section-header">
+        <span class="section-tag">Especialidades</span>
+        <h2 class="section-title">Áreas de atuação</h2>
+        <p class="section-sub">Expertise jurídica abrangente para proteger seus interesses em diferentes esferas do direito</p>
+      </div>
+      <div class="areas-grid">
+        <div class="area-card">
+          <div class="area-number">01</div>
+          <h3 class="area-title">Direito Civil</h3>
+          <p class="area-desc">Contratos, responsabilidade civil, indenizações, direito do consumidor e questões patrimoniais em geral.</p>
+        </div>
+        <div class="area-card">
+          <div class="area-number">02</div>
+          <h3 class="area-title">Direito Trabalhista</h3>
+          <p class="area-desc">Representação de empregados e empregadores em ações trabalhistas, rescisões, horas extras e assédio moral.</p>
+        </div>
+        <div class="area-card">
+          <div class="area-number">03</div>
+          <h3 class="area-title">Direito Empresarial</h3>
+          <p class="area-desc">Constituição de empresas, contratos comerciais, fusões, aquisições e recuperação judicial.</p>
+        </div>
+        <div class="area-card">
+          <div class="area-number">04</div>
+          <h3 class="area-title">Direito de Família</h3>
+          <p class="area-desc">Divórcio, guarda de filhos, pensão alimentícia, inventário e partilha de bens com sensibilidade e técnica.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section" id="equipe">
+    <div class="container">
+      <div class="section-header">
+        <span class="section-tag">Nossa equipe</span>
+        <h2 class="section-title">Advogados especializados</h2>
+        <p class="section-sub">Profissionais comprometidos com a excelência e com os resultados dos nossos clientes</p>
+      </div>
+      <div class="team-grid">
+        <div class="team-card">
+          <div class="team-avatar">RS</div>
+          <div>
+            <div class="team-name">Dr. Ricardo Silva</div>
+            <div class="team-role">Sócio fundador — Direito Civil e Empresarial</div>
+            <div class="team-desc">Especialista em contratos e direito empresarial, com pós-graduação pela USP e mais de 15 anos de atuação nos principais tribunais do país.</div>
+            <div class="team-oab">OAB/SP 245.678</div>
+          </div>
+        </div>
+        <div class="team-card">
+          <div class="team-avatar">CB</div>
+          <div>
+            <div class="team-name">Dra. Camila Braga</div>
+            <div class="team-role">Sócia — Direito Trabalhista e Família</div>
+            <div class="team-desc">Mestra em Direito do Trabalho pela PUC-SP, com vasta experiência em mediação e processos sensíveis de família e sucessões.</div>
+            <div class="team-oab">OAB/SP 312.456</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="cta-section">
+    <div class="container">
+      <h2>Agende sua <span>consulta gratuita</span></h2>
+      <p>Fale com um de nossos advogados e entenda como podemos proteger seus direitos e interesses.</p>
+      <a href="https://wa.me/5511934900204?text=Olá,%20vim%20pelo%20site%20Silva%20%26%20Braga%20e%20gostaria%20de%20agendar%20uma%20consulta%20gratuita" class="btn btn-gold" target="_blank" rel="noopener">
+        Agendar consulta gratuita
+      </a>
+    </div>
+  </section>
+
+  <footer>
+    <div class="container">
+      <div class="footer-inner">
+        <div class="footer-brand">Silva &amp; Braga Advocacia</div>
+        <div class="footer-copy">Rua da Justiça, 1024 — São Paulo, SP</div>
+        <a href="/" class="footer-back">← Criado pela VorinWeb</a>
+      </div>
+    </div>
+  </footer>
+
+</body>
+</html>

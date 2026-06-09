@@ -1,0 +1,369 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Lumina Estética — Sua beleza, nossa especialidade</title>
+  <meta name="description" content="Clínica estética premium com tratamentos avançados para pele, corpo e bem-estar. Agende sua avaliação gratuita." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Playfair+Display:ital,wght@0,600;0,700;1,600&display=swap" rel="stylesheet" />
+  <style>
+    *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+    :root {
+      --bg: #faf9f7;
+      --bg2: #f5f0eb;
+      --bg3: #fff;
+      --rose: #e11d48;
+      --rose-light: #f43f5e;
+      --rose-dim: rgba(225,29,72,0.08);
+      --rose-medium: rgba(225,29,72,0.15);
+      --blush: #fda4af;
+      --text: #1c1917;
+      --muted: #78716c;
+      --border: #e7e0d8;
+      --card: #ffffff;
+      --font: 'Inter', sans-serif;
+      --serif: 'Playfair Display', Georgia, serif;
+      --radius: 14px;
+      --shadow-sm: 0 2px 8px rgba(0,0,0,0.06);
+      --shadow: 0 4px 20px rgba(0,0,0,0.1);
+      --shadow-lg: 0 8px 40px rgba(0,0,0,0.14);
+      --transition: 0.3s cubic-bezier(0.4,0,0.2,1);
+    }
+    html { scroll-behavior: smooth; }
+    body { font-family: var(--font); background: var(--bg); color: var(--text); line-height: 1.6; overflow-x: hidden; -webkit-font-smoothing: antialiased; }
+    a { text-decoration: none; color: inherit; transition: var(--transition); }
+    ul { list-style: none; }
+    .container { max-width: 1100px; margin: 0 auto; padding: 0 1.5rem; }
+
+    /* NAV */
+    nav { position: fixed; top: 0; left: 0; right: 0; z-index: 100; padding: 1.1rem 0; background: rgba(250,249,247,0.94); backdrop-filter: blur(16px); border-bottom: 1px solid var(--border); }
+    .nav-inner { display: flex; align-items: center; justify-content: space-between; }
+    .nav-brand { display: flex; align-items: center; gap: 0.6rem; }
+    .brand-dot { width: 32px; height: 32px; background: linear-gradient(135deg, var(--rose), #fb7185); border-radius: 50%; display: flex; align-items: center; justify-content: center; }
+    .brand-dot::after { content: '✦'; color: #fff; font-size: 0.75rem; }
+    .brand-name { font-family: var(--serif); font-size: 1.2rem; font-weight: 700; color: var(--text); }
+    .brand-name span { color: var(--rose); }
+    nav ul { display: flex; gap: 0.25rem; align-items: center; }
+    nav ul li a { font-size: 0.875rem; color: var(--muted); padding: 0.45rem 0.75rem; border-radius: 6px; }
+    nav ul li a:hover { color: var(--text); background: var(--bg2); }
+    .nav-cta { background: var(--rose) !important; color: #fff !important; font-weight: 600 !important; padding: 0.55rem 1.2rem !important; border-radius: 8px !important; }
+    .nav-cta:hover { background: var(--rose-light) !important; }
+
+    /* HERO */
+    .hero { min-height: 100vh; display: flex; align-items: center; padding: 8rem 0 5rem; position: relative; overflow: hidden; }
+    .hero-blob1 { position: absolute; top: -100px; right: -100px; width: 500px; height: 500px; background: radial-gradient(circle, rgba(225,29,72,0.08), transparent 70%); pointer-events: none; }
+    .hero-blob2 { position: absolute; bottom: -80px; left: -80px; width: 400px; height: 400px; background: radial-gradient(circle, rgba(253,164,175,0.12), transparent 70%); pointer-events: none; }
+    .hero-inner { display: grid; grid-template-columns: 1fr 1fr; gap: 4rem; align-items: center; position: relative; z-index: 1; }
+    .hero-eyebrow { display: flex; align-items: center; gap: 0.6rem; margin-bottom: 1.5rem; }
+    .eyebrow-line { width: 24px; height: 2px; background: var(--rose); }
+    .eyebrow-text { font-size: 0.78rem; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; color: var(--rose); }
+    .hero h1 { font-family: var(--serif); font-size: clamp(2rem, 4vw, 3.2rem); font-weight: 700; line-height: 1.2; letter-spacing: -0.01em; margin-bottom: 1.25rem; color: var(--text); }
+    .hero h1 em { font-style: italic; color: var(--rose); }
+    .hero p { font-size: 1.05rem; color: var(--muted); margin-bottom: 2rem; line-height: 1.75; max-width: 460px; }
+    .btn { display: inline-flex; align-items: center; gap: 0.5rem; font-family: var(--font); font-weight: 600; font-size: 0.95rem; padding: 0.8rem 1.75rem; border-radius: var(--radius); cursor: pointer; border: none; transition: var(--transition); }
+    .btn-rose { background: var(--rose); color: #fff; }
+    .btn-rose:hover { background: var(--rose-light); transform: translateY(-2px); box-shadow: 0 8px 24px rgba(225,29,72,0.3); }
+    .btn-outline { background: transparent; color: var(--text); border: 1.5px solid var(--border); }
+    .btn-outline:hover { border-color: var(--rose); color: var(--rose); }
+    .hero-btns { display: flex; gap: 1rem; flex-wrap: wrap; margin-bottom: 2rem; }
+    .hero-trust { display: flex; gap: 2rem; }
+    .ht-item { font-size: 0.82rem; color: var(--muted); display: flex; align-items: center; gap: 0.35rem; }
+    .hero-visual { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; }
+    .hv-card { background: var(--card); border: 1px solid var(--border); border-radius: var(--radius); padding: 1.5rem; box-shadow: var(--shadow-sm); transition: var(--transition); }
+    .hv-card:hover { box-shadow: var(--shadow); transform: translateY(-3px); }
+    .hv-card.wide { grid-column: span 2; }
+    .hv-icon { font-size: 1.75rem; margin-bottom: 0.6rem; }
+    .hv-title { font-weight: 700; font-size: 0.9rem; margin-bottom: 0.2rem; }
+    .hv-sub { font-size: 0.78rem; color: var(--muted); }
+    .hv-badge { display: inline-block; margin-top: 0.4rem; font-size: 0.7rem; font-weight: 600; background: var(--rose-dim); color: var(--rose); border: 1px solid var(--rose-medium); padding: 0.15rem 0.5rem; border-radius: 4px; }
+
+    /* SECTION */
+    .section { padding: 5.5rem 0; }
+    .section-light { background: var(--bg); }
+    .section-cream { background: var(--bg2); }
+    .section-header { text-align: center; margin-bottom: 3.5rem; }
+    .section-tag { font-size: 0.78rem; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; color: var(--rose); display: block; margin-bottom: 0.5rem; }
+    .section-title { font-family: var(--serif); font-size: clamp(1.6rem, 3vw, 2.25rem); font-weight: 700; margin-bottom: 0.75rem; color: var(--text); }
+    .section-sub { font-size: 1rem; color: var(--muted); max-width: 520px; margin: 0 auto; }
+
+    /* SERVICES */
+    .services-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.5rem; }
+    .service-card { background: var(--card); border: 1px solid var(--border); border-radius: var(--radius); padding: 2rem 1.5rem; transition: var(--transition); box-shadow: var(--shadow-sm); }
+    .service-card:hover { border-color: var(--blush); box-shadow: var(--shadow); transform: translateY(-4px); }
+    .sc-icon { font-size: 2.25rem; margin-bottom: 1rem; }
+    .sc-title { font-weight: 700; font-size: 1rem; color: var(--text); margin-bottom: 0.4rem; }
+    .sc-desc { font-size: 0.875rem; color: var(--muted); line-height: 1.6; margin-bottom: 1rem; }
+    .sc-time { font-size: 0.78rem; color: var(--rose); font-weight: 600; }
+
+    /* BEFORE/AFTER */
+    .ba-section { background: linear-gradient(135deg, #fff0f3 0%, #fdf2f4 100%); }
+    .ba-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 2rem; }
+    .ba-card { text-align: center; }
+    .ba-visual { display: flex; gap: 4px; height: 160px; border-radius: var(--radius); overflow: hidden; margin-bottom: 1rem; box-shadow: var(--shadow-sm); }
+    .ba-before { flex: 1; background: linear-gradient(160deg, #d1c4b8, #b8a89a); display: flex; align-items: flex-end; padding: 0.75rem; }
+    .ba-after { flex: 1; background: linear-gradient(160deg, #fda4af, #fb7185); display: flex; align-items: flex-end; padding: 0.75rem; }
+    .ba-label { font-size: 0.65rem; font-weight: 700; letter-spacing: 0.06em; text-transform: uppercase; color: rgba(255,255,255,0.85); }
+    .ba-title { font-weight: 700; font-size: 0.95rem; color: var(--text); margin-bottom: 0.25rem; }
+    .ba-desc { font-size: 0.83rem; color: var(--muted); }
+
+    /* TEAM */
+    .team-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 2rem; max-width: 700px; margin: 0 auto; }
+    .team-card { background: var(--card); border: 1px solid var(--border); border-radius: var(--radius); padding: 2rem; display: flex; gap: 1.25rem; box-shadow: var(--shadow-sm); transition: var(--transition); }
+    .team-card:hover { box-shadow: var(--shadow); border-color: var(--blush); }
+    .team-avatar { width: 64px; height: 64px; border-radius: 50%; background: linear-gradient(135deg, var(--rose), #fb7185); display: flex; align-items: center; justify-content: center; font-family: var(--serif); font-size: 1.25rem; font-weight: 700; color: #fff; flex-shrink: 0; }
+    .team-name { font-weight: 700; font-size: 1rem; margin-bottom: 0.15rem; color: var(--text); }
+    .team-role { font-size: 0.8rem; color: var(--rose); font-weight: 600; margin-bottom: 0.5rem; }
+    .team-desc { font-size: 0.85rem; color: var(--muted); line-height: 1.6; }
+    .team-creds { display: flex; flex-wrap: wrap; gap: 0.35rem; margin-top: 0.6rem; }
+    .team-cred { font-size: 0.7rem; background: var(--bg2); color: var(--muted); border: 1px solid var(--border); padding: 0.2rem 0.5rem; border-radius: 4px; }
+
+    /* CTA */
+    .cta-section { background: linear-gradient(135deg, #fff0f3 0%, #ffe4e6 100%); text-align: center; padding: 5.5rem 0; position: relative; overflow: hidden; }
+    .cta-section::before { content: '✦'; position: absolute; top: 2rem; left: 50%; transform: translateX(-50%); font-size: 1.5rem; color: var(--rose); opacity: 0.3; }
+    .cta-section h2 { font-family: var(--serif); font-size: clamp(1.75rem, 3.5vw, 2.5rem); font-weight: 700; margin-bottom: 1rem; color: var(--text); }
+    .cta-section h2 span { color: var(--rose); font-style: italic; }
+    .cta-section p { color: var(--muted); font-size: 1rem; margin-bottom: 2.5rem; }
+    .cta-note { margin-top: 1rem; font-size: 0.85rem; color: var(--muted); }
+
+    /* FOOTER */
+    footer { background: var(--text); padding: 2.5rem 0; }
+    .footer-inner { display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 1rem; }
+    .footer-brand { font-family: var(--serif); font-weight: 600; color: var(--bg2); font-size: 0.95rem; }
+    .footer-copy { font-size: 0.8rem; color: #78716c; }
+    .footer-back { font-size: 0.875rem; color: var(--blush); border: 1px solid rgba(253,164,175,0.3); padding: 0.4rem 1rem; border-radius: 6px; }
+    .footer-back:hover { background: rgba(253,164,175,0.1); }
+
+    @media (max-width: 900px) {
+      .hero-inner { grid-template-columns: 1fr; }
+      .hero-visual { display: none; }
+      .services-grid, .ba-grid { grid-template-columns: repeat(2, 1fr); }
+      .team-grid { grid-template-columns: 1fr; }
+    }
+    @media (max-width: 600px) {
+      .services-grid, .ba-grid { grid-template-columns: 1fr; }
+      nav ul { display: none; }
+    }
+  </style>
+</head>
+<body>
+
+  <nav>
+    <div class="container">
+      <div class="nav-inner">
+        <div class="nav-brand">
+          <div class="brand-dot"></div>
+          <div class="brand-name">Lumina<span> Estética</span></div>
+        </div>
+        <ul>
+          <li><a href="#servicos">Serviços</a></li>
+          <li><a href="#equipe">Equipe</a></li>
+          <li><a href="https://wa.me/5511934900204?text=Olá,%20gostaria%20de%20agendar%20uma%20avaliação%20na%20Lumina%20Estética!" class="nav-cta" target="_blank" rel="noopener">Agendar agora</a></li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+
+  <section class="hero">
+    <div class="hero-blob1"></div>
+    <div class="hero-blob2"></div>
+    <div class="container">
+      <div class="hero-inner">
+        <div>
+          <div class="hero-eyebrow">
+            <div class="eyebrow-line"></div>
+            <div class="eyebrow-text">Clínica estética premium</div>
+          </div>
+          <h1>Sua beleza, <em>nossa especialidade</em></h1>
+          <p>Tratamentos estéticos avançados com tecnologia de ponta e equipe especializada. Cuide de você com quem realmente entende do assunto.</p>
+          <div class="hero-btns">
+            <a href="https://wa.me/5511934900204?text=Olá,%20gostaria%20de%20agendar%20minha%20avaliação%20gratuita%20na%20Lumina%20Estética!" class="btn btn-rose" target="_blank" rel="noopener">
+              Agendar avaliação gratuita
+            </a>
+            <a href="#servicos" class="btn btn-outline">Ver tratamentos</a>
+          </div>
+          <div class="hero-trust">
+            <div class="ht-item">✦ +2000 clientes</div>
+            <div class="ht-item">✦ 12 anos de experiência</div>
+            <div class="ht-item">✦ Avaliação gratuita</div>
+          </div>
+        </div>
+        <div class="hero-visual">
+          <div class="hv-card">
+            <div class="hv-icon">✨</div>
+            <div class="hv-title">Limpeza de Pele</div>
+            <div class="hv-sub">Resultado imediato</div>
+            <div class="hv-badge">A partir de R$ 120</div>
+          </div>
+          <div class="hv-card">
+            <div class="hv-icon">💉</div>
+            <div class="hv-title">Botox</div>
+            <div class="hv-sub">Anti-idade eficaz</div>
+            <div class="hv-badge">Consultar</div>
+          </div>
+          <div class="hv-card">
+            <div class="hv-icon">🌸</div>
+            <div class="hv-title">Peeling Facial</div>
+            <div class="hv-sub">Pele renovada</div>
+            <div class="hv-badge">A partir de R$ 180</div>
+          </div>
+          <div class="hv-card">
+            <div class="hv-icon">🤝</div>
+            <div class="hv-title">Drenagem</div>
+            <div class="hv-sub">Modelagem corporal</div>
+            <div class="hv-badge">A partir de R$ 150</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section section-cream" id="servicos">
+    <div class="container">
+      <div class="section-header">
+        <span class="section-tag">Tratamentos</span>
+        <h2 class="section-title">Nossos serviços</h2>
+        <p class="section-sub">Protocolos personalizados desenvolvidos para realçar sua beleza natural com segurança e eficácia</p>
+      </div>
+      <div class="services-grid">
+        <div class="service-card">
+          <div class="sc-icon">✨</div>
+          <div class="sc-title">Limpeza de Pele</div>
+          <div class="sc-desc">Limpeza profunda com extração de impurezas, hidratação e proteção. Para todos os tipos de pele, com resultado imediato.</div>
+          <div class="sc-time">⏱ 60 min — A partir de R$ 120</div>
+        </div>
+        <div class="service-card">
+          <div class="sc-icon">🌿</div>
+          <div class="sc-title">Peeling Facial</div>
+          <div class="sc-desc">Renovação celular com ácidos de alta concentração. Elimina manchas, reduz poros e melhora a textura da pele.</div>
+          <div class="sc-time">⏱ 45 min — A partir de R$ 180</div>
+        </div>
+        <div class="service-card">
+          <div class="sc-icon">💉</div>
+          <div class="sc-title">Botox &amp; Toxina</div>
+          <div class="sc-desc">Aplicação de toxina botulínica para suavizar rugas e linhas de expressão. Procedimento seguro com resultados naturais.</div>
+          <div class="sc-time">⏱ 30 min — Preço sob consulta</div>
+        </div>
+        <div class="service-card">
+          <div class="sc-icon">💋</div>
+          <div class="sc-title">Preenchimento Labial</div>
+          <div class="sc-desc">Preenchimento com ácido hialurônico para volume e definição labial. Resultado natural e harmonioso.</div>
+          <div class="sc-time">⏱ 30 min — Preço sob consulta</div>
+        </div>
+        <div class="service-card">
+          <div class="sc-icon">🤲</div>
+          <div class="sc-title">Drenagem Linfática</div>
+          <div class="sc-desc">Massagem especializada que reduz retenção de líquidos, modela o corpo e melhora a circulação.</div>
+          <div class="sc-time">⏱ 60 min — A partir de R$ 150</div>
+        </div>
+        <div class="service-card">
+          <div class="sc-icon">🌸</div>
+          <div class="sc-title">Tratamento para Acne</div>
+          <div class="sc-desc">Protocolo completo para controle e tratamento da acne, com produtos dermatologicamente testados e técnicas avançadas.</div>
+          <div class="sc-time">⏱ 75 min — A partir de R$ 200</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section ba-section">
+    <div class="container">
+      <div class="section-header">
+        <span class="section-tag">Resultados</span>
+        <h2 class="section-title">Transformações reais</h2>
+        <p class="section-sub">Veja como nossos tratamentos transformam a pele e a autoestima dos nossos clientes</p>
+      </div>
+      <div class="ba-grid">
+        <div class="ba-card">
+          <div class="ba-visual">
+            <div class="ba-before"><span class="ba-label">Antes</span></div>
+            <div class="ba-after" style="background: linear-gradient(160deg, #f9a8d4, #ec4899);"><span class="ba-label">Depois</span></div>
+          </div>
+          <div class="ba-title">Limpeza de Pele</div>
+          <div class="ba-desc">Pele mais limpa, luminosa e uniforme após 1 sessão</div>
+        </div>
+        <div class="ba-card">
+          <div class="ba-visual">
+            <div class="ba-before" style="background: linear-gradient(160deg, #c4b5a5, #a8998a);"></div>
+            <div class="ba-after" style="background: linear-gradient(160deg, #fecdd3, #fda4af);">
+              <span class="ba-label">Depois</span>
+            </div>
+          </div>
+          <div class="ba-before"><span class="ba-label">Antes</span></div>
+          <div class="ba-title">Peeling Facial</div>
+          <div class="ba-desc">Manchas reduzidas e pele renovada após protocolo de 3 sessões</div>
+        </div>
+        <div class="ba-card">
+          <div class="ba-visual">
+            <div class="ba-before" style="background: linear-gradient(160deg, #b8a99a, #9e8878);"><span class="ba-label">Antes</span></div>
+            <div class="ba-after" style="background: linear-gradient(160deg, #fba4af, #e879a0);"><span class="ba-label">Depois</span></div>
+          </div>
+          <div class="ba-title">Botox Expressão</div>
+          <div class="ba-desc">Rugas suavizadas com resultado natural e duradouro</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section section-cream" id="equipe">
+    <div class="container">
+      <div class="section-header">
+        <span class="section-tag">Nossa equipe</span>
+        <h2 class="section-title">Especialistas em beleza</h2>
+        <p class="section-sub">Profissionais apaixonadas pelo que fazem, comprometidas com os seus resultados</p>
+      </div>
+      <div class="team-grid">
+        <div class="team-card">
+          <div class="team-avatar">AC</div>
+          <div>
+            <div class="team-name">Ana Claudia Santos</div>
+            <div class="team-role">Esteticista Sênior &amp; Harmonizadora</div>
+            <div class="team-desc">Mais de 10 anos de experiência em tratamentos faciais e procedimentos estéticos avançados. Especialista em harmonização facial e rejuvenescimento.</div>
+            <div class="team-creds">
+              <span class="team-cred">COREN-SP</span>
+              <span class="team-cred">Botox Certificada</span>
+              <span class="team-cred">Peeling Avançado</span>
+            </div>
+          </div>
+        </div>
+        <div class="team-card">
+          <div class="team-avatar">MF</div>
+          <div>
+            <div class="team-name">Mariana Ferreira</div>
+            <div class="team-role">Esteticista &amp; Massoterapeuta</div>
+            <div class="team-desc">Especialista em tratamentos corporais, drenagem linfática e massoterapia. Pós-graduada em estética integrativa e bem-estar.</div>
+            <div class="team-creds">
+              <span class="team-cred">COREN-SP</span>
+              <span class="team-cred">Drenagem Especializada</span>
+              <span class="team-cred">Massoterapia</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="cta-section">
+    <div class="container">
+      <h2>Agende sua <span>avaliação gratuita</span></h2>
+      <p>Conheça nossa clínica, fale com nossas especialistas e descubra o tratamento ideal para você — sem compromisso.</p>
+      <a href="https://wa.me/5511934900204?text=Olá,%20gostaria%20de%20agendar%20minha%20avaliação%20gratuita%20na%20Lumina%20Estética!" class="btn btn-rose" target="_blank" rel="noopener">
+        ✦ Agendar minha avaliação gratuita
+      </a>
+      <p class="cta-note">📍 São Paulo, SP — Atendimento de segunda a sábado</p>
+    </div>
+  </section>
+
+  <footer>
+    <div class="container">
+      <div class="footer-inner">
+        <div class="footer-brand">✦ Lumina Estética</div>
+        <div class="footer-copy">Rua das Flores, 245 — Jardins, São Paulo</div>
+        <a href="/" class="footer-back">← Criado pela VorinWeb</a>
+      </div>
+    </div>
+  </footer>
+
+</body>
+</html>

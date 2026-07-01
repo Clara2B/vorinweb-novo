@@ -9,6 +9,8 @@
   });
 })();
 
+document.getElementById('copyYear').textContent = new Date().getFullYear();
+
 function toggleFaq(el) {
   var item = el.parentElement;
   var isOpen = item.classList.contains('open');
@@ -57,13 +59,31 @@ document.addEventListener('keydown', function(e){
   if (e.key === 'Escape') closeDemo();
 });
 
+var WHATSAPP_NUMBER = '5511934900204';
+
 function submitForm(btn) {
-  btn.textContent = '✓ Mensagem enviada! Retornamos em breve.';
+  var name = document.getElementById('ctName').value.trim();
+  var email = document.getElementById('ctEmail').value.trim();
+  var project = document.getElementById('ctProject').value.trim();
+  var message = document.getElementById('ctMessage').value.trim();
+
+  if (!name || !project || !message) {
+    alert('Preencha nome, tipo de projeto e uma breve descrição antes de enviar.');
+    return;
+  }
+
+  var text = 'Olá! Vim pelo site da VorinWeb.\n\n' +
+    'Nome: ' + name + '\n' +
+    (email ? 'E-mail: ' + email + '\n' : '') +
+    'Tipo de projeto: ' + project + '\n' +
+    'Mensagem: ' + message;
+
+  window.open('https://wa.me/' + WHATSAPP_NUMBER + '?text=' + encodeURIComponent(text), '_blank');
+
+  btn.innerHTML = '<svg class="ico"><use href="#ic-check-circle"/></svg> Abrindo o WhatsApp...';
   btn.style.background = '#15803d';
-  btn.disabled = true;
   setTimeout(function(){
-    btn.innerHTML = '💬 Enviar mensagem';
+    btn.innerHTML = '<svg class="ico"><use href="#ic-send"/></svg> Enviar mensagem';
     btn.style.background = '';
-    btn.disabled = false;
-  }, 4000);
+  }, 3000);
 }

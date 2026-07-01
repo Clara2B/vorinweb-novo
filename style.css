@@ -371,7 +371,7 @@ footer{background:var(--foot-bg);color:#fff;padding:3rem 5%;}
 .modal-box{background:var(--modal-bg);border-radius:20px;width:100%;max-width:860px;max-height:90vh;overflow:auto;box-shadow:0 32px 80px rgba(0,0,0,.6);animation:mIn .3s ease;border:1px solid var(--border);}
 @keyframes mIn{from{opacity:0;transform:scale(.95) translateY(16px);}to{opacity:1;transform:scale(1) translateY(0);}}
 .modal-hdr{display:flex;justify-content:space-between;align-items:center;padding:1.25rem 1.5rem;border-bottom:1px solid var(--border);position:sticky;top:0;background:var(--modal-bg);z-index:1;}
-.modal-ttl{font-family:'Sora',sans-serif;font-size:1rem;font-weight:700;color:var(--text);}
+.modal-ttl{font-family:'Sora',sans-serif;font-size:1rem;font-weight:700;color:var(--text);display:flex;align-items:center;gap:8px;}
 .modal-cls{background:var(--bg-alt);border:none;border-radius:8px;width:32px;height:32px;cursor:pointer;font-size:1.1rem;color:var(--text-muted);display:flex;align-items:center;justify-content:center;transition:background .2s;}
 .modal-cls:hover{background:var(--border);}
 .modal-body{padding:1.5rem;}
@@ -382,8 +382,8 @@ footer{background:var(--foot-bg);color:#fff;padding:3rem 5%;}
 .dr-hero h2 span{color:#ff9a3c;}
 .dr-hero p{color:rgba(255,255,255,.65);margin-bottom:1.25rem;font-size:.9rem;}
 .dr-btns{display:flex;gap:.75rem;}
-.dr-btn{background:#e07b00;color:#fff;border:none;padding:9px 20px;border-radius:7px;font-family:'Sora',sans-serif;font-weight:700;font-size:.82rem;cursor:pointer;}
-.dr-btn-g{background:transparent;color:#fff;border:1.5px solid rgba(255,255,255,.35);padding:9px 20px;border-radius:7px;font-family:'Sora',sans-serif;font-weight:600;font-size:.82rem;cursor:pointer;}
+.dr-btn{background:#e07b00;color:#fff;border:none;padding:9px 20px;border-radius:7px;font-family:'Sora',sans-serif;font-weight:700;font-size:.82rem;cursor:pointer;display:inline-flex;align-items:center;gap:6px;}
+.dr-btn-g{background:transparent;color:#fff;border:1.5px solid rgba(255,255,255,.35);padding:9px 20px;border-radius:7px;font-family:'Sora',sans-serif;font-weight:600;font-size:.82rem;cursor:pointer;display:inline-flex;align-items:center;gap:6px;}
 .dr-menu{background:#faf7f3;padding:2rem;}
 .dr-mhdr{display:flex;justify-content:space-between;align-items:center;margin-bottom:1rem;}
 .dr-mt{font-family:'Sora',sans-serif;font-size:1.1rem;font-weight:800;color:#1c0800;}
@@ -402,15 +402,15 @@ footer{background:var(--foot-bg);color:#fff;padding:3rem 5%;}
 .dr-ip{font-size:.78rem;color:#e07b00;font-weight:700;}
 .dc-wrap{display:grid;grid-template-columns:180px 1fr;}
 .dc-side{background:#1d4ed8;padding:1.25rem 1rem;color:#fff;}
-.dc-brand{font-family:'Sora',sans-serif;font-size:.8rem;font-weight:800;margin-bottom:1.5rem;}
+.dc-brand{font-family:'Sora',sans-serif;font-size:.8rem;font-weight:800;margin-bottom:1.5rem;display:flex;align-items:center;gap:6px;}
 .dc-menu{display:flex;flex-direction:column;gap:.5rem;}
-.dc-mi{font-size:.72rem;font-family:'Sora',sans-serif;padding:6px 9px;border-radius:6px;cursor:pointer;}
+.dc-mi{font-size:.72rem;font-family:'Sora',sans-serif;padding:6px 9px;border-radius:6px;cursor:pointer;display:flex;align-items:center;gap:7px;}
 .dc-mi.on{background:rgba(255,255,255,.2);font-weight:700;}
 .dc-mi:not(.on){color:rgba(255,255,255,.65);}
 .dc-main{background:#f0f7ff;padding:1.5rem;}
 .dc-top{display:flex;justify-content:space-between;align-items:center;margin-bottom:1rem;}
 .dc-wlc{font-family:'Sora',sans-serif;font-size:1rem;font-weight:800;color:#0c3b6e;}
-.dc-dt{font-size:.7rem;color:#6b7280;background:#fff;border:1px solid #dbeafe;padding:4px 10px;border-radius:6px;}
+.dc-dt{font-size:.7rem;color:#6b7280;background:#fff;border:1px solid #dbeafe;padding:4px 10px;border-radius:6px;display:inline-flex;align-items:center;gap:5px;}
 .dc-stats{display:grid;grid-template-columns:repeat(3,1fr);gap:.75rem;margin-bottom:1rem;}
 .dc-stat{background:#fff;border-radius:8px;padding:.75rem;border:1px solid #dbeafe;}
 .dc-sn{font-family:'Sora',sans-serif;font-size:1.2rem;font-weight:800;color:#1d4ed8;}
@@ -427,7 +427,7 @@ footer{background:var(--foot-bg);color:#fff;padding:3rem 5%;}
 .db-wrap{background:#0a0d18;}
 .db-header{background:linear-gradient(135deg,#1d4ed8,#1e3a8a);padding:1.5rem 1.5rem 1.25rem;}
 .db-brand{display:flex;align-items:center;gap:10px;margin-bottom:.25rem;}
-.db-brand-icon{width:36px;height:36px;background:rgba(255,255,255,.15);border-radius:10px;display:flex;align-items:center;justify-content:center;font-size:1.1rem;}
+.db-brand-icon{width:36px;height:36px;background:rgba(255,255,255,.15);border-radius:10px;display:flex;align-items:center;justify-content:center;font-size:1.1rem;color:#fff;}
 .db-brand-name{font-family:'Sora',sans-serif;font-size:.95rem;font-weight:800;color:#fff;}
 .db-brand-sub{font-size:.7rem;color:rgba(255,255,255,.6);}
 .db-status{display:inline-flex;align-items:center;gap:5px;background:rgba(74,222,128,.15);border:1px solid rgba(74,222,128,.3);border-radius:100px;padding:3px 10px;font-size:.62rem;font-family:'Sora',sans-serif;font-weight:700;color:#4ade80;margin-top:.5rem;}
@@ -451,7 +451,7 @@ footer{background:var(--foot-bg);color:#fff;padding:3rem 5%;}
 .dl-logo span{color:#e1a030;}
 .dl-navl{display:flex;gap:1rem;}
 .dl-nl{font-size:.72rem;color:rgba(255,255,255,.5);font-family:'Sora',sans-serif;}
-.dl-cart{background:rgba(225,160,48,.15);border:1px solid rgba(225,160,48,.35);border-radius:6px;padding:5px 12px;font-family:'Sora',sans-serif;font-size:.7rem;font-weight:700;color:#e1a030;cursor:pointer;}
+.dl-cart{background:rgba(225,160,48,.15);border:1px solid rgba(225,160,48,.35);border-radius:6px;padding:5px 12px;font-family:'Sora',sans-serif;font-size:.7rem;font-weight:700;color:#e1a030;cursor:pointer;display:inline-flex;align-items:center;gap:5px;}
 .dl-hero{padding:2rem 1.5rem;background:linear-gradient(120deg,#08090e,#12151e);}
 .dl-hl{font-family:'Sora',sans-serif;font-size:.6rem;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:#e1a030;margin-bottom:.5rem;}
 .dl-hero h2{font-family:'Sora',sans-serif;font-size:1.6rem;font-weight:800;color:#fff;line-height:1.15;margin-bottom:.35rem;}

@@ -213,12 +213,10 @@ section{padding:96px 5%;}
 .mod-tag{font-size:.7rem;font-family:'Sora',sans-serif;color:var(--text-faint);background:var(--bg-alt);padding:3px 10px;border-radius:100px;border:1px solid var(--border);}
 .b-rest{background:#fff3e0;color:#c2410c;}
 .b-clin{background:#eff6ff;color:#1e40af;}
-.b-shop{background:#f9fafb;color:#374151;border:1px solid #e5e7eb;}
 .b-bot{background:#f0fdf4;color:#15803d;}
 .b-cust{background:var(--b50);color:var(--b600);}
 [data-theme="dark"] .b-rest{background:rgba(194,65,12,.15);color:#fb923c;}
 [data-theme="dark"] .b-clin{background:rgba(30,64,175,.15);color:#93c5fd;}
-[data-theme="dark"] .b-shop{background:rgba(255,255,255,.07);color:#d1d5db;border-color:#2d3748;}
 [data-theme="dark"] .b-bot{background:rgba(21,128,61,.15);color:#4ade80;}
 
 /* ── PREVIEWS ── */
@@ -276,22 +274,6 @@ section{padding:96px 5%;}
 .pb-t-dot:nth-child(2){animation-delay:.15s;}
 .pb-t-dot:nth-child(3){animation-delay:.3s;}
 @keyframes typeBounce{0%,80%,100%{transform:scale(.8);opacity:.4;}40%{transform:scale(1.1);opacity:1;}}
-.prev-loja{background:linear-gradient(160deg,rgba(8,9,14,.82),rgba(26,31,46,.6)),url('https://images.unsplash.com/photo-1441986300917-64674bd600d8?w=700&q=60&fit=crop&auto=format') center/cover;height:100%;position:relative;overflow:hidden;}
-.pl-top{position:absolute;top:0;left:0;right:0;display:flex;justify-content:space-between;align-items:center;padding:9px 12px;border-bottom:1px solid rgba(255,255,255,.07);}
-.pl-logo{font-family:'Sora',sans-serif;font-size:.58rem;font-weight:800;color:#fff;}
-.pl-logo span{color:#e1a030;}
-.pl-cart{background:rgba(225,160,48,.2);border:1px solid rgba(225,160,48,.4);border-radius:5px;padding:2px 7px;font-size:.48rem;color:#e1a030;font-family:'Sora',sans-serif;font-weight:700;display:inline-flex;align-items:center;gap:4px;}
-.pl-banner{position:absolute;top:32px;left:12px;right:12px;background:linear-gradient(100deg,rgba(225,160,48,.15),rgba(225,80,30,.08));border:1px solid rgba(225,160,48,.2);border-radius:8px;padding:8px 10px;}
-.pl-sale{font-family:'Sora',sans-serif;font-size:.55rem;font-weight:800;color:#e1a030;letter-spacing:.1em;text-transform:uppercase;margin-bottom:2px;}
-.pl-off{font-family:'Sora',sans-serif;font-size:.9rem;font-weight:800;color:#fff;line-height:1;}
-.pl-sub{font-size:.45rem;color:rgba(255,255,255,.4);margin-top:2px;}
-.pl-grid{position:absolute;bottom:8px;left:10px;right:10px;display:grid;grid-template-columns:1fr 1fr 1fr;gap:6px;}
-.pl-item{background:rgba(255,255,255,.06);border-radius:6px;border:1px solid rgba(255,255,255,.08);overflow:hidden;}
-.pl-img{height:34px;background-size:cover;background-position:center;}
-.pl-i1{background-image:url('https://images.unsplash.com/photo-1566174053879-31528523f8ae?w=140&h=100&q=60&fit=crop&auto=format');}
-.pl-i2{background-image:url('https://images.unsplash.com/photo-1595341888016-a392ef81b7de?w=140&h=100&q=60&fit=crop&auto=format');}
-.pl-i3{background-image:url('https://images.unsplash.com/photo-1590874103328-eac38a683ce7?w=140&h=100&q=60&fit=crop&auto=format');}
-.pl-price{font-family:'Sora',sans-serif;font-size:.45rem;font-weight:700;color:#e1a030;padding:2px 4px;}
 .prev-cust{background:var(--bg-alt);height:100%;width:100%;position:relative;overflow:hidden;display:flex;align-items:center;justify-content:center;}
 .pc-grid-bg{position:absolute;inset:0;background-image:linear-gradient(var(--border) 1px,transparent 1px),linear-gradient(90deg,var(--border) 1px,transparent 1px);background-size:22px 22px;opacity:.5;}
 .pc-sparks{position:absolute;inset:0;pointer-events:none;}
@@ -469,28 +451,6 @@ footer{background:var(--foot-bg);color:#fff;padding:3rem 5%;}
 .db-cal-day.avail{background:rgba(59,130,246,.15);color:#93c5fd;cursor:pointer;}
 .db-cal-day.sel{background:#1d4ed8;color:#fff;font-weight:700;}
 .db-cal-day.hdr{color:#4a5270;font-weight:600;}
-.dl-wrap{background:#0d1117;}
-.dl-nav{display:flex;justify-content:space-between;align-items:center;padding:10px 1.5rem;border-bottom:1px solid rgba(255,255,255,.07);}
-.dl-logo{font-family:'Sora',sans-serif;font-size:.9rem;font-weight:800;color:#fff;}
-.dl-logo span{color:#e1a030;}
-.dl-navl{display:flex;gap:1rem;}
-.dl-nl{font-size:.72rem;color:rgba(255,255,255,.5);font-family:'Sora',sans-serif;}
-.dl-cart{background:rgba(225,160,48,.15);border:1px solid rgba(225,160,48,.35);border-radius:6px;padding:5px 12px;font-family:'Sora',sans-serif;font-size:.7rem;font-weight:700;color:#e1a030;cursor:pointer;display:inline-flex;align-items:center;gap:5px;}
-.dl-hero{padding:2rem 1.5rem;background:linear-gradient(120deg,rgba(8,9,14,.85),rgba(18,21,30,.68)),url('https://images.unsplash.com/photo-1441986300917-64674bd600d8?w=900&q=65&fit=crop&auto=format') center/cover;}
-.dl-hl{font-family:'Sora',sans-serif;font-size:.6rem;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:#e1a030;margin-bottom:.5rem;}
-.dl-hero h2{font-family:'Sora',sans-serif;font-size:1.6rem;font-weight:800;color:#fff;line-height:1.15;margin-bottom:.35rem;}
-.dl-hero p{font-size:.82rem;color:rgba(255,255,255,.5);margin-bottom:1rem;}
-.dl-hcta{display:inline-block;background:linear-gradient(90deg,#e1a030,#c07820);color:#fff;border:none;padding:8px 20px;border-radius:7px;font-family:'Sora',sans-serif;font-weight:700;font-size:.78rem;cursor:pointer;}
-.dl-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:.85rem;padding:.85rem 1.5rem 1.25rem;}
-.dl-item{background:rgba(255,255,255,.05);border:1px solid rgba(255,255,255,.08);border-radius:10px;overflow:hidden;}
-.dl-img{height:90px;background-size:cover;background-position:center;}
-.dl-i1{background-image:url('https://images.unsplash.com/photo-1566174053879-31528523f8ae?w=400&h=220&q=65&fit=crop&auto=format');}
-.dl-i2{background-image:url('https://images.unsplash.com/photo-1595341888016-a392ef81b7de?w=400&h=220&q=65&fit=crop&auto=format');}
-.dl-i3{background-image:url('https://images.unsplash.com/photo-1590874103328-eac38a683ce7?w=400&h=220&q=65&fit=crop&auto=format');}
-.dl-ib{padding:8px 10px;}
-.dl-in{font-family:'Sora',sans-serif;font-size:.78rem;font-weight:700;color:#fff;}
-.dl-ip{font-size:.72rem;color:#e1a030;font-weight:700;}
-.dl-io{font-size:.65rem;color:rgba(255,255,255,.3);text-decoration:line-through;margin-left:4px;}
 .dcu-wrap{background:var(--bg-alt);padding:2.5rem 2rem;text-align:center;}
 .dcu-icon{font-size:3rem;margin-bottom:1rem;}
 .dcu-title{font-family:'Sora',sans-serif;font-size:1.4rem;font-weight:800;color:var(--text);margin-bottom:.75rem;}

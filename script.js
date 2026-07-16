@@ -11,6 +11,23 @@
 
 document.getElementById('copyYear').textContent = new Date().getFullYear();
 
+(function(){
+  var burger = document.getElementById('navBurger');
+  var mobileNav = document.getElementById('mobileNav');
+  burger.addEventListener('click', function(){
+    var isOpen = mobileNav.classList.toggle('open');
+    burger.classList.toggle('open', isOpen);
+    burger.setAttribute('aria-expanded', isOpen);
+  });
+  mobileNav.querySelectorAll('a').forEach(function(link){
+    link.addEventListener('click', function(){
+      mobileNav.classList.remove('open');
+      burger.classList.remove('open');
+      burger.setAttribute('aria-expanded', 'false');
+    });
+  });
+})();
+
 function toggleFaq(el) {
   var item = el.parentElement;
   var isOpen = item.classList.contains('open');

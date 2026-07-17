@@ -76,6 +76,7 @@ document.addEventListener('keydown', function(e){
 });
 
 var WHATSAPP_NUMBER = '5511934900204';
+var FORMSPREE_ENDPOINT = 'https://formspree.io/f/xpqvpnye';
 
 function submitForm(btn) {
   var name = document.getElementById('ctName').value.trim();
@@ -87,6 +88,13 @@ function submitForm(btn) {
     alert('Preencha nome, tipo de projeto e uma breve descrição antes de enviar.');
     return;
   }
+
+  // Registra o lead no Formspree (não bloqueia o redirect pro WhatsApp)
+  fetch(FORMSPREE_ENDPOINT, {
+    method: 'POST',
+    headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' },
+    body: JSON.stringify({ name: name, email: email, project: project, message: message })
+  }).catch(function(){ /* silencioso: WhatsApp continua sendo o canal principal */ });
 
   var text = 'Olá! Vim pelo site da VorinWeb.\n\n' +
     'Nome: ' + name + '\n' +

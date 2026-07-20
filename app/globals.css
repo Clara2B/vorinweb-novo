@@ -1,0 +1,187 @@
+@import "tailwindcss";
+
+@custom-variant dark (&:where([data-theme="dark"], [data-theme="dark"] *));
+
+:root,
+[data-theme="light"] {
+  --bg: #f0f2f7;
+  --bg-alt: #e8eaf2;
+  --bg-card: #ffffff;
+  --bg-input: #ffffff;
+  --border: #d4d8e8;
+  --border-blue: #93c5fd;
+  --text: #0d1224;
+  --text-muted: #4a5270;
+  --text-faint: #8892b0;
+  --b50: #eef2ff;
+  --b100: #c7d2fe;
+  --b400: #60a5fa;
+  --b500: #3b82f6;
+  --b600: #2563eb;
+  --b700: #1d4ed8;
+  --nav-bg: rgba(240, 242, 247, 0.96);
+  --shadow-sm: 0 4px 24px rgba(0, 0, 0, 0.08);
+  --shadow-lg: 0 8px 40px rgba(0, 0, 0, 0.14);
+  --hero-grad: linear-gradient(135deg, #e8ecf7 0%, #dde3f5 40%, #eef2ff 100%);
+  --foot-bg: #08091a;
+  --foot-txt: #5a6a8a;
+  --glow: rgba(59, 130, 246, 0.12);
+  --mesh1: rgba(99, 102, 241, 0.06);
+  --mesh2: rgba(59, 130, 246, 0.04);
+}
+
+[data-theme="dark"] {
+  --bg: #07081a;
+  --bg-alt: #0d0f24;
+  --bg-card: #111326;
+  --bg-input: #111326;
+  --border: #1e2240;
+  --border-blue: #3b82f6;
+  --text: #e8ecff;
+  --text-muted: #8892b0;
+  --text-faint: #4a5270;
+  --b50: rgba(59, 130, 246, 0.1);
+  --b100: rgba(59, 130, 246, 0.18);
+  --b400: #60a5fa;
+  --b500: #3b82f6;
+  --b600: #3b82f6;
+  --b700: #2563eb;
+  --nav-bg: rgba(7, 8, 26, 0.96);
+  --shadow-sm: 0 4px 24px rgba(0, 0, 0, 0.5);
+  --shadow-lg: 0 8px 40px rgba(0, 0, 0, 0.65);
+  --hero-grad: linear-gradient(135deg, #07081a 0%, #0a0d1f 50%, #070818 100%);
+  --foot-bg: #03040e;
+  --foot-txt: #4a5270;
+  --glow: rgba(59, 130, 246, 0.15);
+  --mesh1: rgba(99, 102, 241, 0.09);
+  --mesh2: rgba(59, 130, 246, 0.06);
+}
+
+@theme inline {
+  --color-bg: var(--bg);
+  --color-bg-alt: var(--bg-alt);
+  --color-card: var(--bg-card);
+  --color-input: var(--bg-input);
+  --color-border: var(--border);
+  --color-border-blue: var(--border-blue);
+  --color-text: var(--text);
+  --color-muted: var(--text-muted);
+  --color-faint: var(--text-faint);
+  --color-brand-50: var(--b50);
+  --color-brand-100: var(--b100);
+  --color-brand-400: var(--b400);
+  --color-brand-500: var(--b500);
+  --color-brand-600: var(--b600);
+  --color-brand-700: var(--b700);
+  --color-whatsapp: #16a34a;
+  --color-whatsapp-dark: #15803d;
+  --color-foot: var(--foot-bg);
+  --color-foot-text: var(--foot-txt);
+  --font-display: var(--font-sora);
+  --font-body: var(--font-dm-sans);
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  background: var(--bg);
+  color: var(--text);
+  font-family: var(--font-body), sans-serif;
+  line-height: 1.6;
+  transition: background 0.35s, color 0.35s;
+}
+
+::selection {
+  background: var(--b500);
+  color: #fff;
+}
+
+.font-display {
+  font-family: var(--font-display), sans-serif;
+}
+
+.section-line {
+  height: 1px;
+  background: linear-gradient(90deg, transparent, var(--border), transparent);
+  opacity: 0.5;
+}
+
+.mesh-bg {
+  position: fixed;
+  inset: 0;
+  z-index: 0;
+  pointer-events: none;
+  overflow: hidden;
+}
+
+.mesh-blob {
+  position: absolute;
+  border-radius: 50%;
+  filter: blur(140px);
+  opacity: 0.4;
+}
+
+.mesh-blob.b1 {
+  width: 600px;
+  height: 600px;
+  background: var(--mesh1);
+  top: -150px;
+  right: -100px;
+  animation: driftA 20s ease-in-out infinite;
+}
+
+.mesh-blob.b2 {
+  width: 450px;
+  height: 450px;
+  background: var(--mesh2);
+  bottom: -80px;
+  left: -80px;
+  animation: driftB 25s ease-in-out infinite;
+}
+
+@keyframes driftA {
+  0%, 100% { transform: translate(0, 0); }
+  50% { transform: translate(-50px, 70px); }
+}
+
+@keyframes driftB {
+  0%, 100% { transform: translate(0, 0); }
+  50% { transform: translate(60px, -50px); }
+}
+
+@keyframes blink {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.3; }
+}
+
+@keyframes floatY {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-12px); }
+}
+
+.animate-blink {
+  animation: blink 2.5s ease-in-out infinite;
+}
+
+.animate-float {
+  animation: floatY 7s ease-in-out infinite;
+}
+
+.hero-grid-lines {
+  background-image:
+    linear-gradient(var(--border) 1px, transparent 1px),
+    linear-gradient(90deg, var(--border) 1px, transparent 1px);
+  background-size: 60px 60px;
+  opacity: 0.18;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}

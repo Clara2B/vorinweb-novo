@@ -29,7 +29,7 @@ export function ThemeToggle() {
       className="relative flex h-[26px] w-12 shrink-0 items-center rounded-full bg-border transition-colors"
     >
       <span
-        className="absolute top-[3px] left-[3px] h-5 w-5 rounded-full bg-brand-500 shadow-sm transition-transform dark:translate-x-[22px]"
+        className="absolute top-[3px] left-[3px] h-5 w-5 rounded-full bg-brand-500 shadow-sm transition-transform"
         style={{ transform: theme === "dark" ? "translateX(22px)" : "translateX(0)" }}
       />
       <Sun

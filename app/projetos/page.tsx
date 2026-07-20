@@ -31,9 +31,8 @@ export default function ProjetosPage() {
       </Section>
 
       <CtaSection
-        title="Seu projeto pode ser o próximo case de sucesso"
+        title="A próxima empresa a crescer com a gente pode ser a sua"
         description="Conta pra gente o que sua empresa precisa e vamos construir uma solução com o mesmo cuidado que você viu acima."
-        secondaryLabel="Solicitar orçamento"
       />
     </>
   );

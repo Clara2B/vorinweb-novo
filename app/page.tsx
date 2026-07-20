@@ -31,7 +31,7 @@ import { buildMetadata } from "@/lib/seo";
 import { JsonLd, faqSchema } from "@/lib/schema";
 
 export const metadata: Metadata = buildMetadata({
-  title: `${siteConfig.name} — Sites, sistemas e bots que vendem de verdade`,
+  title: `${siteConfig.name} — Presença digital que transforma visitantes em clientes`,
   description: siteConfig.description,
   path: "/",
 });
@@ -45,30 +45,20 @@ const segments = [
   { label: "Portfólios pessoais", icon: Users },
 ];
 
-const benefits = [
-  {
-    title: "Mais clientes, menos trabalho manual",
-    description: "Seu site e seus canais de atendimento trabalham por você — captando e qualificando contato sem depender só da sua disponibilidade.",
-  },
-  {
-    title: "Pronto para o Google desde o primeiro dia",
-    description: "Estrutura de SEO técnico, títulos, descrições e dados estruturados configurados antes mesmo da entrega.",
-  },
-  {
-    title: "Prazo combinado e cumprido",
-    description: "Você sabe exatamente quando o projeto vai ao ar — e acompanha o andamento em cada etapa.",
-  },
-  {
-    title: "Suporte de verdade",
-    description: "Antes, durante e depois da entrega. Sem sumir assim que o pagamento cai — planos mensais sem fidelidade para continuar evoluindo.",
-  },
+const gains = [
+  { title: "Mais autoridade", description: "Uma presença digital bem construída posiciona sua empresa como referência no que ela faz — antes mesmo da primeira conversa." },
+  { title: "Mais confiança", description: "Design profissional e informação clara fazem o visitante confiar na sua empresa desde o primeiro clique." },
+  { title: "Mais oportunidades", description: "Cada visita vira uma chance real de negócio, com caminhos claros até o contato ou a compra." },
+  { title: "Mais presença digital", description: "Sua empresa aparece onde o cliente já está procurando — no Google, nas redes, no WhatsApp." },
+  { title: "Mais profissionalismo", description: "Uma apresentação à altura do que sua empresa realmente entrega, sem parecer amadora." },
+  { title: "Maior conversão", description: "Estrutura pensada para transformar visita em contato, contato em orçamento, orçamento em cliente." },
 ];
 
 const differentiators = [
-  { title: "Um time só, do início ao fim", description: "Nada de terceirizar pedaços do projeto. Quem planeja é quem entrega." },
-  { title: "Comunicação direto pelo WhatsApp", description: "Sem burocracia, sem sistema de tickets. Você fala com quem está construindo o seu projeto." },
-  { title: "Projetos reais no ar", description: "Nossos cases mostram negócios de verdade usando o que construímos — não só peças conceituais." },
-  { title: "Preço justo, sem letras miúdas", description: "Orçamento claro antes de começar. Você sabe exatamente o que está contratando." },
+  { title: "Design moderno", description: "Seu cliente cria uma boa impressão da sua empresa antes mesmo do primeiro contato." },
+  { title: "Site rápido", description: "Reduz abandonos e melhora a experiência de quem está decidindo se confia em você." },
+  { title: "Responsivo por padrão", description: "Seu negócio funciona perfeitamente em qualquer dispositivo, porque é lá que seu cliente está." },
+  { title: "SEO técnico incluso", description: "Mais chances de aparecer exatamente quando alguém procura pelo que sua empresa oferece." },
 ];
 
 export default function Home() {
@@ -86,28 +76,31 @@ export default function Home() {
               Aberto para novos projetos
             </div>
             <h1 className="font-display mb-5 text-[clamp(2.4rem,4.5vw,3.9rem)] leading-[1.1] font-extrabold tracking-tight text-text">
-              O parceiro digital que
+              Presença digital que
               <br />
-              <em className="text-brand-500 not-italic">transforma visitantes</em>
+              <em className="text-brand-500 not-italic">vende por você,</em>
               <br />
-              em clientes
+              todos os dias
             </h1>
-            <p className="mb-9 max-w-[500px] text-lg leading-[1.8] text-muted">
-              Sites, lojas virtuais e sistemas sob medida construídos para gerar{" "}
-              <strong className="font-semibold text-text">mais clientes e mais vendas</strong> — com uma equipe que continua ao seu lado antes, durante e depois da entrega.
+            <p className="mb-4 max-w-[520px] text-lg leading-[1.8] text-muted">
+              Criamos soluções digitais que ajudam sua empresa a{" "}
+              <strong className="font-semibold text-text">ser encontrada, conquistar confiança e transformar visitantes em clientes</strong> — enquanto sua concorrência ainda só existe na internet.
+            </p>
+            <p className="mb-9 max-w-[500px] text-sm font-medium text-faint italic">
+              Primeiras impressões não têm segunda chance. A sua já pode estar acontecendo agora.
             </p>
             <div className="mb-12 flex flex-wrap gap-4">
               <Link
                 href="/orcamento"
                 className="font-display inline-flex items-center gap-2 rounded-xl bg-brand-600 px-7 py-4 text-sm font-bold text-white shadow-[0_4px_20px_rgba(37,99,235,0.35)] transition-all hover:-translate-y-0.5 hover:bg-brand-700 hover:shadow-[0_8px_28px_rgba(37,99,235,0.45)]"
               >
-                Solicitar orçamento
+                Quero vender mais
               </Link>
               <Link
                 href="/projetos"
                 className="font-display inline-flex items-center gap-2 rounded-xl border-[1.5px] border-border px-7 py-4 text-sm font-semibold text-muted transition-all hover:border-brand-500 hover:text-brand-500"
               >
-                Ver projetos
+                Ver empresas que já cresceram com a gente
               </Link>
             </div>
             <div className="flex flex-wrap gap-8 border-t border-border pt-8">
@@ -192,22 +185,22 @@ export default function Home() {
 
       <div className="section-line mx-[5%]" />
 
-      {/* BENEFÍCIOS */}
+      {/* O QUE SUA EMPRESA GANHA */}
       <Section>
         <SectionHeader
-          eyebrow="Benefícios"
-          title="O que muda no seu negócio quando o digital funciona de verdade"
-          subtitle="Não se trata só de ter um site. É sobre transformar presença digital em resultado mensurável."
+          eyebrow="O que você ganha"
+          title="O que sua empresa ganha ao investir em presença digital de verdade"
+          subtitle="O problema nunca foi não ter um site. É ter um site que não gera resultado. Veja o que muda quando ele funciona."
         />
-        <div className="mt-10 grid gap-6 sm:grid-cols-2">
-          {benefits.map((b) => (
-            <div key={b.title} className="rounded-2xl border border-border bg-card p-6">
-              <h3 className="font-display mb-2 text-base font-bold text-text">{b.title}</h3>
-              <p className="text-sm leading-relaxed text-muted">{b.description}</p>
+        <div className="mt-10 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
+          {gains.map((g) => (
+            <div key={g.title} className="rounded-2xl border border-border bg-card p-6">
+              <h3 className="font-display mb-2 text-base font-bold text-text">{g.title}</h3>
+              <p className="text-sm leading-relaxed text-muted">{g.description}</p>
             </div>
           ))}
         </div>
-        <InlineCta text="Quer ver isso funcionando no seu negócio?" />
+        <InlineCta text="Pronto para colher esses resultados?" />
       </Section>
 
       <div className="section-line mx-[5%]" />
@@ -222,7 +215,7 @@ export default function Home() {
 
       {/* DIFERENCIAIS */}
       <Section className="bg-bg-alt">
-        <SectionHeader eyebrow="Diferenciais" title="Por que negócios escolhem a VorinWeb" />
+        <SectionHeader eyebrow="Diferenciais" title="Cada detalhe existe para gerar mais confiança e mais conversão" subtitle="Não são características técnicas soltas. Cada uma delas resolve um motivo real de um visitante ir embora sem virar cliente." />
         <div className="mt-10 grid gap-6 sm:grid-cols-2">
           {differentiators.map((d) => (
             <div key={d.title} className="flex items-start gap-4 rounded-2xl border border-border bg-card p-6">
@@ -238,6 +231,15 @@ export default function Home() {
         </div>
         <InlineCta text="Já sabe o que sua empresa precisa?" />
       </Section>
+
+      <div className="section-line mx-[5%]" />
+
+      {/* LINHA EMOCIONAL */}
+      <div className="bg-bg px-[5%] py-10 text-center">
+        <p className="font-display mx-auto max-w-2xl text-lg font-semibold text-text">
+          Seu concorrente pode estar investindo na presença digital dele neste exato momento.
+        </p>
+      </div>
 
       <div className="section-line mx-[5%]" />
 
@@ -271,11 +273,26 @@ export default function Home() {
         </div>
       </Section>
 
+      {/* DEPOIMENTO EM DESTAQUE */}
+      {cases
+        .filter((c) => c.testimonial)
+        .slice(0, 1)
+        .map((c) => (
+          <Section key={c.slug} className="bg-[linear-gradient(135deg,#1d4ed8_0%,#1e3a8a_100%)]">
+            <div className="mx-auto max-w-3xl text-center">
+              <div className="font-display mb-6 text-5xl leading-none text-white/30">&ldquo;</div>
+              <p className="mb-8 text-xl leading-relaxed font-medium text-white">{c.testimonial!.quote}</p>
+              <div className="font-display font-bold text-white">{c.testimonial!.author}</div>
+              <div className="text-sm text-white/70">{c.testimonial!.role}</div>
+            </div>
+          </Section>
+        ))}
+
       <div className="section-line mx-[5%]" />
 
       {/* CONFIANÇA (substitui depoimentos fictícios por prova real) */}
       <Section>
-        <SectionHeader eyebrow="Por que confiar" title="Compromissos que a gente cumpre, não só promete" center />
+        <SectionHeader eyebrow="Por que confiar" title="A opinião de quem já trabalhou com a gente vale mais que qualquer tecnologia que usamos" center />
         <div className="mt-10 grid gap-6 sm:grid-cols-2 lg:grid-cols-5">
           {[
             { label: "Projetos entregues", value: siteConfig.stats.projectsDelivered },

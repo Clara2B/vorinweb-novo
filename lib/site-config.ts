@@ -7,7 +7,7 @@ export const siteConfig = {
   name: "VorinWeb",
   url: "https://vorinweb.com.br",
   description:
-    "A VorinWeb projeta e constrói sites, lojas virtuais, landing pages e bots de automação para negócios que querem mais clientes e menos trabalho manual.",
+    "A VorinWeb cria soluções digitais que ajudam empresas a serem encontradas, conquistarem confiança e transformarem visitantes em clientes — com sites, lojas virtuais e sistemas pensados para gerar resultado, não só para existir.",
   email: "vorinweb@gmail.com",
   phoneDisplay: "(11) 93490-0204",
   phoneE164: "+5511934900204",

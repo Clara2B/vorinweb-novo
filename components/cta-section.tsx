@@ -3,11 +3,11 @@ import { Button } from "./ui/button";
 import { whatsappLink } from "@/lib/site-config";
 
 export function CtaSection({
-  title = "Pronto para ter um site que trabalha por você?",
-  description = "Manda uma mensagem agora. A gente responde em menos de 1 hora e já começa a conversa sobre o seu projeto — sem compromisso nenhum.",
-  primaryLabel = "Falar no WhatsApp agora",
+  title = "Sua empresa está pronta para ser encontrada, lembrada e escolhida?",
+  description = "Enquanto você lê isso, alguém pode estar procurando exatamente pelo que a sua empresa oferece. Vamos conversar sobre como colocar isso ao seu alcance — sem compromisso.",
+  primaryLabel = "Vamos conversar",
   primaryHref,
-  secondaryLabel = "Solicitar orçamento",
+  secondaryLabel = "Criar meu projeto",
   secondaryHref = "/orcamento",
 }: {
   title?: string;

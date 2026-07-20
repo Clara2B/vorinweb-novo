@@ -24,7 +24,7 @@ const dmSans = DM_Sans({
 export const metadata: Metadata = {
   metadataBase: new URL(siteConfig.url),
   title: {
-    default: `${siteConfig.name} — Sites, sistemas e bots que vendem de verdade`,
+    default: `${siteConfig.name} — Presença digital que transforma visitantes em clientes`,
     template: `%s | ${siteConfig.name}`,
   },
   description: siteConfig.description,

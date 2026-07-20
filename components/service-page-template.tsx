@@ -100,10 +100,7 @@ export function ServicePageTemplate({ service }: { service: Service }) {
         <FaqAccordion items={service.faq} />
       </Section>
 
-      <CtaSection
-        title={`Vamos conversar sobre ${service.name.toLowerCase()}?`}
-        secondaryLabel="Solicitar orçamento"
-      />
+      <CtaSection title={`Vamos conversar sobre ${service.name.toLowerCase()}?`} />
     </>
   );
 }

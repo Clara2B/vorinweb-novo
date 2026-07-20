@@ -22,7 +22,7 @@ export const services: Service[] = [
     navLabel: "Sites institucionais",
     name: "Criação de Sites",
     shortDescription:
-      "Site institucional profissional, rápido e otimizado para transformar visita em contato.",
+      "Um site que representa sua empresa de verdade e transforma visitantes em contatos reais.",
     icon: "Globe",
     hero: {
       eyebrow: "Criação de Sites",
@@ -45,12 +45,12 @@ export const services: Service[] = [
         "Construímos cada site do zero, com estrutura pensada para o seu negócio específico: hierarquia clara de informação, prova social nos lugares certos e caminho direto até o WhatsApp ou formulário. Nada de template genérico com seções que não fazem sentido para o seu segmento.",
     },
     benefits: [
-      { title: "Primeira impressão profissional", description: "Design autoral alinhado à identidade da sua marca, sem cara de template." },
-      { title: "Aparece no Google", description: "Estrutura de SEO on-page, títulos e descrições otimizados desde o primeiro dia." },
-      { title: "Carregamento rápido", description: "Site leve, otimizado para Core Web Vitals — sem visitante esperando a página abrir." },
-      { title: "Fácil de atualizar", description: "Você recebe orientação para trocar textos e imagens sem depender de programador." },
-      { title: "Caminho direto até o contato", description: "Botões de WhatsApp e formulário posicionados nos momentos certos da leitura." },
-      { title: "Responsivo de verdade", description: "Testado em celular, tablet e desktop — onde a maioria dos seus clientes vai te encontrar." },
+      { title: "Sua empresa causa uma ótima primeira impressão", description: "Design autoral alinhado à identidade da sua marca, sem cara de template." },
+      { title: "Sua empresa aparece quando o cliente procura no Google", description: "Estrutura de SEO on-page, títulos e descrições otimizados desde o primeiro dia." },
+      { title: "Ninguém desiste esperando a página abrir", description: "Site leve, otimizado para carregar rápido — sem visitante indo embora antes de conhecer sua proposta." },
+      { title: "Você atualiza o site sem depender de programador", description: "Orientação simples para trocar textos e imagens sempre que precisar." },
+      { title: "O caminho até o contato fica óbvio", description: "Botões de WhatsApp e formulário posicionados nos momentos certos da leitura." },
+      { title: "Seu cliente tem uma experiência perfeita em qualquer tela", description: "Testado em celular, tablet e desktop — onde a maioria das suas visitas acontece." },
     ],
     technologies: [
       "HTML5, CSS3 e JavaScript modernos",
@@ -73,7 +73,7 @@ export const services: Service[] = [
     navLabel: "Landing pages",
     name: "Landing Pages",
     shortDescription:
-      "Página de alta conversão para campanhas de Google Ads e Meta Ads, sem distrações.",
+      "Páginas desenvolvidas para transformar cliques de anúncio em oportunidades de negócio.",
     icon: "Rocket",
     hero: {
       eyebrow: "Landing Pages",
@@ -96,12 +96,12 @@ export const services: Service[] = [
         "Cada landing page é construída em torno de um único objetivo: fazer o visitante preencher o formulário, chamar no WhatsApp ou comprar. Copy direta, prova social nos pontos certos e formulário curto — tudo otimizado para o tráfego pago que você já está investindo.",
     },
     benefits: [
-      { title: "CTA acima da dobra", description: "O visitante não precisa rolar a página para saber o que fazer." },
-      { title: "Carregamento otimizado para Ads", description: "Página leve, o que ajuda o índice de qualidade e reduz o custo por clique." },
-      { title: "Copy focada em uma oferta", description: "Sem menu, sem links de saída — só o caminho até a conversão." },
-      { title: "Formulário curto", description: "Só os campos essenciais para não perder lead por cansaço de preenchimento." },
-      { title: "Prova social estratégica", description: "Depoimentos, números e selos posicionados exatamente onde geram confiança." },
-      { title: "Rastreamento de conversão", description: "Pixel do Meta e tag de conversão do Google Ads configurados desde a entrega." },
+      { title: "O visitante sabe exatamente o que fazer, sem rolar a página", description: "Chamada principal e botão de ação logo na primeira tela." },
+      { title: "Sua campanha paga menos por clique e converte mais", description: "Página leve, o que ajuda o índice de qualidade do anúncio e reduz o custo por clique." },
+      { title: "Nada tira a atenção do visitante da sua oferta", description: "Sem menu, sem links de saída — só o caminho até a conversão." },
+      { title: "Menos atrito, mais gente preenchendo o formulário", description: "Só os campos essenciais para não perder contato por cansaço de preenchimento." },
+      { title: "A confiança certa aparece bem na hora que o visitante hesita", description: "Depoimentos, números e selos posicionados exatamente onde geram confiança." },
+      { title: "Você sabe quais anúncios realmente trazem retorno", description: "Pixel do Meta e tag de conversão do Google Ads configurados desde a entrega." },
     ],
     technologies: [
       "Next.js com geração estática (carregamento quase instantâneo)",
@@ -124,7 +124,7 @@ export const services: Service[] = [
     navLabel: "Lojas virtuais",
     name: "Lojas Virtuais",
     shortDescription:
-      "Loja virtual completa, do catálogo ao pagamento aprovado, com checkout simples.",
+      "Uma loja que vende por você, mesmo enquanto sua equipe está offline.",
     icon: "ShoppingCart",
     hero: {
       eyebrow: "Lojas Virtuais",
@@ -147,12 +147,12 @@ export const services: Service[] = [
         "Construímos sua loja com catálogo completo, carrinho, checkout otimizado e meios de pagamento configurados — Pix, cartão e boleto. O cliente encontra, escolhe, paga e recebe a confirmação, sem precisar de alguém disponível para atender.",
     },
     benefits: [
-      { title: "Catálogo ilimitado", description: "Organize produtos por categoria, com filtros e busca para o cliente achar rápido." },
-      { title: "Checkout em poucos cliques", description: "Processo enxuto, pensado para reduzir abandono de carrinho." },
-      { title: "Pix, cartão e boleto", description: "Meios de pagamento configurados para não perder venda por falta de opção." },
-      { title: "Frete calculado automaticamente", description: "Integração com transportadoras — sem cálculo manual por mensagem." },
-      { title: "Estoque em tempo real", description: "Produto esgotado não aparece disponível para compra." },
-      { title: "Painel de gestão simples", description: "Acompanhe pedidos, estoque e vendas sem depender de suporte técnico." },
+      { title: "Seu cliente encontra o que quer em segundos", description: "Produtos organizados por categoria, com filtros e busca." },
+      { title: "Menos gente desistindo no meio da compra", description: "Checkout enxuto, pensado para reduzir abandono de carrinho." },
+      { title: "Você não perde venda por falta de forma de pagamento", description: "Pix, cartão e boleto configurados desde o primeiro dia." },
+      { title: "Ninguém espera resposta manual para saber o frete", description: "Cálculo automático, integrado com transportadoras." },
+      { title: "Você nunca vende o que não tem mais em estoque", description: "Produto esgotado some da loja automaticamente." },
+      { title: "Você administra tudo sem depender de suporte técnico", description: "Painel simples para acompanhar pedidos, estoque e vendas." },
     ],
     technologies: [
       "Plataforma de e-commerce adequada ao porte do seu negócio",
@@ -175,7 +175,7 @@ export const services: Service[] = [
     navLabel: "Bots de WhatsApp",
     name: "Bots de WhatsApp",
     shortDescription:
-      "Atendimento e agendamento automático no WhatsApp, funcionando 24 horas por dia.",
+      "Atendimento que nunca dorme e nunca deixa um cliente esperando.",
     icon: "Bot",
     hero: {
       eyebrow: "Bots de WhatsApp",
@@ -198,12 +198,12 @@ export const services: Service[] = [
         "Mapeamos as perguntas e o fluxo de atendimento reais do seu negócio para construir um bot que responde dúvidas, agenda horários direto na sua agenda e transfere para um atendente humano quando o assunto exige — sem parecer robótico.",
     },
     benefits: [
-      { title: "Atendimento 24 horas", description: "Responde a qualquer hora, inclusive fora do horário comercial e nos fins de semana." },
-      { title: "Agendamento automático", description: "Cliente marca o horário direto pelo WhatsApp, sincronizado com sua agenda." },
-      { title: "Qualifica antes de chegar no time", description: "Perguntas iniciais filtram quem está pronto para comprar de quem só está pesquisando." },
-      { title: "Reduz mensagens repetitivas", description: "Perguntas frequentes sobre preço, horário e localização são respondidas automaticamente." },
-      { title: "Transferência para humano", description: "Quando o assunto exige, o bot transfere a conversa para um atendente real." },
-      { title: "Relatório de conversas", description: "Acompanhe quantos atendimentos e agendamentos o bot está gerando por mês." },
+      { title: "Sua empresa nunca mais perde cliente por demorar a responder", description: "Responde a qualquer hora, inclusive fora do horário comercial e nos fins de semana." },
+      { title: "Seu cliente agenda sozinho, sem trocar mensagem com sua equipe", description: "Marcação direto pelo WhatsApp, sincronizada com sua agenda." },
+      { title: "Seu time só fala com quem já está pronto para comprar", description: "Perguntas iniciais filtram quem está decidido de quem só está pesquisando." },
+      { title: "Sua equipe para de responder as mesmas perguntas o dia inteiro", description: "Preço, horário e localização respondidos automaticamente." },
+      { title: "Nenhum cliente fica preso a um robô quando o assunto é sério", description: "O bot transfere a conversa para um atendente real quando o assunto exige." },
+      { title: "Você enxerga o retorno real do atendimento automático", description: "Acompanhe quantos atendimentos e agendamentos o bot está gerando por mês." },
     ],
     technologies: [
       "Integração com WhatsApp Business API",

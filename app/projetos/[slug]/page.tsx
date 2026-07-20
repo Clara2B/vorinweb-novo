@@ -170,7 +170,6 @@ export default async function ProjectDetailPage({ params }: { params: Promise<{ 
       <CtaSection
         title="Gostou deste projeto?"
         description="Vamos criar algo exclusivo para a sua empresa, com o mesmo cuidado que você viu aqui."
-        secondaryLabel="Solicitar orçamento"
       />
     </>
   );

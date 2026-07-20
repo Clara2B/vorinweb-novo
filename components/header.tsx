@@ -79,7 +79,7 @@ export function Header() {
           href="/orcamento"
           className="font-display hidden rounded-lg bg-brand-600 px-5 py-2.5 text-sm font-bold text-white transition-all hover:bg-brand-700 sm:inline-flex"
         >
-          Solicitar orçamento
+          Vamos conversar
         </Link>
         <button
           type="button"
@@ -119,7 +119,7 @@ export function Header() {
             className="font-display my-4 rounded-lg bg-brand-600 px-5 py-3 text-center text-sm font-bold text-white"
             onClick={() => setMobileOpen(false)}
           >
-            Solicitar orçamento
+            Vamos conversar
           </Link>
         </div>
       )}

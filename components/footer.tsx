@@ -62,7 +62,7 @@ export function Footer() {
           <div className="font-display mb-4 text-xs font-bold tracking-wide text-white uppercase">Empresa</div>
           <ul className="flex flex-col gap-2.5">
             <li><Link href="/sobre" className="text-sm text-foot-text transition-colors hover:text-white">Sobre a VorinWeb</Link></li>
-            <li><Link href="/portfolio" className="text-sm text-foot-text transition-colors hover:text-white">Portfólio</Link></li>
+            <li><Link href="/projetos" className="text-sm text-foot-text transition-colors hover:text-white">Projetos</Link></li>
             <li><Link href="/blog" className="text-sm text-foot-text transition-colors hover:text-white">Blog</Link></li>
             <li><Link href="/orcamento" className="text-sm text-foot-text transition-colors hover:text-white">Solicitar orçamento</Link></li>
           </ul>

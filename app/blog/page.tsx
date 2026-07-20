@@ -21,7 +21,7 @@ export default function BlogPage() {
     <>
       <Breadcrumb items={[{ name: "Blog", path: "/blog" }]} />
       <Section>
-        <SectionHeader eyebrow="Blog" title="Conteúdo para ajudar seu negócio a vender mais" subtitle="Artigos práticos sobre sites, landing pages, lojas virtuais e automação de atendimento." />
+        <SectionHeader as="h1" eyebrow="Blog" title="Conteúdo para ajudar seu negócio a vender mais" subtitle="Artigos práticos sobre sites, landing pages, lojas virtuais e automação de atendimento." />
         <div className="mt-10 grid gap-6 md:grid-cols-3">
           {blogPosts.map((post) => (
             <Link

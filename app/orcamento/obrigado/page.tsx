@@ -26,7 +26,7 @@ export default function ObrigadoPage() {
           Abrimos o WhatsApp com os dados do seu projeto prontos para envio. Confirme o envio por lá e a gente responde em até {siteConfig.stats.responseCommitment} em horário comercial ({siteConfig.businessHours.toLowerCase()}).
         </p>
         <div className="flex flex-wrap justify-center gap-4">
-          <Button href="/portfolio" variant="outline">Ver portfólio enquanto isso</Button>
+          <Button href="/projetos" variant="outline">Ver projetos enquanto isso</Button>
           <Button href="/" variant="ghost">Voltar para a home</Button>
         </div>
       </div>

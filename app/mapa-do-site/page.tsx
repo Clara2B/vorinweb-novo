@@ -3,6 +3,7 @@ import Link from "next/link";
 import { Breadcrumb } from "@/components/breadcrumb";
 import { Section } from "@/components/ui/section";
 import { services } from "@/data/services";
+import { cases } from "@/data/cases";
 import { buildMetadata } from "@/lib/seo";
 
 export const metadata: Metadata = buildMetadata({
@@ -16,11 +17,15 @@ const groups: { title: string; links: { label: string; href: string }[] }[] = [
     title: "Principal",
     links: [
       { label: "Início", href: "/" },
-      { label: "Portfólio", href: "/portfolio" },
+      { label: "Projetos", href: "/projetos" },
       { label: "Solicitar orçamento", href: "/orcamento" },
       { label: "Sobre", href: "/sobre" },
       { label: "Blog", href: "/blog" },
     ],
+  },
+  {
+    title: "Cases de Sucesso",
+    links: cases.map((c) => ({ label: c.name, href: `/projetos/${c.slug}` })),
   },
   {
     title: "Serviços",
@@ -41,7 +46,7 @@ export default function MapaDoSitePage() {
       <Breadcrumb items={[{ name: "Mapa do Site", path: "/mapa-do-site" }]} />
       <Section>
         <h1 className="font-display mb-10 text-3xl font-extrabold text-text">Mapa do Site</h1>
-        <div className="grid gap-10 sm:grid-cols-3">
+        <div className="grid gap-10 sm:grid-cols-2 lg:grid-cols-4">
           {groups.map((group) => (
             <div key={group.title}>
               <div className="font-display mb-4 text-xs font-bold tracking-wide text-brand-500 uppercase">{group.title}</div>

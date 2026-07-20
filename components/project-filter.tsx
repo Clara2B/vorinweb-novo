@@ -1,24 +1,25 @@
 "use client";
 
 import { useState } from "react";
-import { CaseCard } from "@/components/case-card";
-import type { Case } from "@/data/cases";
+import { ProjectCard } from "@/components/project-card";
+import type { Case, CaseCategory } from "@/data/cases";
 
-const filters: { label: string; value: Case["category"] | "todos" }[] = [
+const filters: { label: string; value: CaseCategory | "todos" }[] = [
   { label: "Todos", value: "todos" },
   { label: "Sites", value: "sites" },
-  { label: "Lojas Virtuais", value: "lojas-virtuais" },
   { label: "Landing Pages", value: "landing-pages" },
+  { label: "Lojas Virtuais", value: "lojas-virtuais" },
   { label: "Bots", value: "bots" },
+  { label: "Sistemas", value: "sistemas" },
 ];
 
-export function PortfolioFilter({ items }: { items: Case[] }) {
-  const [active, setActive] = useState<Case["category"] | "todos">("todos");
+export function ProjectFilter({ items }: { items: Case[] }) {
+  const [active, setActive] = useState<CaseCategory | "todos">("todos");
   const filtered = active === "todos" ? items : items.filter((item) => item.category === active);
 
   return (
     <div>
-      <div className="mb-10 flex flex-wrap gap-2.5" role="tablist" aria-label="Filtrar portfólio por categoria">
+      <div className="mb-10 flex flex-wrap gap-2.5" role="tablist" aria-label="Filtrar projetos por categoria">
         {filters.map((filter) => (
           <button
             key={filter.value}
@@ -38,9 +39,9 @@ export function PortfolioFilter({ items }: { items: Case[] }) {
       </div>
 
       {filtered.length > 0 ? (
-        <div className="grid gap-6 md:grid-cols-2">
+        <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
           {filtered.map((item) => (
-            <CaseCard key={item.name} item={item} />
+            <ProjectCard key={item.slug} item={item} />
           ))}
         </div>
       ) : (

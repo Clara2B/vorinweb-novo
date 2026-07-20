@@ -21,20 +21,22 @@ export function SectionHeader({
   title,
   subtitle,
   center = false,
+  as: Heading = "h2",
 }: {
   eyebrow: string;
   title: string;
   subtitle?: string;
   center?: boolean;
+  as?: "h1" | "h2";
 }) {
   return (
     <div className={center ? "mx-auto max-w-2xl text-center" : ""}>
       <div className="font-display mb-2 text-[0.68rem] font-bold tracking-[0.12em] text-brand-500 uppercase">
         {eyebrow}
       </div>
-      <h2 className="font-display mb-3 text-[clamp(1.8rem,3vw,2.6rem)] leading-tight font-extrabold tracking-tight text-text">
+      <Heading className="font-display mb-3 text-[clamp(1.8rem,3vw,2.6rem)] leading-tight font-extrabold tracking-tight text-text">
         {title}
-      </h2>
+      </Heading>
       {subtitle && (
         <p className={`max-w-xl text-[1.05rem] leading-relaxed text-muted ${center ? "mx-auto" : ""}`}>
           {subtitle}

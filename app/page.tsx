@@ -16,11 +16,12 @@ import {
 } from "lucide-react";
 import { Section, SectionHeader } from "@/components/ui/section";
 import { ServiceCard } from "@/components/service-card";
-import { CaseCard } from "@/components/case-card";
+import { ProjectCard } from "@/components/project-card";
 import { PlanCard } from "@/components/plan-card";
 import { FaqAccordion } from "@/components/faq-accordion";
 import { CtaSection } from "@/components/cta-section";
-import { ProcessSteps } from "@/components/process-steps";
+import { WorkProcess } from "@/components/work-process";
+import { InlineCta } from "@/components/inline-cta";
 import { services } from "@/data/services";
 import { cases } from "@/data/cases";
 import { plans } from "@/data/plans";
@@ -66,7 +67,7 @@ const benefits = [
 const differentiators = [
   { title: "Um time só, do início ao fim", description: "Nada de terceirizar pedaços do projeto. Quem planeja é quem entrega." },
   { title: "Comunicação direto pelo WhatsApp", description: "Sem burocracia, sem sistema de tickets. Você fala com quem está construindo o seu projeto." },
-  { title: "Projetos reais no ar", description: "Nosso portfólio mostra negócios de verdade usando o que construímos — não só peças conceituais." },
+  { title: "Projetos reais no ar", description: "Nossos cases mostram negócios de verdade usando o que construímos — não só peças conceituais." },
   { title: "Preço justo, sem letras miúdas", description: "Orçamento claro antes de começar. Você sabe exatamente o que está contratando." },
 ];
 
@@ -85,15 +86,15 @@ export default function Home() {
               Aberto para novos projetos
             </div>
             <h1 className="font-display mb-5 text-[clamp(2.4rem,4.5vw,3.9rem)] leading-[1.1] font-extrabold tracking-tight text-text">
-              Do site ao sistema,
+              O parceiro digital que
               <br />
-              sob <em className="text-brand-500 not-italic">um só time</em>
+              <em className="text-brand-500 not-italic">transforma visitantes</em>
               <br />
-              que não some depois
+              em clientes
             </h1>
             <p className="mb-9 max-w-[500px] text-lg leading-[1.8] text-muted">
-              A VorinWeb projeta e constrói sites, lojas virtuais, sistemas sob medida e bots de automação para negócios que querem{" "}
-              <strong className="font-semibold text-text">mais clientes e menos trabalho manual</strong> — com suporte de verdade antes, durante e depois da entrega.
+              Sites, lojas virtuais e sistemas sob medida construídos para gerar{" "}
+              <strong className="font-semibold text-text">mais clientes e mais vendas</strong> — com uma equipe que continua ao seu lado antes, durante e depois da entrega.
             </p>
             <div className="mb-12 flex flex-wrap gap-4">
               <Link
@@ -103,10 +104,10 @@ export default function Home() {
                 Solicitar orçamento
               </Link>
               <Link
-                href="/portfolio"
+                href="/projetos"
                 className="font-display inline-flex items-center gap-2 rounded-xl border-[1.5px] border-border px-7 py-4 text-sm font-semibold text-muted transition-all hover:border-brand-500 hover:text-brand-500"
               >
-                Ver portfólio
+                Ver projetos
               </Link>
             </div>
             <div className="flex flex-wrap gap-8 border-t border-border pt-8">
@@ -206,14 +207,15 @@ export default function Home() {
             </div>
           ))}
         </div>
+        <InlineCta text="Quer ver isso funcionando no seu negócio?" />
       </Section>
 
       <div className="section-line mx-[5%]" />
 
-      {/* COMO FUNCIONA */}
+      {/* COMO TRABALHAMOS */}
       <Section className="bg-bg">
-        <SectionHeader eyebrow="Processo" title="Do zero ao ar em 3 passos" subtitle="Sem reuniões intermináveis, sem surpresas no caminho. Você explica o que precisa e a gente faz acontecer." />
-        <ProcessSteps />
+        <SectionHeader eyebrow="Como trabalhamos" title="Um método claro, do primeiro contato à entrega" subtitle="Sem reuniões intermináveis, sem surpresas no caminho. Cada etapa existe para garantir um resultado que representa a sua empresa." center />
+        <WorkProcess />
       </Section>
 
       <div className="section-line mx-[5%]" />
@@ -234,6 +236,7 @@ export default function Home() {
             </div>
           ))}
         </div>
+        <InlineCta text="Já sabe o que sua empresa precisa?" />
       </Section>
 
       <div className="section-line mx-[5%]" />
@@ -250,20 +253,20 @@ export default function Home() {
 
       <div className="section-line mx-[5%]" />
 
-      {/* CASES */}
+      {/* CASES DE SUCESSO */}
       <Section className="bg-bg-alt">
         <div className="mb-1 inline-flex items-center gap-1.5 font-display text-xs font-bold tracking-wide text-brand-500 uppercase">
-          <Award className="h-3.5 w-3.5" aria-hidden /> Projetos reais
+          <Award className="h-3.5 w-3.5" aria-hidden /> Cases de sucesso
         </div>
-        <SectionHeader eyebrow="Cases" title="Projetos reais, no ar, atendendo clientes de verdade" subtitle="Sem mockup, sem peça de portfólio genérica. Resultado que você pode visitar agora." />
+        <SectionHeader eyebrow="Resultados reais" title="Empresas que já transformaram sua presença digital com a gente" subtitle="Sem mockup, sem peça conceitual. Cada projeto abaixo resolveu um problema real de negócio — e você pode conferir o resultado agora." />
         <div className="mt-10 grid gap-6 md:grid-cols-2">
           {cases.map((item) => (
-            <CaseCard key={item.name} item={item} />
+            <ProjectCard key={item.slug} item={item} />
           ))}
         </div>
         <div className="mt-10 text-center">
-          <Link href="/portfolio" className="font-display inline-flex items-center gap-2 text-sm font-bold text-brand-500 hover:underline">
-            Ver portfólio completo →
+          <Link href="/projetos" className="font-display inline-flex items-center gap-2 text-sm font-bold text-brand-500 hover:underline">
+            Ver todos os projetos →
           </Link>
         </div>
       </Section>
@@ -273,12 +276,13 @@ export default function Home() {
       {/* CONFIANÇA (substitui depoimentos fictícios por prova real) */}
       <Section>
         <SectionHeader eyebrow="Por que confiar" title="Compromissos que a gente cumpre, não só promete" center />
-        <div className="mt-10 grid gap-6 sm:grid-cols-2 md:grid-cols-4">
+        <div className="mt-10 grid gap-6 sm:grid-cols-2 lg:grid-cols-5">
           {[
             { label: "Projetos entregues", value: siteConfig.stats.projectsDelivered },
-            { label: "Prazo padrão", value: siteConfig.stats.standardDelivery },
-            { label: "Resposta no WhatsApp", value: siteConfig.stats.responseCommitment },
-            { label: "Ajustes grátis pós-entrega", value: siteConfig.stats.freeAdjustmentDays },
+            { label: "Entrega rápida", value: siteConfig.stats.standardDelivery },
+            { label: "Suporte dedicado", value: siteConfig.stats.responseCommitment },
+            { label: "Sites responsivos", value: "100%" },
+            { label: "Projetos personalizados", value: "100%" },
           ].map((stat) => (
             <div key={stat.label} className="rounded-2xl border border-border bg-card p-6 text-center">
               <div className="font-display text-2xl font-extrabold text-brand-500">{stat.value}</div>

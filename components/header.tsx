@@ -8,7 +8,7 @@ import { ThemeToggle } from "./theme-toggle";
 import { ServiceIcon } from "./ui/service-icon";
 
 const navLinks = [
-  { label: "Portfólio", href: "/portfolio" },
+  { label: "Projetos", href: "/projetos" },
   { label: "Sobre", href: "/sobre" },
   { label: "Blog", href: "/blog" },
 ];

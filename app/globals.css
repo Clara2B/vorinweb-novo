@@ -90,7 +90,15 @@ body {
   color: var(--text);
   font-family: var(--font-body), sans-serif;
   line-height: 1.6;
-  transition: background 0.35s, color 0.35s;
+  transition: background-color 0.35s, color 0.35s;
+}
+
+/* See components/theme-init-script.tsx: suppresses transitions for the two
+   frames around the initial theme swap so elements don't get stuck showing
+   the pre-swap color. */
+.theme-init,
+.theme-init * {
+  transition: none !important;
 }
 
 ::selection {

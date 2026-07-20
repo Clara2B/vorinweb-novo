@@ -24,7 +24,17 @@ jobs:
           node-version: 20
           cache: npm
       - run: npm ci
+      # TEMPORARY (preview phase): vorinweb.com.br still points at the old repo,
+      # so this deploy is only reachable at the GitHub Pages subpath
+      # https://clara2b.github.io/vorinweb-novo/. NEXT_BASE_PATH makes asset
+      # paths work under that subpath, and dropping CNAME from the artifact
+      # avoids accidentally claiming the custom domain for this repo.
+      # At domain cutover: delete these two lines (env: and rm -f out/CNAME)
+      # so the production build targets the domain root again.
       - run: npm run build
+        env:
+          NEXT_BASE_PATH: /vorinweb-novo
+      - run: rm -f out/CNAME
       - uses: actions/upload-pages-artifact@v3
         with:
           path: out

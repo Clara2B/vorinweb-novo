@@ -1,3 +1,8 @@
+// TEMPORARY: see the comment in next.config.ts — mirrors NEXT_BASE_PATH so
+// manually-specified asset paths (e.g. the favicon) resolve under the preview
+// subpath too. Remove once the custom domain is cut over to this repo.
+export const basePath = process.env.NEXT_BASE_PATH || "";
+
 export const siteConfig = {
   name: "VorinWeb",
   url: "https://vorinweb.com.br",

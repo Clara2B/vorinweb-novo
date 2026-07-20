@@ -7,7 +7,7 @@ import { WhatsAppFloatButton } from "@/components/whatsapp-float-button";
 import { MobileStickyBar } from "@/components/mobile-sticky-bar";
 import { ThemeInitScript } from "@/components/theme-init-script";
 import { JsonLd, organizationSchema, localBusinessSchema } from "@/lib/schema";
-import { siteConfig } from "@/lib/site-config";
+import { basePath, siteConfig } from "@/lib/site-config";
 
 const sora = Sora({
   variable: "--font-sora",
@@ -29,7 +29,7 @@ export const metadata: Metadata = {
   },
   description: siteConfig.description,
   icons: {
-    icon: "/favicon.svg",
+    icon: `${basePath}/favicon.svg`,
   },
 };
 

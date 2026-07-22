@@ -26,7 +26,8 @@ export async function generateMetadata({ params }: { params: Promise<{ slug: str
 }
 
 function formatDate(iso: string) {
-  return new Date(iso).toLocaleDateString("pt-BR", { day: "2-digit", month: "long", year: "numeric" });
+  const [year, month, day] = iso.split("-").map(Number);
+  return new Date(year, month - 1, day).toLocaleDateString("pt-BR", { day: "2-digit", month: "long", year: "numeric" });
 }
 
 export default async function BlogPostPage({ params }: { params: Promise<{ slug: string }> }) {

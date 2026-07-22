@@ -13,6 +13,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
     { path: "/orcamento", priority: 0.9, changeFrequency: "monthly" as const },
     { path: "/sobre", priority: 0.6, changeFrequency: "monthly" as const },
     { path: "/blog", priority: 0.7, changeFrequency: "weekly" as const },
+    { path: "/manutencao-ar-condicionado", priority: 0.7, changeFrequency: "monthly" as const },
     { path: "/politica-de-privacidade", priority: 0.2, changeFrequency: "yearly" as const },
     { path: "/mapa-do-site", priority: 0.2, changeFrequency: "yearly" as const },
   ];

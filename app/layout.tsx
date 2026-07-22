@@ -1,12 +1,7 @@
 import type { Metadata } from "next";
 import { DM_Sans, Sora } from "next/font/google";
 import "./globals.css";
-import { Header } from "@/components/header";
-import { Footer } from "@/components/footer";
-import { WhatsAppFloatButton } from "@/components/whatsapp-float-button";
-import { MobileStickyBar } from "@/components/mobile-sticky-bar";
 import { ThemeInitScript } from "@/components/theme-init-script";
-import { JsonLd, organizationSchema, localBusinessSchema } from "@/lib/schema";
 import { basePath, siteConfig } from "@/lib/site-config";
 
 const sora = Sora({
@@ -42,19 +37,13 @@ export default function RootLayout({
     <html lang="pt-BR" className={`${sora.variable} ${dmSans.variable} h-full antialiased`}>
       <head>
         <ThemeInitScript />
-        <JsonLd data={organizationSchema()} />
-        <JsonLd data={localBusinessSchema()} />
       </head>
       <body className="flex min-h-full flex-col">
         <div className="mesh-bg" aria-hidden>
           <div className="mesh-blob b1" />
           <div className="mesh-blob b2" />
         </div>
-        <Header />
-        <main className="flex-1 pt-[68px]">{children}</main>
-        <Footer />
-        <WhatsAppFloatButton />
-        <MobileStickyBar />
+        {children}
       </body>
     </html>
   );

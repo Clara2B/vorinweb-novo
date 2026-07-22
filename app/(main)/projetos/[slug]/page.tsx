@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
+import Image from "next/image";
 import { notFound } from "next/navigation";
-import { Clock } from "lucide-react";
+import { BadgeCheck, Clock } from "lucide-react";
 import { Breadcrumb } from "@/components/breadcrumb";
 import { Section, SectionHeader } from "@/components/ui/section";
 import { Button } from "@/components/ui/button";
@@ -57,7 +58,10 @@ export default async function ProjectDetailPage({ params }: { params: Promise<{ 
             <h1 className="font-display mb-5 text-[clamp(2rem,4vw,2.8rem)] leading-[1.15] font-extrabold tracking-tight text-text">
               {item.name}
             </h1>
-            <p className="mb-8 text-lg leading-relaxed text-muted">{item.description}</p>
+            <p className="mb-4 text-lg leading-relaxed text-muted">{item.description}</p>
+            <p className="font-display mb-8 border-l-2 border-brand-500 pl-3 text-sm font-semibold text-text">
+              Objetivo do projeto: {item.objective.charAt(0).toLowerCase() + item.objective.slice(1)}
+            </p>
             <div className="flex flex-wrap gap-4">
               <Button href="/orcamento" variant="primary" size="lg">
                 Solicitar um projeto semelhante
@@ -131,9 +135,47 @@ export default async function ProjectDetailPage({ params }: { params: Promise<{ 
         <Section className="bg-[linear-gradient(135deg,#1d4ed8_0%,#1e3a8a_100%)]">
           <div className="mx-auto max-w-3xl text-center">
             <div className="font-display mb-6 text-5xl leading-none text-white/30">&ldquo;</div>
-            <p className="mb-8 text-xl leading-relaxed font-medium text-white">{item.testimonial.quote}</p>
-            <div className="font-display font-bold text-white">{item.testimonial.author}</div>
-            <div className="text-sm text-white/70">{item.testimonial.role}</div>
+            <div className="mb-8 flex flex-col gap-4 text-xl leading-relaxed font-medium text-white">
+              {item.testimonial.quote.split("\n\n").map((paragraph) => (
+                <p key={paragraph}>{paragraph}</p>
+              ))}
+            </div>
+            <div className="flex items-center justify-center gap-3.5">
+              {item.testimonial.photo ? (
+                <Image
+                  src={item.testimonial.photo}
+                  alt={`Foto de ${item.testimonial.author}`}
+                  width={52}
+                  height={52}
+                  className="h-13 w-13 rounded-full object-cover ring-2 ring-white/20"
+                />
+              ) : (
+                <div className="font-display flex h-13 w-13 items-center justify-center rounded-full bg-white/10 text-sm font-bold text-white ring-2 ring-white/20">
+                  {item.testimonial.author
+                    .split(" ")
+                    .slice(0, 2)
+                    .map((p) => p[0])
+                    .join("")}
+                </div>
+              )}
+              <div className="text-left">
+                <div className="font-display font-bold text-white">{item.testimonial.author}</div>
+                <div className="text-sm text-white/70">{item.testimonial.role}</div>
+              </div>
+              {item.testimonial.companyLogo && (
+                <Image
+                  src={item.testimonial.companyLogo}
+                  alt={`Logo da ${item.testimonial.role}`}
+                  width={44}
+                  height={44}
+                  className="ml-2 h-11 w-11 object-contain"
+                />
+              )}
+            </div>
+            <div className="mt-4 inline-flex items-center gap-1.5 text-xs font-medium text-white/60">
+              <BadgeCheck className="h-3.5 w-3.5" aria-hidden />
+              Depoimento real de cliente
+            </div>
           </div>
         </Section>
       ) : (

@@ -1,7 +1,9 @@
 export type BlogBlock =
   | { type: "p"; text: string }
   | { type: "h2"; text: string }
-  | { type: "ul"; items: string[] };
+  | { type: "ul"; items: string[] }
+  | { type: "quote"; text: string; author: string; role: string; photo?: string }
+  | { type: "link"; href: string; label: string; description: string };
 
 export type BlogPost = {
   slug: string;
@@ -11,6 +13,7 @@ export type BlogPost = {
   author: string;
   date: string;
   readingTime: string;
+  coverImage?: string;
   content: BlogBlock[];
 };
 
@@ -126,6 +129,97 @@ export const blogPosts: BlogPost[] = [
       {
         type: "p",
         text: "O resultado prático costuma aparecer em duas frentes: menos tempo da equipe gasto com perguntas repetitivas, e menos clientes perdidos por demora na resposta. Se algum dos sinais acima soou familiar, vale a conversa.",
+      },
+    ],
+  },
+  {
+    slug: "nosso-resultado-vai-alem-do-site",
+    title: "Nosso resultado vai além do site",
+    excerpt:
+      "Entenda por que o resultado de um projeto digital vai além da criação do site e envolve estratégia, comunicação, organização e parceria com o cliente.",
+    category: "Processo",
+    author: "Equipe VorinWeb",
+    date: "2026-07-22",
+    readingTime: "6 min de leitura",
+    content: [
+      {
+        type: "p",
+        text: "Quando uma empresa contrata a criação de um site, é comum imaginar que está comprando páginas, um design bonito e algumas linhas de código. Faz sentido pensar assim — é o que fica visível no final. Mas quem já passou por um projeto digital de verdade sabe que o resultado percebido depende de muito mais do que aquilo que aparece na tela.",
+      },
+      { type: "h2", text: "Um site não é apenas uma entrega técnica" },
+      {
+        type: "p",
+        text: "O código e o design são a parte visível do trabalho — mas não são o trabalho inteiro. Entre o primeiro contato e a publicação, existe um processo inteiro de entendimento do negócio, organização de prioridades, decisões de experiência e ajustes ao longo do caminho. Quando esse processo funciona bem, o cliente sente — mesmo sem saber nomear exatamente o quê.",
+      },
+      { type: "h2", text: "O que realmente influencia o resultado de um projeto" },
+      {
+        type: "p",
+        text: "Depois de vários projetos entregues, uma coisa fica clara: a satisfação do cliente raramente depende só da qualidade técnica final. Ela depende de um conjunto de fatores que, juntos, definem se a experiência foi boa ou apenas aceitável.",
+      },
+      {
+        type: "ul",
+        items: [
+          "Entendimento real do negócio do cliente, não só do que foi pedido no briefing.",
+          "Organização do projeto, com prioridades e etapas claras desde o início.",
+          "Comunicação constante — sem deixar o cliente no escuro sobre o andamento.",
+          "Disponibilidade genuína para esclarecer dúvidas ao longo do caminho.",
+          "Atenção aos detalhes que ninguém pediu explicitamente, mas que fazem diferença.",
+          "Capacidade de resolver problemas rápido, sem travar a entrega.",
+        ],
+      },
+      { type: "h2", text: "O papel da comunicação e da organização" },
+      {
+        type: "p",
+        text: "Grande parte da frustração em projetos digitais não vem de um trabalho tecnicamente ruim — vem da falta de organização e de comunicação. Cliente sem retorno sobre o andamento, prazos que mudam sem aviso, decisões tomadas sem consulta. Um processo bem estruturado, com etapas visíveis e comunicação frequente, evita boa parte dos atritos antes mesmo que eles aconteçam.",
+      },
+      { type: "h2", text: "Como sugestões e decisões estratégicas melhoram o projeto" },
+      {
+        type: "p",
+        text: "Um bom parceiro digital não é só quem executa o que foi pedido — é quem também sugere melhorias ao longo do caminho. Muitas vezes o cliente sabe o que quer alcançar, mas não necessariamente o melhor caminho técnico ou de experiência para chegar lá. É nesse espaço que decisões conjuntas fazem a diferença entre um projeto correto e um projeto que realmente representa a marca.",
+      },
+      { type: "h2", text: "O case da Nu3tion" },
+      {
+        type: "p",
+        text: "Um exemplo recente disso foi o projeto da página de produto do OraProtein®, para a Nu3tion, marca de suplementos. O desafio não era só construir uma página bonita — era traduzir exatamente a ideia que o cliente já tinha em mente, com organização, comunicação aberta e agilidade para resolver cada desafio que surgisse pelo caminho.",
+      },
+      {
+        type: "link",
+        href: "/projetos/nu3tion",
+        label: "Conheça o case completo da Nu3tion",
+        description: "O desafio, a solução e o resultado percebido pelo cliente.",
+      },
+      { type: "h2", text: "O que o Lucas disse sobre a experiência" },
+      {
+        type: "quote",
+        text: "Contratar a VorinWeb foi uma ótima escolha e uma excelente experiência. Desde o início, demonstraram muito profissionalismo, organização e atenção aos detalhes. O novo site da Nu3tion ficou moderno, intuitivo e exatamente como imaginávamos.",
+        author: "Lucas Rizzi",
+        role: "Nu3tion",
+        photo: "/images/nu3tion/lucas-rizzi.webp",
+      },
+      {
+        type: "p",
+        text: "O que chama atenção nesse depoimento não é só o elogio ao resultado final — é a menção específica à organização, à disponibilidade para dúvidas, às sugestões de melhoria e à agilidade na resolução de desafios. São exatamente os fatores que, na prática, mais pesam na experiência de quem contrata.",
+      },
+      { type: "h2", text: "O que aprendemos com esse projeto" },
+      {
+        type: "p",
+        text: "Cada projeto reforça a mesma conclusão: entregar um site bem feito é o ponto de partida, não o objetivo final. O objetivo é que o cliente termine o processo com a sensação de que teve um parceiro no caminho — alguém que entendeu o negócio, organizou o processo, comunicou com clareza e resolveu os desafios junto. É isso que faz um projeto ser lembrado como uma boa experiência, não só como uma entrega técnica.",
+      },
+      {
+        type: "p",
+        text: "Se você está avaliando quem vai construir a próxima etapa da presença digital da sua empresa, vale considerar isso: o resultado que você vai lembrar não é só o site no ar. É como foi chegar até ele.",
+      },
+      {
+        type: "link",
+        href: "/criacao-de-sites",
+        label: "Quer um projeto com esse mesmo cuidado?",
+        description: "Conheça como trabalhamos a criação de sites na VorinWeb.",
+      },
+      {
+        type: "link",
+        href: "/orcamento",
+        label: "Solicitar orçamento",
+        description: "Conta pra gente o que sua empresa precisa.",
       },
     ],
   },

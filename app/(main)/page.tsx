@@ -22,6 +22,7 @@ import { FaqAccordion } from "@/components/faq-accordion";
 import { CtaSection } from "@/components/cta-section";
 import { WorkProcess } from "@/components/work-process";
 import { InlineCta } from "@/components/inline-cta";
+import { TestimonialCard } from "@/components/testimonial-card";
 import { services } from "@/data/services";
 import { cases } from "@/data/cases";
 import { plans } from "@/data/plans";
@@ -273,26 +274,32 @@ export default function Home() {
         </div>
       </Section>
 
-      {/* DEPOIMENTO EM DESTAQUE */}
-      {cases
-        .filter((c) => c.testimonial)
-        .slice(0, 1)
-        .map((c) => (
-          <Section key={c.slug} className="bg-[linear-gradient(135deg,#1d4ed8_0%,#1e3a8a_100%)]">
-            <div className="mx-auto max-w-3xl text-center">
-              <div className="font-display mb-6 text-5xl leading-none text-white/30">&ldquo;</div>
-              <p className="mb-8 text-xl leading-relaxed font-medium text-white">{c.testimonial!.quote}</p>
-              <div className="font-display font-bold text-white">{c.testimonial!.author}</div>
-              <div className="text-sm text-white/70">{c.testimonial!.role}</div>
+      {/* DEPOIMENTOS */}
+      {cases.some((c) => c.testimonial) && (
+        <>
+          <Section className="bg-bg-alt">
+            <SectionHeader
+              eyebrow="Depoimentos"
+              title="A opinião de quem já trabalhou com a gente"
+              subtitle="Vale mais que qualquer tecnologia que usamos."
+              center
+            />
+            <div className="mx-auto mt-10 grid max-w-4xl gap-6 sm:grid-cols-2">
+              {cases
+                .filter((c) => c.testimonial)
+                .map((c) => (
+                  <TestimonialCard key={c.slug} testimonial={c.testimonial!} projectSlug={c.slug} />
+                ))}
             </div>
           </Section>
-        ))}
 
-      <div className="section-line mx-[5%]" />
+          <div className="section-line mx-[5%]" />
+        </>
+      )}
 
       {/* CONFIANÇA (substitui depoimentos fictícios por prova real) */}
       <Section>
-        <SectionHeader eyebrow="Por que confiar" title="A opinião de quem já trabalhou com a gente vale mais que qualquer tecnologia que usamos" center />
+        <SectionHeader eyebrow="Por que confiar" title="Compromissos que a gente cumpre, não só promete" center />
         <div className="mt-10 grid gap-6 sm:grid-cols-2 lg:grid-cols-5">
           {[
             { label: "Projetos entregues", value: siteConfig.stats.projectsDelivered },

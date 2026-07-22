@@ -1,6 +1,13 @@
 export type CaseCategory = "sites" | "lojas-virtuais" | "landing-pages" | "bots" | "sistemas";
 
-export type CaseTestimonial = { quote: string; author: string; role: string };
+export type CaseTestimonial = {
+  quote: string;
+  author: string;
+  role: string;
+  // Optional — omit while the asset hasn't been provided yet. Never fake these.
+  photo?: string;
+  companyLogo?: string;
+};
 
 export type Case = {
   slug: string;
@@ -24,8 +31,8 @@ export type Case = {
 // Casos reais, entregues e no ar. Não adicionar depoimentos ou cases fictícios aqui.
 export const cases: Case[] = [
   {
-    slug: "agr-climatizacao",
-    name: "AGR Climatização",
+    slug: "agr-ar-condicionado",
+    name: "AGR Ar Condicionado",
     segment: "Serviços técnicos · São Paulo, SP",
     categoryLabel: "Site Institucional",
     objective: "Site institucional que passa profissionalismo e capta orçamento direto",
@@ -35,7 +42,7 @@ export const cases: Case[] = [
     url: "https://agrarcondicionado.com.br",
     category: "sites",
     challenge: [
-      "A AGR Climatização, empresa de serviços técnicos em São Paulo, dependia quase exclusivamente de indicação para conseguir novos clientes.",
+      "A AGR Ar Condicionado, empresa de serviços técnicos em São Paulo, dependia quase exclusivamente de indicação para conseguir novos clientes.",
       "Sem um site profissional, era difícil transmitir credibilidade para quem pesquisava a empresa antes de fechar negócio — e cada pedido de orçamento exigia trocar várias mensagens manualmente até entender o que o cliente realmente precisava.",
     ],
     solution: [
@@ -53,7 +60,9 @@ export const cases: Case[] = [
       quote:
         "A VorinWeb conseguiu transformar exatamente a ideia que eu tinha em um site moderno, rápido e profissional. O atendimento foi excelente durante todo o processo e o resultado ficou acima das minhas expectativas. Recomendo para qualquer empresa que queira fortalecer sua presença digital.",
       author: "Rodrigo Alves",
-      role: "AGR Climatização",
+      role: "AGR Ar Condicionado",
+      // photo: pending — Rodrigo's photo hasn't been provided yet.
+      companyLogo: "/images/agr/logo.webp",
     },
   },
   {
@@ -67,12 +76,29 @@ export const cases: Case[] = [
     technologies: ["Página de produto", "Avaliações", "Parcelamento", "Frete grátis"],
     url: "https://nu3tion.com.br",
     category: "lojas-virtuais",
-    // TODO(conteúdo pendente): substituir por texto real assim que aprovado
-    // pela Nu3tion. Não preencher com conteúdo genérico ou inventado.
-    challenge: null,
-    solution: null,
-    results: null,
-    testimonial: null,
+    challenge: [
+      "A Nu3tion precisava lançar a página de produto do OraProtein® com uma apresentação moderna e intuitiva, alinhada à qualidade do produto — sem depender só de tráfego pago para converter quem chegasse até ela.",
+      "O desafio não era só técnico: a página precisava traduzir exatamente a ideia que o cliente já tinha em mente, dentro de um prazo organizado e com espaço para ajustes ao longo do caminho.",
+    ],
+    solution: [
+      "Construímos a página de produto do zero, com navegação intuitiva, avaliações, estoque em tempo real, parcelamento e frete grátis configurados — mantendo comunicação constante com a Nu3tion em cada etapa para incorporar sugestões e ajustar decisões de design.",
+      "Cada dúvida foi respondida rapidamente e cada desafio do projeto teve uma solução encontrada em conjunto, sem travar o andamento da entrega.",
+    ],
+    results: [
+      "Site moderno e intuitivo, exatamente como a Nu3tion imaginava",
+      "Processo organizado, com atenção aos detalhes do início ao fim",
+      "Disponibilidade constante para dúvidas, sugestões e ajustes",
+      "Agilidade na resolução de cada desafio ao longo do projeto",
+      "Entrega de alta qualidade, acima das expectativas do cliente",
+    ],
+    testimonial: {
+      quote:
+        "Contratar a VorinWeb foi uma ótima escolha e uma excelente experiência. Desde o início, demonstraram muito profissionalismo, organização e atenção aos detalhes. O novo site da Nu3tion ficou moderno, intuitivo e exatamente como imaginávamos.\n\nAlém da qualidade técnica, a equipe esteve sempre disponível para esclarecer dúvidas, sugerir melhorias e encontrar soluções rápidas para cada desafio do projeto. A dedicação, o comprometimento e a criatividade fizeram toda a diferença no resultado final, resultando em uma entrega de alta qualidade.\n\nRecomendo a VorinWeb. Estamos muito satisfeitos com o resultado e com toda a experiência.",
+      author: "Lucas Rizzi",
+      role: "Nu3tion",
+      photo: "/images/nu3tion/lucas-rizzi.webp",
+      companyLogo: "/images/nu3tion/logo.webp",
+    },
   },
 ];
 

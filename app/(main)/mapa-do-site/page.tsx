@@ -38,6 +38,10 @@ const groups: { title: string; links: { label: string; href: string }[] }[] = [
       { label: "Mapa do Site", href: "/mapa-do-site" },
     ],
   },
+  {
+    title: "Landing pages de clientes",
+    links: [{ label: "AGR — Manutenção de Ar-Condicionado", href: "/manutencao-ar-condicionado" }],
+  },
 ];
 
 export default function MapaDoSitePage() {

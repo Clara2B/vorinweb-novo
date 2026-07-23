@@ -61,7 +61,7 @@ export const cases: Case[] = [
         "A VorinWeb conseguiu transformar exatamente a ideia que eu tinha em um site moderno, rápido e profissional. O atendimento foi excelente durante todo o processo e o resultado ficou acima das minhas expectativas. Recomendo para qualquer empresa que queira fortalecer sua presença digital.",
       author: "Rodrigo Alves",
       role: "AGR Ar Condicionado",
-      // photo: pending — Rodrigo's photo hasn't been provided yet.
+      photo: "/images/agr/rodrigo-alves.webp",
       companyLogo: "/images/agr/logo.webp",
     },
   },

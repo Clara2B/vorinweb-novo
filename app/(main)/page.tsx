@@ -32,7 +32,7 @@ import { buildMetadata } from "@/lib/seo";
 import { JsonLd, faqSchema } from "@/lib/schema";
 
 export const metadata: Metadata = buildMetadata({
-  title: `${siteConfig.name} — Presença digital que transforma visitantes em clientes`,
+  title: "Presença digital que transforma visitantes em clientes",
   description: siteConfig.description,
   path: "/",
 });

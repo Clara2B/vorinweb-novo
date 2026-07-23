@@ -48,13 +48,15 @@ export function TestimonialCard({
           <div className="truncate text-xs text-faint">{testimonial.role}</div>
         </div>
         {testimonial.companyLogo && (
-          <Image
-            src={testimonial.companyLogo}
-            alt={`Logo da ${testimonial.role}`}
-            width={40}
-            height={40}
-            className="h-10 w-10 shrink-0 object-contain"
-          />
+          <div className="flex h-10 w-10 shrink-0 items-center justify-center rounded-lg bg-white p-1">
+            <Image
+              src={testimonial.companyLogo}
+              alt={`Logo da ${testimonial.role}`}
+              width={40}
+              height={40}
+              className="h-full w-full object-contain"
+            />
+          </div>
         )}
       </div>
 

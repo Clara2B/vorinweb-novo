@@ -163,13 +163,15 @@ export default async function ProjectDetailPage({ params }: { params: Promise<{ 
                 <div className="text-sm text-white/70">{item.testimonial.role}</div>
               </div>
               {item.testimonial.companyLogo && (
-                <Image
-                  src={item.testimonial.companyLogo}
-                  alt={`Logo da ${item.testimonial.role}`}
-                  width={44}
-                  height={44}
-                  className="ml-2 h-11 w-11 object-contain"
-                />
+                <div className="ml-2 flex h-11 w-11 shrink-0 items-center justify-center rounded-lg bg-white p-1.5">
+                  <Image
+                    src={item.testimonial.companyLogo}
+                    alt={`Logo da ${item.testimonial.role}`}
+                    width={44}
+                    height={44}
+                    className="h-full w-full object-contain"
+                  />
+                </div>
               )}
             </div>
             <div className="mt-4 inline-flex items-center gap-1.5 text-xs font-medium text-white/60">
